@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="F-lancer">
 <meta property="og:description" content="简介：此处的 Vue 指的是 Vue2…">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-01-27T08:21:44.399Z">
+<meta property="og:updated_time" content="2020-02-02T09:20:27.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="由 todoMVC 深入 VUE.2x">
 <meta name="twitter:description" content="简介：此处的 Vue 指的是 Vue2…">
@@ -375,8 +375,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-01-27T16:21:44+08:00">
-                2020-01-27
+              <time title="Post modified" itemprop="dateModified" datetime="2020-02-02T17:20:27+08:00">
+                2020-02-02
               </time>
             
           </span>
@@ -739,7 +739,7 @@
 <p>如果使用第一种导入方式需要在<code>webpack.config.js</code> 中配置 <code>resolve</code>属性。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line">...</span><br><span class="line">resolve:&#123;</span><br><span class="line">    alias: &#123; <span class="comment">// 设置（修改） Vue 被导入包的路径</span></span><br><span class="line">        <span class="string">"vue$"</span>: <span class="string">"vue/dist/vue.js"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>runtime-only 不提供传统创建组件模式，此时将引入 <code>.vue</code> 格式文件。</p>
-<h3 id="VUE："><a href="#VUE：" class="headerlink" title=".VUE："></a>.VUE：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- mytemplate --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;p&gt;一个组件只能有一个根元素（div）&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    // 这里写组件的业务逻辑 用ES6规范 export default 导出</span><br><span class="line">    export default &#123;</span><br><span class="line">        data () &#123; // 这里组件中的 data 必须是 function</span><br><span class="line">            return &#123;</span><br><span class="line">                msg: &quot;234&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped lang=&quot;scss&quot;&gt;</span><br><span class="line">    /*1. scoped 指定作用域 2. lang=&quot;****&quot; 启用 预编译*/</span><br><span class="line">    body&#123;</span><br><span class="line">      div &#123;</span><br><span class="line">        color: red;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="VUE："><a href="#VUE：" class="headerlink" title=".VUE："></a>.VUE：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- mytemplate --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;p&gt;一个组件只能有一个根元素（div）&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    // 这里写组件的业务逻辑 用ES6规范 export default 导出</span><br><span class="line">    export default &#123;</span><br><span class="line">        data () &#123; // 这里组件中的 data 必须是 function</span><br><span class="line">            return &#123;</span><br><span class="line">                msg: &quot;234&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped lang=&quot;scss&quot;&gt;</span><br><span class="line">    /*1. scoped 指定作用域（给div块自动添加属性） 2. lang=&quot;****&quot; 启用 预编译*/</span><br><span class="line">    body&#123;</span><br><span class="line">      div &#123;</span><br><span class="line">        color: red;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>向外暴露成员的方式 ES6 和 node.js：</p>
 <ol>
@@ -904,8 +904,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/24/科学进站/" rel="prev" title="科学进站">
-                科学进站 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/21/UI-框架/" rel="prev" title="移动端项目搭建">
+                移动端项目搭建 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -987,7 +987,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -998,7 +998,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1009,7 +1009,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1125,7 +1125,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">31.9k</span>
+    <span title="Site words total count">32.1k</span>
   
 </div>
 
