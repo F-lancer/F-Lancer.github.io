@@ -91,38 +91,6 @@
   </entry>
   
   <entry>
-    <title>optimization</title>
-    <link href="http://yoursite.com/2019/03/27/optimization/"/>
-    <id>http://yoursite.com/2019/03/27/optimization/</id>
-    <published>2019-03-27T11:48:00.000Z</published>
-    <updated>2020-01-13T08:28:26.442Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><p>性能优化……<a id="more"></a></p><h2 id="Hexo之性能优化"><a href="#Hexo之性能优化" class="headerlink" title="Hexo之性能优化"></a>Hexo之性能优化</h2><p>hexo是本博的框架，起初是建立在 <strong>github</strong> 上的静态页面。但是仅仅只是根据 hexo 建立好博客是远远不够的。因为在一般网络环境下加载速度会很慢，如果自己的知识积累还不如百度来的快，那建立博客的初衷就会大大减少。加载速度慢有很多原因，比如，框架本身的源码中有许多空格，github是外网，图片加载尤其缓慢，字体采用的是 google 字体等等。从这几个方面入手，解决性能优化问题，是本页的初衷。</p><h3 id="DNS域名解析"><a href="#DNS域名解析" class="headerlink" title="DNS域名解析"></a>DNS域名解析</h3><p>DNS域名解析是本博最基础且是最致命的问题。国内访问 <strong><em><a href="http://jjk5fz.coding-pages.com/" target="_blank" rel="noopener">本博</a></em></strong> so fast 。木钱买域名，凄惨。</p><h3 id="移动端删除-live2d-widget"><a href="#移动端删除-live2d-widget" class="headerlink" title="移动端删除 live2d-widget"></a>移动端删除 live2d-widget</h3><p>在 _config.yml 文件夹下将 live2d 中的 mobile 置为 false。</p><h3 id="修改-hexo-样式"><a href="#修改-hexo-样式" class="headerlink" title="修改 hexo 样式"></a>修改 hexo 样式</h3><p>在该 <code>F:\blog\themes\next\source\css\_custom\custom.styl</code> 文件下修改即可覆盖原本样式。想要复原时，删除该文件内容即可。</p><p><strong>注意：</strong><br>修改 header（头部导航栏）的透明度会引发 search 选项调出的弹框被遮挡层遮挡，建议修改 header 内部标签属性实现，可 F12 参考本博。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;简介：&quot;&gt;&lt;a href=&quot;#简介：&quot; class=&quot;headerlink&quot; title=&quot;简介：&quot;&gt;&lt;/a&gt;简介：&lt;/h2&gt;&lt;p&gt;性能优化……
-    
-    </summary>
-    
-      <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="前端技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="hexo" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/hexo/"/>
-    
-      <category term="性能优化" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/hexo/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    
-      <category term="DNS 解析案例" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/hexo/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/DNS-%E8%A7%A3%E6%9E%90%E6%A1%88%E4%BE%8B/"/>
-    
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-      <category term="性能优化" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Node.js——Readme</title>
     <link href="http://yoursite.com/2019/03/27/Node/"/>
     <id>http://yoursite.com/2019/03/27/Node/</id>
@@ -190,6 +158,38 @@
       <category term="ES6.js" scheme="http://yoursite.com/tags/ES6-js/"/>
     
       <category term="前端端技术" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>optimization</title>
+    <link href="http://yoursite.com/2019/03/27/optimization/"/>
+    <id>http://yoursite.com/2019/03/27/optimization/</id>
+    <published>2019-03-27T11:48:00.000Z</published>
+    <updated>2020-01-13T08:28:26.442Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><p>性能优化……<a id="more"></a></p><h2 id="Hexo之性能优化"><a href="#Hexo之性能优化" class="headerlink" title="Hexo之性能优化"></a>Hexo之性能优化</h2><p>hexo是本博的框架，起初是建立在 <strong>github</strong> 上的静态页面。但是仅仅只是根据 hexo 建立好博客是远远不够的。因为在一般网络环境下加载速度会很慢，如果自己的知识积累还不如百度来的快，那建立博客的初衷就会大大减少。加载速度慢有很多原因，比如，框架本身的源码中有许多空格，github是外网，图片加载尤其缓慢，字体采用的是 google 字体等等。从这几个方面入手，解决性能优化问题，是本页的初衷。</p><h3 id="DNS域名解析"><a href="#DNS域名解析" class="headerlink" title="DNS域名解析"></a>DNS域名解析</h3><p>DNS域名解析是本博最基础且是最致命的问题。国内访问 <strong><em><a href="http://jjk5fz.coding-pages.com/" target="_blank" rel="noopener">本博</a></em></strong> so fast 。木钱买域名，凄惨。</p><h3 id="移动端删除-live2d-widget"><a href="#移动端删除-live2d-widget" class="headerlink" title="移动端删除 live2d-widget"></a>移动端删除 live2d-widget</h3><p>在 _config.yml 文件夹下将 live2d 中的 mobile 置为 false。</p><h3 id="修改-hexo-样式"><a href="#修改-hexo-样式" class="headerlink" title="修改 hexo 样式"></a>修改 hexo 样式</h3><p>在该 <code>F:\blog\themes\next\source\css\_custom\custom.styl</code> 文件下修改即可覆盖原本样式。想要复原时，删除该文件内容即可。</p><p><strong>注意：</strong><br>修改 header（头部导航栏）的透明度会引发 search 选项调出的弹框被遮挡层遮挡，建议修改 header 内部标签属性实现，可 F12 参考本博。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;简介：&quot;&gt;&lt;a href=&quot;#简介：&quot; class=&quot;headerlink&quot; title=&quot;简介：&quot;&gt;&lt;/a&gt;简介：&lt;/h2&gt;&lt;p&gt;性能优化……
+    
+    </summary>
+    
+      <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="前端技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="hexo" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/hexo/"/>
+    
+      <category term="性能优化" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/hexo/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+      <category term="DNS 解析案例" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/hexo/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/DNS-%E8%A7%A3%E6%9E%90%E6%A1%88%E4%BE%8B/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="性能优化" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
@@ -274,6 +274,54 @@
   </entry>
   
   <entry>
+    <title>VUE之webpack项目搭建（移动端UI）</title>
+    <link href="http://yoursite.com/2019/03/21/UI-%E6%A1%86%E6%9E%B6/"/>
+    <id>http://yoursite.com/2019/03/21/UI-框架/</id>
+    <published>2019-03-21T14:59:00.000Z</published>
+    <updated>2020-02-10T11:03:21.943Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h1><p>手动由 webpack 简单搭建的 Vue 移动端项目，使用到的技术主要有 ：vue2.x、webpack4.0、es6模块化、Mint-ui 及 MUI …<a id="more"></a></p><h1 id="项目结构："><a href="#项目结构：" class="headerlink" title="项目结构："></a>项目结构：</h1><h1 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h1><h3 id="Mint-ui"><a href="#Mint-ui" class="headerlink" title="Mint-ui"></a>Mint-ui</h3><p>类似于移动端的 element-ui 。</p><blockquote><p>官方文档：<a href="http://mint-ui.github.io" target="_blank" rel="noopener">http://mint-ui.github.io</a></p></blockquote><p>可以使用按需导入，来减小项目的体积。</p><p>注意：CSS需要手动导入 </p><h3 id="MUI"><a href="#MUI" class="headerlink" title="MUI"></a>MUI</h3><blockquote><p>官方文档：<a href="http://dev.dcloud.net.cn/mui/ui" target="_blank" rel="noopener">http://dev.dcloud.net.cn/mui/ui</a></p></blockquote><p>类似于 <strong>BootStrap</strong> ，配套的CSS HTML，适用于任何项目。相比之下，Mint-UI是真正的 Vue 的组件库。</p><p>需要手动下载安装，从 github 上下载现成的包，解压出来后手动拷贝到项目中 lib 文件夹下，使用。</p><h1 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h1><p><code>git init</code> 初始化</p><p><code>git status</code> 显示提交的文件的状态</p><p><code>git add .</code>  将提交的文件放入了 文件暂存区 里</p><p><code>git commit -m &quot;init my project&quot;</code>  提交到了本地 尚与远端未有联系</p><p>这里使用的是gitee，创建公钥，已有在C盘用户下找  <code>.ssh</code> 文件夹下，<code>.pub</code>文件即为创建过得公钥</p><p>创建远程仓库</p><p><code>git config --global  --list</code> 查看git用户配置信息</p><p>Git 全局设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "user.name"</span><br><span class="line">git config --global user.email "user.email"</span><br></pre></td></tr></table></figure><p>提交代码：</p><ol><li>传统方式</li></ol><p><code>git add .</code></p><p><code>git commit -m &quot;提交信息&quot;</code></p><p><code>git push</code></p><ol start="2"><li>vscode默认集成的 GIT 工具。</li></ol><p><code>+</code> 暂存</p><p>输入修改记录 点击<code>√</code>提交本地</p><p>点击更多里推送选项</p><ol start="3"><li>GIT 之 vscode:</li></ol><p>绿色表示 添加的代码</p><p>蓝色表示修改的</p><p>红色表示删除的 </p><p>补充vscode 快捷方式 ：</p><p>ctrl + D 点击一次选中下一个相同代码</p><p>ctrl + shif + L  选中页面所有相同代码</p><p>同时选择上一行 (Ctrl + Alt + Up) 或者下一行 (Ctrl + Alt + Down) 的相同位置</p><h2 id="错误汇总："><a href="#错误汇总：" class="headerlink" title="错误汇总："></a>错误汇总：</h2><h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><p>win10环境，中间有修改过远程仓库网址密码会报错：   <code>username or password ( access token )</code>。</p><p>解决：<a href="https://blog.csdn.net/mmyhs/article/details/81589419" target="_blank" rel="noopener">参考链接</a></p><h3 id="html"><a href="#html" class="headerlink" title="html"></a>html</h3><p>豆瓣API访问图片403，对于img标签，可使用referrerpolicy属性</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2503578746.jpg"</span> <span class="attr">referrerpolicy</span> =<span class="string">"never"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>兼容性不是很好好像。但是chrom这个跑demo没问题</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介：&quot;&gt;&lt;a href=&quot;#简介：&quot; class=&quot;headerlink&quot; title=&quot;简介：&quot;&gt;&lt;/a&gt;简介：&lt;/h1&gt;&lt;p&gt;手动由 webpack 简单搭建的 Vue 移动端项目，使用到的技术主要有 ：vue2.x、webpack4.0、es6模块化、Mint-ui 及 MUI …
+    
+    </summary>
+    
+      <category term="技术 - 前端技术 - VUE-UI" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF-VUE-UI/"/>
+    
+    
+      <category term="前端框架" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="VUE-UI" scheme="http://yoursite.com/tags/VUE-UI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VUE之webpack项目搭建（移动端UI）</title>
+    <link href="http://yoursite.com/2019/03/21/Mobile/"/>
+    <id>http://yoursite.com/2019/03/21/Mobile/</id>
+    <published>2019-03-21T14:59:00.000Z</published>
+    <updated>2020-02-07T17:20:18.010Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h1><p>手动由 webpack 简单搭建的 Vue 移动端项目，使用到的技术主要有 ：vue2.x、webpack4.0、es6模块化、Mint-ui 及 MUI …<a id="more"></a></p><h1 id="项目结构："><a href="#项目结构：" class="headerlink" title="项目结构："></a>项目结构：</h1><h1 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h1><h3 id="Mint-ui"><a href="#Mint-ui" class="headerlink" title="Mint-ui"></a>Mint-ui</h3><p>类似于移动端的 element-ui 。</p><blockquote><p>官方文档：<a href="http://mint-ui.github.io" target="_blank" rel="noopener">http://mint-ui.github.io</a></p></blockquote><p>可以使用按需导入，来减小项目的体积。</p><p>注意：CSS需要手动导入 </p><h3 id="MUI"><a href="#MUI" class="headerlink" title="MUI"></a>MUI</h3><blockquote><p>官方文档：<a href="http://dev.dcloud.net.cn/mui/ui" target="_blank" rel="noopener">http://dev.dcloud.net.cn/mui/ui</a></p></blockquote><p>类似于 <strong>BootStrap</strong> ，配套的CSS HTML，适用于任何项目。相比之下，Mint-UI是真正的 Vue 的组件库。</p><p>需要手动下载安装，从 github 上下载现成的包，解压出来后手动拷贝到项目中 lib 文件夹下，使用。</p><h1 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h1><p><code>git init</code> 初始化</p><p><code>git status</code> 显示提交的文件的状态</p><p><code>git add .</code>  将提交的文件放入了 文件暂存区 里</p><p><code>git commit -m &quot;init my project&quot;</code>  提交到了本地 尚与远端未有联系</p><p>这里使用的是gitee，创建公钥，已有在C盘用户下找  <code>.ssh</code> 文件夹下，<code>.pub</code>文件即为创建过得公钥</p><p>创建远程仓库</p><p><code>git config --global  --list</code> 查看git用户配置信息</p><p>Git 全局设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "user.name"</span><br><span class="line">git config --global user.email "user.email"</span><br></pre></td></tr></table></figure><p>提交代码：</p><ol><li>传统方式</li></ol><p><code>git add .</code></p><p><code>git commit -m &quot;提交信息&quot;</code></p><p><code>git push</code></p><ol start="2"><li>vscode默认集成的 GIT 工具。</li></ol><p><code>+</code> 暂存</p><p>输入修改记录 点击<code>√</code>提交本地</p><p>点击更多里推送选项</p><ol start="3"><li>GIT 之 vscode:</li></ol><p>绿色表示 添加的代码</p><p>蓝色表示修改的</p><p>红色表示删除的 </p><p>补充vscode 快捷方式 ：</p><p>ctrl + D 点击一次选中下一个相同代码</p><p>ctrl + shif + L  选中页面所有相同代码</p><p>同时选择上一行 (Ctrl + Alt + Up) 或者下一行 (Ctrl + Alt + Down) 的相同位置</p><h3 id="错误汇总："><a href="#错误汇总：" class="headerlink" title="错误汇总："></a>错误汇总：</h3><p>win10 中间有修改过密码会报错<code>Incorrect username or password ( access token )</code>。</p><p>解决：<a href="https://blog.csdn.net/mmyhs/article/details/81589419" target="_blank" rel="noopener">参考链接</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介：&quot;&gt;&lt;a href=&quot;#简介：&quot; class=&quot;headerlink&quot; title=&quot;简介：&quot;&gt;&lt;/a&gt;简介：&lt;/h1&gt;&lt;p&gt;手动由 webpack 简单搭建的 Vue 移动端项目，使用到的技术主要有 ：vue2.x、webpack4.0、es6模块化、Mint-ui 及 MUI …
+    
+    </summary>
+    
+      <category term="技术 - 前端技术 - VUE-UI" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF-VUE-UI/"/>
+    
+    
+      <category term="前端框架" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="VUE-UI" scheme="http://yoursite.com/tags/VUE-UI/"/>
+    
+  </entry>
+  
+  <entry>
     <title>webpack笔记</title>
     <link href="http://yoursite.com/2019/03/21/webpack/"/>
     <id>http://yoursite.com/2019/03/21/webpack/</id>
@@ -305,76 +353,6 @@
       <category term="前端工具" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/"/>
     
       <category term="构建工具" scheme="http://yoursite.com/tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VUE之webpack项目搭建（移动端UI）</title>
-    <link href="http://yoursite.com/2019/03/21/Mobile/"/>
-    <id>http://yoursite.com/2019/03/21/Mobile/</id>
-    <published>2019-03-21T14:59:00.000Z</published>
-    <updated>2020-02-07T17:20:18.010Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h1><p>手动由 webpack 简单搭建的 Vue 移动端项目，使用到的技术主要有 ：vue2.x、webpack4.0、es6模块化、Mint-ui 及 MUI …<a id="more"></a></p><h1 id="项目结构："><a href="#项目结构：" class="headerlink" title="项目结构："></a>项目结构：</h1><h1 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h1><h3 id="Mint-ui"><a href="#Mint-ui" class="headerlink" title="Mint-ui"></a>Mint-ui</h3><p>类似于移动端的 element-ui 。</p><blockquote><p>官方文档：<a href="http://mint-ui.github.io" target="_blank" rel="noopener">http://mint-ui.github.io</a></p></blockquote><p>可以使用按需导入，来减小项目的体积。</p><p>注意：CSS需要手动导入 </p><h3 id="MUI"><a href="#MUI" class="headerlink" title="MUI"></a>MUI</h3><blockquote><p>官方文档：<a href="http://dev.dcloud.net.cn/mui/ui" target="_blank" rel="noopener">http://dev.dcloud.net.cn/mui/ui</a></p></blockquote><p>类似于 <strong>BootStrap</strong> ，配套的CSS HTML，适用于任何项目。相比之下，Mint-UI是真正的 Vue 的组件库。</p><p>需要手动下载安装，从 github 上下载现成的包，解压出来后手动拷贝到项目中 lib 文件夹下，使用。</p><h1 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h1><p><code>git init</code> 初始化</p><p><code>git status</code> 显示提交的文件的状态</p><p><code>git add .</code>  将提交的文件放入了 文件暂存区 里</p><p><code>git commit -m &quot;init my project&quot;</code>  提交到了本地 尚与远端未有联系</p><p>这里使用的是gitee，创建公钥，已有在C盘用户下找  <code>.ssh</code> 文件夹下，<code>.pub</code>文件即为创建过得公钥</p><p>创建远程仓库</p><p><code>git config --global  --list</code> 查看git用户配置信息</p><p>Git 全局设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "user.name"</span><br><span class="line">git config --global user.email "user.email"</span><br></pre></td></tr></table></figure><p>提交代码：</p><ol><li>传统方式</li></ol><p><code>git add .</code></p><p><code>git commit -m &quot;提交信息&quot;</code></p><p><code>git push</code></p><ol start="2"><li>vscode默认集成的 GIT 工具。</li></ol><p><code>+</code> 暂存</p><p>输入修改记录 点击<code>√</code>提交本地</p><p>点击更多里推送选项</p><ol start="3"><li>GIT 之 vscode:</li></ol><p>绿色表示 添加的代码</p><p>蓝色表示修改的</p><p>红色表示删除的 </p><p>补充vscode 快捷方式 ：</p><p>ctrl + D 点击一次选中下一个相同代码</p><p>ctrl + shif + L  选中页面所有相同代码</p><p>同时选择上一行 (Ctrl + Alt + Up) 或者下一行 (Ctrl + Alt + Down) 的相同位置</p><h3 id="错误汇总："><a href="#错误汇总：" class="headerlink" title="错误汇总："></a>错误汇总：</h3><p>win10 中间有修改过密码会报错<code>Incorrect username or password ( access token )</code>。</p><p>解决：<a href="https://blog.csdn.net/mmyhs/article/details/81589419" target="_blank" rel="noopener">参考链接</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;简介：&quot;&gt;&lt;a href=&quot;#简介：&quot; class=&quot;headerlink&quot; title=&quot;简介：&quot;&gt;&lt;/a&gt;简介：&lt;/h1&gt;&lt;p&gt;手动由 webpack 简单搭建的 Vue 移动端项目，使用到的技术主要有 ：vue2.x、webpack4.0、es6模块化、Mint-ui 及 MUI …
-    
-    </summary>
-    
-      <category term="技术 - 前端技术 - VUE-UI" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF-VUE-UI/"/>
-    
-    
-      <category term="前端框架" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
-    
-      <category term="VUE-UI" scheme="http://yoursite.com/tags/VUE-UI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VUE之webpack项目搭建（移动端UI）</title>
-    <link href="http://yoursite.com/2019/03/21/UI-%E6%A1%86%E6%9E%B6/"/>
-    <id>http://yoursite.com/2019/03/21/UI-框架/</id>
-    <published>2019-03-21T14:59:00.000Z</published>
-    <updated>2020-02-10T11:03:21.943Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h1><p>手动由 webpack 简单搭建的 Vue 移动端项目，使用到的技术主要有 ：vue2.x、webpack4.0、es6模块化、Mint-ui 及 MUI …<a id="more"></a></p><h1 id="项目结构："><a href="#项目结构：" class="headerlink" title="项目结构："></a>项目结构：</h1><h1 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h1><h3 id="Mint-ui"><a href="#Mint-ui" class="headerlink" title="Mint-ui"></a>Mint-ui</h3><p>类似于移动端的 element-ui 。</p><blockquote><p>官方文档：<a href="http://mint-ui.github.io" target="_blank" rel="noopener">http://mint-ui.github.io</a></p></blockquote><p>可以使用按需导入，来减小项目的体积。</p><p>注意：CSS需要手动导入 </p><h3 id="MUI"><a href="#MUI" class="headerlink" title="MUI"></a>MUI</h3><blockquote><p>官方文档：<a href="http://dev.dcloud.net.cn/mui/ui" target="_blank" rel="noopener">http://dev.dcloud.net.cn/mui/ui</a></p></blockquote><p>类似于 <strong>BootStrap</strong> ，配套的CSS HTML，适用于任何项目。相比之下，Mint-UI是真正的 Vue 的组件库。</p><p>需要手动下载安装，从 github 上下载现成的包，解压出来后手动拷贝到项目中 lib 文件夹下，使用。</p><h1 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h1><p><code>git init</code> 初始化</p><p><code>git status</code> 显示提交的文件的状态</p><p><code>git add .</code>  将提交的文件放入了 文件暂存区 里</p><p><code>git commit -m &quot;init my project&quot;</code>  提交到了本地 尚与远端未有联系</p><p>这里使用的是gitee，创建公钥，已有在C盘用户下找  <code>.ssh</code> 文件夹下，<code>.pub</code>文件即为创建过得公钥</p><p>创建远程仓库</p><p><code>git config --global  --list</code> 查看git用户配置信息</p><p>Git 全局设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "user.name"</span><br><span class="line">git config --global user.email "user.email"</span><br></pre></td></tr></table></figure><p>提交代码：</p><ol><li>传统方式</li></ol><p><code>git add .</code></p><p><code>git commit -m &quot;提交信息&quot;</code></p><p><code>git push</code></p><ol start="2"><li>vscode默认集成的 GIT 工具。</li></ol><p><code>+</code> 暂存</p><p>输入修改记录 点击<code>√</code>提交本地</p><p>点击更多里推送选项</p><ol start="3"><li>GIT 之 vscode:</li></ol><p>绿色表示 添加的代码</p><p>蓝色表示修改的</p><p>红色表示删除的 </p><p>补充vscode 快捷方式 ：</p><p>ctrl + D 点击一次选中下一个相同代码</p><p>ctrl + shif + L  选中页面所有相同代码</p><p>同时选择上一行 (Ctrl + Alt + Up) 或者下一行 (Ctrl + Alt + Down) 的相同位置</p><h2 id="错误汇总："><a href="#错误汇总：" class="headerlink" title="错误汇总："></a>错误汇总：</h2><h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><p>win10环境，中间有修改过远程仓库网址密码会报错：   <code>username or password ( access token )</code>。</p><p>解决：<a href="https://blog.csdn.net/mmyhs/article/details/81589419" target="_blank" rel="noopener">参考链接</a></p><h3 id="html"><a href="#html" class="headerlink" title="html"></a>html</h3><p>豆瓣API访问图片403，对于img标签，可使用referrerpolicy属性</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2503578746.jpg"</span> <span class="attr">referrerpolicy</span> =<span class="string">"never"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>兼容性不是很好好像。但是chrom这个跑demo没问题</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;简介：&quot;&gt;&lt;a href=&quot;#简介：&quot; class=&quot;headerlink&quot; title=&quot;简介：&quot;&gt;&lt;/a&gt;简介：&lt;/h1&gt;&lt;p&gt;手动由 webpack 简单搭建的 Vue 移动端项目，使用到的技术主要有 ：vue2.x、webpack4.0、es6模块化、Mint-ui 及 MUI …
-    
-    </summary>
-    
-      <category term="技术 - 前端技术 - VUE-UI" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF-VUE-UI/"/>
-    
-    
-      <category term="前端框架" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
-    
-      <category term="VUE-UI" scheme="http://yoursite.com/tags/VUE-UI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>积小流</title>
-    <link href="http://yoursite.com/2019/03/21/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E4%BD%9C%E7%A7%AF%E7%B4%AF/"/>
-    <id>http://yoursite.com/2019/03/21/学习工作积累/</id>
-    <published>2019-03-21T14:59:00.000Z</published>
-    <updated>2020-02-04T10:05:39.187Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="学习积累"><a href="#学习积累" class="headerlink" title="学习积累"></a>学习积累</h1><p>不积小流，无以成江海。<a id="more"></a></p><h2 id="javaScript"><a href="#javaScript" class="headerlink" title="javaScript"></a>javaScript</h2><h3 id="闭包-引用类型对象"><a href="#闭包-引用类型对象" class="headerlink" title="闭包/引用类型对象"></a>闭包/引用类型对象</h3><ol><li>写出以下 JS 程序的输出：</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i++);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f1 = Foo(),</span><br><span class="line">    f2 = Foo();</span><br><span class="line">f1();  <span class="comment">// 0</span></span><br><span class="line">f1();  <span class="comment">// 1</span></span><br><span class="line">f2();  <span class="comment">// 0</span></span><br></pre></td></tr></table></figure><p>涉及知识点：</p><ul><li><p>Function 是引用类型，保存在<strong>堆</strong>中，变量保存在<strong>栈</strong>中。</p></li><li><p>闭包：一个函数（产生新的作用域）定义的局部变量、子函数的作用域在函数内部，一旦离开该函数，局部变量就无法访问。通过闭包，即一个函数中定义了一个新的函数，通过此函数使得局部变量得以访问。 </p></li><li><p>过程：</p><p>（1）执行 Foo() ,返回新的函数 fn，先输出 i=0，继而 i+1。</p><p>（2）再次执行 f1() 时，i 值已被 i+1 覆盖为 1。即闭包有延续变量的作用。</p><p>（3）执行 f2 时，f2 指向堆中新的函数对象，i=0。</p></li></ul><h3 id="跨域请求"><a href="#跨域请求" class="headerlink" title="跨域请求"></a>跨域请求</h3><ol><li><p>相同的域是指，域名、协议、端口号完全相同。</p></li><li><p>跨域请求的方法：</p><p>（1）CORS</p><p>（2）document.domain</p><p>（3）图像Ping</p><p>（4）Jsonp</p><p>（5）Comet</p><p>（6）WebSocket</p></li></ol><h3 id="call-和apply-的区别"><a href="#call-和apply-的区别" class="headerlink" title="call()和apply()的区别"></a><code>call()</code>和<code>apply()</code>的区别</h3><ol><li>相同点：作用相同，即，在特定的作用域调用函数，等于设置<strong>this</strong>对象的值，以扩充函数赖以运行的作用域。</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 与apply()效果相同，此处仅以 call() 为例</span></span><br><span class="line"><span class="built_in">window</span>.color = <span class="string">"red"</span>;</span><br><span class="line"><span class="keyword">var</span> o=&#123;<span class="attr">color</span>:<span class="string">"blue"</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getColor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.color)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">getColor.call(<span class="keyword">this</span>);      <span class="comment">// red</span></span><br><span class="line">getColor.call(<span class="built_in">window</span>);    <span class="comment">// red</span></span><br><span class="line">getColor.call(o);         <span class="comment">// blue</span></span><br></pre></td></tr></table></figure><ol start="2"><li><p>不同点：</p><p>接收参数的方式不同：</p><p>（1）<code>call()</code>：第一个参数是运行函数的作用域 ，后面的参数依次传入函数。</p><p>（2）<code>apply()</code>：第一个参数是运行函数的作用域 ，另一个参数是参数数组,可以是Array实例或arguments对象。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">c, d</span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">this</span>.a + <span class="keyword">this</span>.b + c + d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">3</span>&#125;;</span><br><span class="line"></span><br><span class="line">add.call(o, <span class="number">5</span>, <span class="number">7</span>);      <span class="comment">// 1 + 3 + 5 + 7 = 16</span></span><br><span class="line">add.apply(o, [<span class="number">10</span>, <span class="number">20</span>]);      <span class="comment">// 1 + 3 + 10 + 20 = 34</span></span><br></pre></td></tr></table></figure></li></ol><h2 id="阻止默认事件"><a href="#阻止默认事件" class="headerlink" title="阻止默认事件"></a>阻止默认事件</h2><ol><li>阻止表单默认行为</li></ol><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"add_form"</span>&gt;</span></span><br><span class="line">   ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"保存"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#add_form'</span>).on(<span class="string">'submit'</span>,handleAddSubmit)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleAddSubmit</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.preventDefault() <span class="comment">// 阻止表单默认行为</span></span><br><span class="line">    $.post(<span class="string">'http://...'</span>,$(<span class="keyword">this</span>).serialize(),<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>原因：（1）需要处理逻辑再提交（2）防止跳转链接 ，仅将数据提交给某个url，不需跳转</p><h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="border-none-border-0-的区别"><a href="#border-none-border-0-的区别" class="headerlink" title="border:none; / border:0; 的区别"></a><code>border:none; / border:0;</code> 的区别</h3><p><code>border:none;</code>：表示无边框。</p><p><code>border:0;</code>：表示边框宽度为 0。</p><ol><li><p>性能差异：</p><p><code>border:宽度 样式 颜色;</code>顺序不能错，渲染颜色前先获得边框。</p><p><code>border:none;</code>浏览器不进行渲染，不占用内存。</p><p><code>border:0;</code>浏览器对 border-with、border-color进行渲染，占用内存。</p></li><li><p>浏览器兼容：</p><p>IE-7不支持<code>border:none;</code></p></li></ol><h3 id="Sprites精灵图优缺点"><a href="#Sprites精灵图优缺点" class="headerlink" title="Sprites精灵图优缺点"></a>Sprites精灵图优缺点</h3><p>优点：</p><ol><li>减少图片字节；</li><li>减少http请求；</li><li>不同场景下可维护性高（比如只改变图片颜色）；</li></ol><p>缺点：（为了性能，繁杂工序的缺点都不构成缺点）</p><ol><li>合并麻烦</li><li>适应性差</li><li>定位繁琐</li><li>不同场景下可维护性差，（高边其中图片内容）</li></ol><h2 id="html"><a href="#html" class="headerlink" title="html"></a>html</h2><h3 id="lt-a-gt-标签中的-target-属性"><a href="#lt-a-gt-标签中的-target-属性" class="headerlink" title="&lt;a&gt; 标签中的 target 属性"></a><code>&lt;a&gt;</code> 标签中的 target 属性</h3><table><thead><tr><th>属性值</th><th>描述</th></tr></thead><tbody><tr><td>_blank</td><td>在新窗口中打开被连接文档。</td></tr><tr><td>_self</td><td>默认。在相同的框架中打开被连接文档。</td></tr><tr><td>_parent</td><td>将链接的文件载入含有该链接框架的父框架集或父窗口中。如果含有该链接的框架不是嵌套的，则在浏览器全屏窗口中载入链接的文件，和_self参数效果一样。</td></tr><tr><td>_top</td><td>在整个窗口中打开被链接文档。</td></tr><tr><td>framename</td><td>在指定的框架中打开被链接文档。</td></tr></tbody></table><p>_top 和 _partent 不常用，区别为：</p><p>比如网<strong>A</strong>中镶嵌 iframe 了网页<strong>B</strong>，网页<strong>B</strong>镶嵌 iframe 了网页<strong>C</strong>：如果网页<strong>C</strong>中连接设置target=parent，则将网页<strong>B</strong>去掉，直接跳入<strong>A</strong>中嵌入网页<strong>C</strong>中链接的页面;而如果网页<strong>C</strong>中target=top ，则直接跳出所有iframe框架，直接转向C中链接页面。  </p><p><strong>注意：</strong>任何其他用一个下划线作为开头的窗口或者目标都会被浏览器忽略，因此，不要将<code>_</code><strong>下划线</strong>作为文档中定义的任何框架 name 或 id 的第一个字符。</p><h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><p>模块化：</p><ol><li><p><code>export default name</code> 只能导一个，不能写成 <code>export default {name}</code> 的形式 ， 接收时 <code>import name from &#39;./path&#39;</code>，不能写为<code>import {name} from &#39;./path&#39;</code>。</p></li><li><p><code>export {name,...}</code> 可以导出多个，但是导出导入都必须加 <code>{ }</code>， <code>import {name,...} from &#39;./path&#39;</code>。</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;学习积累&quot;&gt;&lt;a href=&quot;#学习积累&quot; class=&quot;headerlink&quot; title=&quot;学习积累&quot;&gt;&lt;/a&gt;学习积累&lt;/h1&gt;&lt;p&gt;不积小流，无以成江海。
-    
-    </summary>
-    
-      <category term="前端积累 - 学习积累" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E7%A7%AF%E7%B4%AF-%E5%AD%A6%E4%B9%A0%E7%A7%AF%E7%B4%AF/"/>
-    
-    
-      <category term="前端积累" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E7%A7%AF%E7%B4%AF/"/>
     
   </entry>
   
@@ -434,6 +412,28 @@
       <category term="美好事物" scheme="http://yoursite.com/tags/%E7%BE%8E%E5%A5%BD%E4%BA%8B%E7%89%A9/"/>
     
       <category term="poem" scheme="http://yoursite.com/tags/poem/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>积小流</title>
+    <link href="http://yoursite.com/2019/03/21/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E4%BD%9C%E7%A7%AF%E7%B4%AF/"/>
+    <id>http://yoursite.com/2019/03/21/学习工作积累/</id>
+    <published>2019-03-21T14:59:00.000Z</published>
+    <updated>2020-02-04T10:05:39.187Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="学习积累"><a href="#学习积累" class="headerlink" title="学习积累"></a>学习积累</h1><p>不积小流，无以成江海。<a id="more"></a></p><h2 id="javaScript"><a href="#javaScript" class="headerlink" title="javaScript"></a>javaScript</h2><h3 id="闭包-引用类型对象"><a href="#闭包-引用类型对象" class="headerlink" title="闭包/引用类型对象"></a>闭包/引用类型对象</h3><ol><li>写出以下 JS 程序的输出：</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i++);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f1 = Foo(),</span><br><span class="line">    f2 = Foo();</span><br><span class="line">f1();  <span class="comment">// 0</span></span><br><span class="line">f1();  <span class="comment">// 1</span></span><br><span class="line">f2();  <span class="comment">// 0</span></span><br></pre></td></tr></table></figure><p>涉及知识点：</p><ul><li><p>Function 是引用类型，保存在<strong>堆</strong>中，变量保存在<strong>栈</strong>中。</p></li><li><p>闭包：一个函数（产生新的作用域）定义的局部变量、子函数的作用域在函数内部，一旦离开该函数，局部变量就无法访问。通过闭包，即一个函数中定义了一个新的函数，通过此函数使得局部变量得以访问。 </p></li><li><p>过程：</p><p>（1）执行 Foo() ,返回新的函数 fn，先输出 i=0，继而 i+1。</p><p>（2）再次执行 f1() 时，i 值已被 i+1 覆盖为 1。即闭包有延续变量的作用。</p><p>（3）执行 f2 时，f2 指向堆中新的函数对象，i=0。</p></li></ul><h3 id="跨域请求"><a href="#跨域请求" class="headerlink" title="跨域请求"></a>跨域请求</h3><ol><li><p>相同的域是指，域名、协议、端口号完全相同。</p></li><li><p>跨域请求的方法：</p><p>（1）CORS</p><p>（2）document.domain</p><p>（3）图像Ping</p><p>（4）Jsonp</p><p>（5）Comet</p><p>（6）WebSocket</p></li></ol><h3 id="call-和apply-的区别"><a href="#call-和apply-的区别" class="headerlink" title="call()和apply()的区别"></a><code>call()</code>和<code>apply()</code>的区别</h3><ol><li>相同点：作用相同，即，在特定的作用域调用函数，等于设置<strong>this</strong>对象的值，以扩充函数赖以运行的作用域。</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 与apply()效果相同，此处仅以 call() 为例</span></span><br><span class="line"><span class="built_in">window</span>.color = <span class="string">"red"</span>;</span><br><span class="line"><span class="keyword">var</span> o=&#123;<span class="attr">color</span>:<span class="string">"blue"</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getColor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.color)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">getColor.call(<span class="keyword">this</span>);      <span class="comment">// red</span></span><br><span class="line">getColor.call(<span class="built_in">window</span>);    <span class="comment">// red</span></span><br><span class="line">getColor.call(o);         <span class="comment">// blue</span></span><br></pre></td></tr></table></figure><ol start="2"><li><p>不同点：</p><p>接收参数的方式不同：</p><p>（1）<code>call()</code>：第一个参数是运行函数的作用域 ，后面的参数依次传入函数。</p><p>（2）<code>apply()</code>：第一个参数是运行函数的作用域 ，另一个参数是参数数组,可以是Array实例或arguments对象。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">c, d</span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">this</span>.a + <span class="keyword">this</span>.b + c + d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">3</span>&#125;;</span><br><span class="line"></span><br><span class="line">add.call(o, <span class="number">5</span>, <span class="number">7</span>);      <span class="comment">// 1 + 3 + 5 + 7 = 16</span></span><br><span class="line">add.apply(o, [<span class="number">10</span>, <span class="number">20</span>]);      <span class="comment">// 1 + 3 + 10 + 20 = 34</span></span><br></pre></td></tr></table></figure></li></ol><h2 id="阻止默认事件"><a href="#阻止默认事件" class="headerlink" title="阻止默认事件"></a>阻止默认事件</h2><ol><li>阻止表单默认行为</li></ol><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"add_form"</span>&gt;</span></span><br><span class="line">   ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"保存"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#add_form'</span>).on(<span class="string">'submit'</span>,handleAddSubmit)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleAddSubmit</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.preventDefault() <span class="comment">// 阻止表单默认行为</span></span><br><span class="line">    $.post(<span class="string">'http://...'</span>,$(<span class="keyword">this</span>).serialize(),<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>原因：（1）需要处理逻辑再提交（2）防止跳转链接 ，仅将数据提交给某个url，不需跳转</p><h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="border-none-border-0-的区别"><a href="#border-none-border-0-的区别" class="headerlink" title="border:none; / border:0; 的区别"></a><code>border:none; / border:0;</code> 的区别</h3><p><code>border:none;</code>：表示无边框。</p><p><code>border:0;</code>：表示边框宽度为 0。</p><ol><li><p>性能差异：</p><p><code>border:宽度 样式 颜色;</code>顺序不能错，渲染颜色前先获得边框。</p><p><code>border:none;</code>浏览器不进行渲染，不占用内存。</p><p><code>border:0;</code>浏览器对 border-with、border-color进行渲染，占用内存。</p></li><li><p>浏览器兼容：</p><p>IE-7不支持<code>border:none;</code></p></li></ol><h3 id="Sprites精灵图优缺点"><a href="#Sprites精灵图优缺点" class="headerlink" title="Sprites精灵图优缺点"></a>Sprites精灵图优缺点</h3><p>优点：</p><ol><li>减少图片字节；</li><li>减少http请求；</li><li>不同场景下可维护性高（比如只改变图片颜色）；</li></ol><p>缺点：（为了性能，繁杂工序的缺点都不构成缺点）</p><ol><li>合并麻烦</li><li>适应性差</li><li>定位繁琐</li><li>不同场景下可维护性差，（高边其中图片内容）</li></ol><h2 id="html"><a href="#html" class="headerlink" title="html"></a>html</h2><h3 id="lt-a-gt-标签中的-target-属性"><a href="#lt-a-gt-标签中的-target-属性" class="headerlink" title="&lt;a&gt; 标签中的 target 属性"></a><code>&lt;a&gt;</code> 标签中的 target 属性</h3><table><thead><tr><th>属性值</th><th>描述</th></tr></thead><tbody><tr><td>_blank</td><td>在新窗口中打开被连接文档。</td></tr><tr><td>_self</td><td>默认。在相同的框架中打开被连接文档。</td></tr><tr><td>_parent</td><td>将链接的文件载入含有该链接框架的父框架集或父窗口中。如果含有该链接的框架不是嵌套的，则在浏览器全屏窗口中载入链接的文件，和_self参数效果一样。</td></tr><tr><td>_top</td><td>在整个窗口中打开被链接文档。</td></tr><tr><td>framename</td><td>在指定的框架中打开被链接文档。</td></tr></tbody></table><p>_top 和 _partent 不常用，区别为：</p><p>比如网<strong>A</strong>中镶嵌 iframe 了网页<strong>B</strong>，网页<strong>B</strong>镶嵌 iframe 了网页<strong>C</strong>：如果网页<strong>C</strong>中连接设置target=parent，则将网页<strong>B</strong>去掉，直接跳入<strong>A</strong>中嵌入网页<strong>C</strong>中链接的页面;而如果网页<strong>C</strong>中target=top ，则直接跳出所有iframe框架，直接转向C中链接页面。  </p><p><strong>注意：</strong>任何其他用一个下划线作为开头的窗口或者目标都会被浏览器忽略，因此，不要将<code>_</code><strong>下划线</strong>作为文档中定义的任何框架 name 或 id 的第一个字符。</p><h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><p>模块化：</p><ol><li><p><code>export default name</code> 只能导一个，不能写成 <code>export default {name}</code> 的形式 ， 接收时 <code>import name from &#39;./path&#39;</code>，不能写为<code>import {name} from &#39;./path&#39;</code>。</p></li><li><p><code>export {name,...}</code> 可以导出多个，但是导出导入都必须加 <code>{ }</code>， <code>import {name,...} from &#39;./path&#39;</code>。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;学习积累&quot;&gt;&lt;a href=&quot;#学习积累&quot; class=&quot;headerlink&quot; title=&quot;学习积累&quot;&gt;&lt;/a&gt;学习积累&lt;/h1&gt;&lt;p&gt;不积小流，无以成江海。
+    
+    </summary>
+    
+      <category term="前端积累 - 学习积累" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E7%A7%AF%E7%B4%AF-%E5%AD%A6%E4%B9%A0%E7%A7%AF%E7%B4%AF/"/>
+    
+    
+      <category term="前端积累" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E7%A7%AF%E7%B4%AF/"/>
     
   </entry>
   
