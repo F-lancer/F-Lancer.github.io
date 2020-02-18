@@ -246,54 +246,6 @@
   </entry>
   
   <entry>
-    <title>VUE之webpack项目搭建（移动端UI）</title>
-    <link href="http://yoursite.com/2019/03/21/UI-%E6%A1%86%E6%9E%B6/"/>
-    <id>http://yoursite.com/2019/03/21/UI-框架/</id>
-    <published>2019-03-21T14:59:00.000Z</published>
-    <updated>2020-02-18T06:04:20.578Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h1><p>手动由 webpack 简单搭建的 Vue 移动端项目，使用到的技术主要有 ：vue2.x、webpack4.0、es6模块化、Mint-ui 及 MUI …<a id="more"></a></p><h1 id="项目结构："><a href="#项目结构：" class="headerlink" title="项目结构："></a>项目结构：</h1><h1 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h1><h3 id="Mint-ui"><a href="#Mint-ui" class="headerlink" title="Mint-ui"></a>Mint-ui</h3><p>类似于移动端的 element-ui 。</p><blockquote><p>官方文档：<a href="http://mint-ui.github.io" target="_blank" rel="noopener">http://mint-ui.github.io</a></p></blockquote><p>可以使用按需导入，来减小项目的体积。</p><p>注意：CSS需要手动导入 </p><h3 id="MUI"><a href="#MUI" class="headerlink" title="MUI"></a>MUI</h3><blockquote><p>官方文档：<a href="http://dev.dcloud.net.cn/mui/ui" target="_blank" rel="noopener">http://dev.dcloud.net.cn/mui/ui</a></p></blockquote><p>类似于 <strong>BootStrap</strong> ，配套的CSS HTML，适用于任何项目。相比之下，Mint-UI是真正的 Vue 的组件库。</p><p>需要手动下载安装，从 github 上下载现成的包，解压出来后手动拷贝到项目中 lib 文件夹下，使用。</p><h1 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h1><p><code>git init</code> 初始化</p><p><code>git status</code> 显示提交的文件的状态</p><p><code>git add .</code>  将提交的文件放入了 文件暂存区 里</p><p><code>git commit -m &quot;init my project&quot;</code>  提交到了本地 尚与远端未有联系</p><p>这里使用的是gitee，创建公钥，已有在C盘用户下找  <code>.ssh</code> 文件夹下，<code>.pub</code>文件即为创建过得公钥</p><p>创建远程仓库</p><p><code>git config --global  --list</code> 查看git用户配置信息</p><p>Git 全局设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "user.name"</span><br><span class="line">git config --global user.email "user.email"</span><br></pre></td></tr></table></figure><p>提交代码：</p><ol><li>传统方式</li></ol><p><code>git add .</code></p><p><code>git commit -m &quot;提交信息&quot;</code></p><p><code>git push</code></p><ol start="2"><li>vscode默认集成的 GIT 工具。</li></ol><p><code>+</code> 暂存</p><p>输入修改记录 点击<code>√</code>提交本地</p><p>点击更多里推送选项</p><ol start="3"><li>GIT 之 vscode:</li></ol><p>绿色表示 添加的代码</p><p>蓝色表示修改的</p><p>红色表示删除的 </p><ol start="4"><li>补充vscode 快捷方式 ：</li></ol><p>ctrl + D 点击一次选中下一个相同代码</p><p>ctrl + shif + L  选中页面所有相同代码</p><p>同时选择上一行 (Ctrl + Alt + Up) 或者下一行 (Ctrl + Alt + Down) 的相同位置</p><h2 id="错误汇总："><a href="#错误汇总：" class="headerlink" title="错误汇总："></a>错误汇总：</h2><h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><p>win10环境，中间有修改过远程仓库网址密码会报错：   <code>username or password ( access token )</code>。</p><p>解决：<a href="https://blog.csdn.net/mmyhs/article/details/81589419" target="_blank" rel="noopener">参考链接</a></p><h3 id="html"><a href="#html" class="headerlink" title="html"></a>html</h3><p>豆瓣API访问图片403，对于img标签，可使用referrerpolicy属性</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2503578746.jpg"</span> <span class="attr">referrerpolicy</span> =<span class="string">"never"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>兼容性不是很好好像。但是chrom这个跑demo没问题</p><h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><p>一些框架使用到 <code>caller</code>、<code>callee</code>、<code>arguments</code>会报错，是 webpack 严格模式打包导致的，禁用webpack用严格模式打包</p><blockquote><p>移除严格模式：<a href="https://github.com/genify/babel-plugin-transform-remove-strict-mode" target="_blank" rel="noopener">https://github.com/genify/babel-plugin-transform-remove-strict-mode</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;简介：&quot;&gt;&lt;a href=&quot;#简介：&quot; class=&quot;headerlink&quot; title=&quot;简介：&quot;&gt;&lt;/a&gt;简介：&lt;/h1&gt;&lt;p&gt;手动由 webpack 简单搭建的 Vue 移动端项目，使用到的技术主要有 ：vue2.x、webpack4.0、es6模块化、Mint-ui 及 MUI …
-    
-    </summary>
-    
-      <category term="技术 - 前端技术 - VUE-UI" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF-VUE-UI/"/>
-    
-    
-      <category term="前端框架" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
-    
-      <category term="VUE-UI" scheme="http://yoursite.com/tags/VUE-UI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VUE之webpack项目搭建（移动端UI）</title>
-    <link href="http://yoursite.com/2019/03/21/Mobile/"/>
-    <id>http://yoursite.com/2019/03/21/Mobile/</id>
-    <published>2019-03-21T14:59:00.000Z</published>
-    <updated>2020-02-10T11:03:21.943Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h1><p>手动由 webpack 简单搭建的 Vue 移动端项目，使用到的技术主要有 ：vue2.x、webpack4.0、es6模块化、Mint-ui 及 MUI …<a id="more"></a></p><h1 id="项目结构："><a href="#项目结构：" class="headerlink" title="项目结构："></a>项目结构：</h1><h1 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h1><h3 id="Mint-ui"><a href="#Mint-ui" class="headerlink" title="Mint-ui"></a>Mint-ui</h3><p>类似于移动端的 element-ui 。</p><blockquote><p>官方文档：<a href="http://mint-ui.github.io" target="_blank" rel="noopener">http://mint-ui.github.io</a></p></blockquote><p>可以使用按需导入，来减小项目的体积。</p><p>注意：CSS需要手动导入 </p><h3 id="MUI"><a href="#MUI" class="headerlink" title="MUI"></a>MUI</h3><blockquote><p>官方文档：<a href="http://dev.dcloud.net.cn/mui/ui" target="_blank" rel="noopener">http://dev.dcloud.net.cn/mui/ui</a></p></blockquote><p>类似于 <strong>BootStrap</strong> ，配套的CSS HTML，适用于任何项目。相比之下，Mint-UI是真正的 Vue 的组件库。</p><p>需要手动下载安装，从 github 上下载现成的包，解压出来后手动拷贝到项目中 lib 文件夹下，使用。</p><h1 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h1><p><code>git init</code> 初始化</p><p><code>git status</code> 显示提交的文件的状态</p><p><code>git add .</code>  将提交的文件放入了 文件暂存区 里</p><p><code>git commit -m &quot;init my project&quot;</code>  提交到了本地 尚与远端未有联系</p><p>这里使用的是gitee，创建公钥，已有在C盘用户下找  <code>.ssh</code> 文件夹下，<code>.pub</code>文件即为创建过得公钥</p><p>创建远程仓库</p><p><code>git config --global  --list</code> 查看git用户配置信息</p><p>Git 全局设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "user.name"</span><br><span class="line">git config --global user.email "user.email"</span><br></pre></td></tr></table></figure><p>提交代码：</p><ol><li>传统方式</li></ol><p><code>git add .</code></p><p><code>git commit -m &quot;提交信息&quot;</code></p><p><code>git push</code></p><ol start="2"><li>vscode默认集成的 GIT 工具。</li></ol><p><code>+</code> 暂存</p><p>输入修改记录 点击<code>√</code>提交本地</p><p>点击更多里推送选项</p><ol start="3"><li>GIT 之 vscode:</li></ol><p>绿色表示 添加的代码</p><p>蓝色表示修改的</p><p>红色表示删除的 </p><p>补充vscode 快捷方式 ：</p><p>ctrl + D 点击一次选中下一个相同代码</p><p>ctrl + shif + L  选中页面所有相同代码</p><p>同时选择上一行 (Ctrl + Alt + Up) 或者下一行 (Ctrl + Alt + Down) 的相同位置</p><h2 id="错误汇总："><a href="#错误汇总：" class="headerlink" title="错误汇总："></a>错误汇总：</h2><h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><p>win10环境，中间有修改过远程仓库网址密码会报错：   <code>username or password ( access token )</code>。</p><p>解决：<a href="https://blog.csdn.net/mmyhs/article/details/81589419" target="_blank" rel="noopener">参考链接</a></p><h3 id="html"><a href="#html" class="headerlink" title="html"></a>html</h3><p>豆瓣API访问图片403，对于img标签，可使用referrerpolicy属性</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2503578746.jpg"</span> <span class="attr">referrerpolicy</span> =<span class="string">"never"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>兼容性不是很好好像。但是chrom这个跑demo没问题</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;简介：&quot;&gt;&lt;a href=&quot;#简介：&quot; class=&quot;headerlink&quot; title=&quot;简介：&quot;&gt;&lt;/a&gt;简介：&lt;/h1&gt;&lt;p&gt;手动由 webpack 简单搭建的 Vue 移动端项目，使用到的技术主要有 ：vue2.x、webpack4.0、es6模块化、Mint-ui 及 MUI …
-    
-    </summary>
-    
-      <category term="技术 - 前端技术 - VUE-UI" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF-VUE-UI/"/>
-    
-    
-      <category term="前端框架" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
-    
-      <category term="VUE-UI" scheme="http://yoursite.com/tags/VUE-UI/"/>
-    
-  </entry>
-  
-  <entry>
     <title>由 todoMVC 深入 VUE.2x</title>
     <link href="http://yoursite.com/2019/03/21/VueDetail/"/>
     <id>http://yoursite.com/2019/03/21/VueDetail/</id>
@@ -318,6 +270,30 @@
       <category term="前端框架" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
     
       <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VUE之webpack项目搭建（移动端UI）</title>
+    <link href="http://yoursite.com/2019/03/21/UI-%E6%A1%86%E6%9E%B6/"/>
+    <id>http://yoursite.com/2019/03/21/UI-框架/</id>
+    <published>2019-03-21T14:59:00.000Z</published>
+    <updated>2020-02-18T06:32:01.664Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h1><p>手动由 webpack 简单搭建的 Vue 移动端项目，使用到的技术主要有 ：vue2.x、webpack4.0、es6模块化、Mint-ui 及 MUI …<a id="more"></a></p><h1 id="项目结构："><a href="#项目结构：" class="headerlink" title="项目结构："></a>项目结构：</h1><h1 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h1><h2 id="Mint-ui"><a href="#Mint-ui" class="headerlink" title="Mint-ui"></a>Mint-ui</h2><p>类似于移动端的 element-ui 。</p><blockquote><p>官方文档：<a href="http://mint-ui.github.io" target="_blank" rel="noopener">http://mint-ui.github.io</a></p></blockquote><p>可以使用按需导入，来减小项目的体积。</p><p>注意：CSS需要手动导入 </p><h2 id="MUI"><a href="#MUI" class="headerlink" title="MUI"></a>MUI</h2><blockquote><p>官方文档：<a href="http://dev.dcloud.net.cn/mui/ui" target="_blank" rel="noopener">http://dev.dcloud.net.cn/mui/ui</a></p></blockquote><p>类似于 <strong>BootStrap</strong> ，配套的CSS HTML，适用于任何项目。相比之下，Mint-UI是真正的 Vue 的组件库。</p><p>需要手动下载安装，从 github 上下载现成的包，解压出来后手动拷贝到项目中 lib 文件夹下，使用。</p><h1 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h1><p><code>git init</code> 初始化</p><p><code>git status</code> 显示提交的文件的状态</p><p><code>git add .</code>  将提交的文件放入了 文件暂存区 里</p><p><code>git commit -m &quot;init my project&quot;</code>  提交到了本地 尚与远端未有联系</p><p>这里使用的是gitee，创建公钥，已有在C盘用户下找  <code>.ssh</code> 文件夹下，<code>.pub</code>文件即为创建过得公钥</p><p>创建远程仓库</p><p><code>git config --global  --list</code> 查看git用户配置信息</p><p>Git 全局设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "user.name"</span><br><span class="line">git config --global user.email "user.email"</span><br></pre></td></tr></table></figure><p>提交代码：</p><ol><li>传统方式</li></ol><p><code>git add .</code></p><p><code>git commit -m &quot;提交信息&quot;</code></p><p><code>git push</code></p><ol start="2"><li>vscode默认集成的 GIT 工具。</li></ol><p><code>+</code> 暂存</p><p>输入修改记录 点击<code>√</code>提交本地</p><p>点击更多里推送选项</p><ol start="3"><li>GIT 之 vscode:</li></ol><p>绿色表示 添加的代码</p><p>蓝色表示修改的</p><p>红色表示删除的 </p><ol start="4"><li>补充vscode 快捷方式 ：</li></ol><p>ctrl + D 点击一次选中下一个相同代码</p><p>ctrl + shif + L  选中页面所有相同代码</p><p>同时选择上一行 (Ctrl + Alt + Up) 或者下一行 (Ctrl + Alt + Down) 的相同位置</p><h1 id="错误汇总："><a href="#错误汇总：" class="headerlink" title="错误汇总："></a>错误汇总：</h1><h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><p>win10环境，中间有修改过远程仓库网址密码会报错：   <code>username or password ( access token )</code>。</p><p>解决：<a href="https://blog.csdn.net/mmyhs/article/details/81589419" target="_blank" rel="noopener">参考链接</a></p><h2 id="html"><a href="#html" class="headerlink" title="html"></a>html</h2><p>豆瓣API访问图片403，对于img标签，可使用referrerpolicy属性</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2503578746.jpg"</span> <span class="attr">referrerpolicy</span> =<span class="string">"never"</span>&gt;</span></span><br></pre></td></tr></table></figure><p>兼容性不是很好好像。但是chrom这个跑demo没问题</p><h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><p>一些框架使用到 <code>caller</code>、<code>callee</code>、<code>arguments</code>会报错，是 webpack 严格模式打包导致的，禁用webpack用严格模式打包</p><blockquote><p>移除严格模式：<a href="https://github.com/genify/babel-plugin-transform-remove-strict-mode" target="_blank" rel="noopener">https://github.com/genify/babel-plugin-transform-remove-strict-mode</a></p></blockquote><h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>Chrome自己的东西</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* &#123; </span><br><span class="line">    <span class="comment">/* 解除滑动时的警告 Chrome自己的东西*/</span></span><br><span class="line">    <span class="attribute">touch-action</span>: pan-y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介：&quot;&gt;&lt;a href=&quot;#简介：&quot; class=&quot;headerlink&quot; title=&quot;简介：&quot;&gt;&lt;/a&gt;简介：&lt;/h1&gt;&lt;p&gt;手动由 webpack 简单搭建的 Vue 移动端项目，使用到的技术主要有 ：vue2.x、webpack4.0、es6模块化、Mint-ui 及 MUI …
+    
+    </summary>
+    
+      <category term="技术 - 前端技术 - VUE-UI" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF-VUE-UI/"/>
+    
+    
+      <category term="前端框架" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="VUE-UI" scheme="http://yoursite.com/tags/VUE-UI/"/>
     
   </entry>
   
