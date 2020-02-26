@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="F-lancer">
 <meta property="og:description" content="简介：手动由 webpack 简单搭建的 Vue 移动端项目，使用到的技术主要有 ：vue2.x、webpack4.0、es6模块化、Mint-ui 及 MUI …">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-02-18T06:32:01.664Z">
+<meta property="og:updated_time" content="2020-02-19T10:31:39.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VUE之webpack项目搭建（移动端UI）">
 <meta name="twitter:description" content="简介：手动由 webpack 简单搭建的 Vue 移动端项目，使用到的技术主要有 ：vue2.x、webpack4.0、es6模块化、Mint-ui 及 MUI …">
@@ -375,8 +375,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-02-18T14:32:01+08:00">
-                2020-02-18
+              <time title="Post modified" itemprop="dateModified" datetime="2020-02-19T18:31:39+08:00">
+                2020-02-19
               </time>
             
           </span>
@@ -440,7 +440,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  600
+                  721
                 </span>
               
 
@@ -523,15 +523,22 @@
 <p>ctrl + D 点击一次选中下一个相同代码</p>
 <p>ctrl + shif + L  选中页面所有相同代码</p>
 <p>同时选择上一行 (Ctrl + Alt + Up) 或者下一行 (Ctrl + Alt + Down) 的相同位置</p>
-<h1 id="错误汇总："><a href="#错误汇总：" class="headerlink" title="错误汇总："></a>错误汇总：</h1><h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><p>win10环境，中间有修改过远程仓库网址密码会报错：   <code>username or password ( access token )</code>。</p>
+<h1 id="错误汇总："><a href="#错误汇总：" class="headerlink" title="错误汇总："></a>错误汇总：</h1><h2 id="mint-ui"><a href="#mint-ui" class="headerlink" title="mint-ui"></a>mint-ui</h2><p><a href="https://blog.csdn.net/g229191727/article/details/80662853" target="_blank" rel="noopener">懒加载组件lazy load的使用</a></p>
+<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><p>win10环境，中间有修改过远程仓库网址密码会报错：   <code>username or password ( access token )</code>。</p>
 <p>解决：<a href="https://blog.csdn.net/mmyhs/article/details/81589419" target="_blank" rel="noopener">参考链接</a></p>
 <h2 id="html"><a href="#html" class="headerlink" title="html"></a>html</h2><p>豆瓣API访问图片403，对于img标签，可使用referrerpolicy属性</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://img3.doubanio.com/view/photo/m_ratio_poster/public/p2503578746.jpg"</span> <span class="attr">referrerpolicy</span> =<span class="string">"never"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>兼容性不是很好好像。但是chrom这个跑demo没问题</p>
-<h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><p>一些框架使用到 <code>caller</code>、<code>callee</code>、<code>arguments</code>会报错，是 webpack 严格模式打包导致的，禁用webpack用严格模式打包</p>
+<h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><h3 id="移除严格模式"><a href="#移除严格模式" class="headerlink" title="移除严格模式"></a>移除严格模式</h3><p>一些框架使用到 <code>caller</code>、<code>callee</code>、<code>arguments</code>会报错，是 webpack 严格模式打包导致的，禁用webpack用严格模式打包</p>
 <blockquote>
 <p>移除严格模式：<a href="https://github.com/genify/babel-plugin-transform-remove-strict-mode" target="_blank" rel="noopener">https://github.com/genify/babel-plugin-transform-remove-strict-mode</a></p>
 </blockquote>
+<h2 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h2><h3 id="升级问题"><a href="#升级问题" class="headerlink" title="升级问题"></a>升级问题</h3><p>babel-loader和babel-core版本不对应会产生问题，<br>babel-loader 8.x对应babel-core 7.x<br>babel-loader 7.x对应babel-core 6.x</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装babel-core 7.x</span><br><span class="line">npm install -D @babel/core</span><br></pre></td></tr></table></figure>
+<p>babel-preset-stage-0 貌似已弃用，卸载删除</p>
+<p>其它的babel插件改为 <code>@babel/...</code>前缀 并以此前缀安装配置</p>
+<h3 id="升级命名"><a href="#升级命名" class="headerlink" title="升级命名"></a>升级命名</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装</span><br><span class="line">npm i -g babel-upgrade</span><br><span class="line"><span class="meta">#</span> 运行命令</span><br><span class="line">npx babel-upgrade --write --install</span><br></pre></td></tr></table></figure>
+<p><a href="https://juejin.im/post/5d521ff6f265da03ea5a71a5" target="_blank" rel="noopener">参考链接</a></p>
 <h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>Chrome自己的东西</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* &#123; </span><br><span class="line">    <span class="comment">/* 解除滑动时的警告 Chrome自己的东西*/</span></span><br><span class="line">    <span class="attribute">touch-action</span>: pan-y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -808,7 +815,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介："><span class="nav-number">1.</span> <span class="nav-text">简介：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目结构："><span class="nav-number">2.</span> <span class="nav-text">项目结构：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UI"><span class="nav-number">3.</span> <span class="nav-text">UI</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mint-ui"><span class="nav-number">3.1.</span> <span class="nav-text">Mint-ui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MUI"><span class="nav-number">3.2.</span> <span class="nav-text">MUI</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GIT"><span class="nav-number">4.</span> <span class="nav-text">GIT</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#错误汇总："><span class="nav-number">5.</span> <span class="nav-text">错误汇总：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#git"><span class="nav-number">5.1.</span> <span class="nav-text">git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html"><span class="nav-number">5.2.</span> <span class="nav-text">html</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack"><span class="nav-number">5.3.</span> <span class="nav-text">webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chrome"><span class="nav-number">5.4.</span> <span class="nav-text">Chrome</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介："><span class="nav-number">1.</span> <span class="nav-text">简介：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目结构："><span class="nav-number">2.</span> <span class="nav-text">项目结构：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UI"><span class="nav-number">3.</span> <span class="nav-text">UI</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mint-ui"><span class="nav-number">3.1.</span> <span class="nav-text">Mint-ui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MUI"><span class="nav-number">3.2.</span> <span class="nav-text">MUI</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GIT"><span class="nav-number">4.</span> <span class="nav-text">GIT</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#错误汇总："><span class="nav-number">5.</span> <span class="nav-text">错误汇总：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mint-ui"><span class="nav-number">5.1.</span> <span class="nav-text">mint-ui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git"><span class="nav-number">5.2.</span> <span class="nav-text">git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html"><span class="nav-number">5.3.</span> <span class="nav-text">html</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack"><span class="nav-number">5.4.</span> <span class="nav-text">webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#移除严格模式"><span class="nav-number">5.4.1.</span> <span class="nav-text">移除严格模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#babel"><span class="nav-number">5.5.</span> <span class="nav-text">babel</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#升级问题"><span class="nav-number">5.5.1.</span> <span class="nav-text">升级问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#升级命名"><span class="nav-number">5.5.2.</span> <span class="nav-text">升级命名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chrome"><span class="nav-number">5.6.</span> <span class="nav-text">Chrome</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -842,7 +849,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">32.6k</span>
+    <span title="Site words total count">34.2k</span>
   
 </div>
 
