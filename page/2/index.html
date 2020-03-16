@@ -578,7 +578,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-03-16T16:45:09+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2020-03-16T16:51:04+08:00">
                 2020-03-16
               </time>
             
@@ -709,47 +709,17 @@
 
       
         
-          
-            <h1 id="float-相关"><a href="#float-相关" class="headerlink" title="float 相关"></a>float 相关</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>float CSS属性指定一个元素应沿其容器的左侧或右侧放置，允许文本和内联元素环绕它。该元素从网页的正常流动(文档流)中移除，尽管仍然保持部分的流动性（与<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/position#Absolute_positioning" target="_blank" rel="noopener">绝对定位</a>相反）</p>
-<h3 id="如何定位"><a href="#如何定位" class="headerlink" title="如何定位"></a>如何定位</h3><p>当一个元素浮动之后，它会被移出正常的文档流，然后向左或者向右平移，一直平移直到碰到了所处的容器的边框，或者碰到<strong>另外一个浮动的元素</strong>。</p>
-<h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><h3 id="display"><a href="#display" class="headerlink" title="display"></a>display</h3><p>首先 float 属性会影响到页面的布局，所以涉及到一些 display 的一些块级元素（block），内联元素（inline）及内联块级（inline-block）的知识。</p>
-<p>因为 float 元素 定义： <strong><em>“允许文本和内联元素环绕它”</em></strong></p>
-<ol>
-<li>可以使文本和兄弟内联元素环绕，也是设计该属性的初衷。</li>
-</ol>
-<p>因为 float 元素定义：  <strong><em>“该元素从网页的正常流动(文档流)中移除，尽管仍然保持部分的流动性”</em></strong> 对于该句我是这样理解的：</p>
-<p>首先 block元素 的默认宽度是 <code>width:auto;</code> 自动调整宽度。在不带float的情况下，block元素 的宽度会自动调整至最大化占据整行，而float元素会自动调整至最小化，在不设置宽高的情况下会被内容撑起。</p>
-<p>float元素仅会对自身（宽高默认自适应但可设置），文字及内联兄弟元素（inline元素）环绕，下一个兄弟float元素产生影响。</p>
-<p>对于<strong>块级（block元素会另起一行）</strong>、<strong>兄弟父元素（忽略其高度）</strong> 及 <strong>父兄元素（相对父元素排列，与float元素无关）</strong>。</p>
-<p>因此：</p>
-<ol start="2">
-<li><p>它会将 float 元素当做 display：block 元素去计算宽高（像是自动添加了 block 框），<strong>包裹性</strong> 即可设置宽高。</p>
-</li>
-<li><p>block元素默认高度也是 <code>height:auto</code> 由内容撑起，在计算高度（height 值）时，会忽略浮动的元素的高度，而基于此父元素的下一个文档流的父兄弟元素就也会忽略该浮动元素，及为其父亲 带来 <strong>高度塌陷问题</strong>。</p>
-</li>
-</ol>
-<h3 id="float-特性总结"><a href="#float-特性总结" class="headerlink" title="float 特性总结"></a>float 特性总结</h3><p>img div float</p>
-<p><em>使用 float 可以带来</em> ：</p>
-<p><strong>将元素浮向左或右</strong>、<strong>宽高默认自适应</strong>、<strong>文字及内联元素环绕</strong>、<strong>包裹性（可设置宽高）</strong>、<strong>高度塌陷（高度被父忽略）</strong>。</p>
-<h2 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h2><h3 id="为什么要清除浮动"><a href="#为什么要清除浮动" class="headerlink" title="为什么要清除浮动"></a>为什么要清除浮动</h3><p>根据 float  的 特性，当这些特性影响了我们的布局，即，超出了我们的设计的预期时，我们就想要清除浮动。主要是为了解决 清除文字环绕，和高度塌陷带来的布局问题。</p>
-<h3 id="如何清除"><a href="#如何清除" class="headerlink" title="如何清除"></a>如何清除</h3><ol>
-<li>利用 clear 属性</li>
-<li>利用 BFC</li>
-</ol>
-<h2 id="全文参考"><a href="#全文参考" class="headerlink" title="全文参考"></a>全文参考</h2><blockquote>
-<p>float：<a href="https://developer.mozilla.org/zh-CN/docs/CSS/float" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/CSS/float</a><br>display：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/display" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/display</a><br>position：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/position#Absolute_positioning" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/position#Absolute_positioning</a><br>块级元素：&lt;<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Block-level_elements" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Block-level_elements</a></p>
-</blockquote>
-<p><a href="https://blog.csdn.net/tt_twilight/article/details/72804104" target="_blank" rel="noopener">float对内联元素和块元素的影响</a></p>
-<p><a href="https://juejin.im/post/59e7190bf265da4307025d91" target="_blank" rel="noopener">清除浮动的四种方式及其原理理解</a></p>
-<p><a href="https://blog.csdn.net/qq_22855325/article/details/78015502" target="_blank" rel="noopener">完全理解float之“不完全脱离文档流”</a></p>
-<p><a href="https://blog.csdn.net/qq_31915745/article/details/72524465" target="_blank" rel="noopener">理解为何需要清除浮动及清除浮动的方法</a></p>
-<p><a href="https://blog.csdn.net/forest_fire/article/details/50944864" target="_blank" rel="noopener">行内元素在为什么设置浮动后可以设置高宽</a></p>
-<p><a href="https://www.jianshu.com/p/05c48bf43b1a" target="_blank" rel="noopener">inline-block和float的共性和区别</a></p>
-
-          
+          <h1 id="float-相关"><a href="#float-相关" class="headerlink" title="float 相关"></a>float 相关</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>float CSS属性指定一个元素应沿其容器的左侧或右侧放置，允许文本和内联元素
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/28/float/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
