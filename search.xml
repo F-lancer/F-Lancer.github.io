@@ -11,8 +11,8 @@
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>原生JS</tag>
         <tag>前端技术</tag>
+        <tag>原生JS</tag>
       </tags>
   </entry>
   <entry>
@@ -26,8 +26,8 @@
         <category>Function</category>
       </categories>
       <tags>
-        <tag>原生JS</tag>
         <tag>前端技术</tag>
+        <tag>原生JS</tag>
       </tags>
   </entry>
   <entry>
@@ -41,8 +41,8 @@
         <category>Object</category>
       </categories>
       <tags>
-        <tag>原生JS</tag>
         <tag>前端技术</tag>
+        <tag>原生JS</tag>
       </tags>
   </entry>
   <entry>
@@ -75,8 +75,8 @@
         <category>float</category>
       </categories>
       <tags>
-        <tag>前端技术</tag>
         <tag>CSS</tag>
+        <tag>前端技术</tag>
       </tags>
   </entry>
   <entry>
@@ -90,8 +90,8 @@
         <category>position</category>
       </categories>
       <tags>
-        <tag>前端技术</tag>
         <tag>CSS</tag>
+        <tag>前端技术</tag>
       </tags>
   </entry>
   <entry>
@@ -140,6 +140,22 @@
       <tags>
         <tag>hexo</tag>
         <tag>性能优化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 基础]]></title>
+    <url>%2F2019%2F03%2F27%2FLinux%2F</url>
+    <content type="text"><![CDATA[操作系统简介 用户 —&gt;应用程序—&gt;操作系统—&gt;计算机硬件 操作系统：系统调用 、终端命令、图形窗口，即可以在操作系统上安装高级语言的环境，用高级语言开发程序。 操作系统常见分类 桌面操作系统：Windows 系列、macOS、Linux。 服务器操作系统：Linux、Windows Server。 嵌入式操作系统：Linux。 移动设备操作系统：iOS、Android (基于Linux)。 虚拟机定义：虚拟机指通过软件模拟的具有完整硬件系统功能的、运行在一个完全隔离环境中的完整的计算机系统。 可以在 VMWare 中安装虚拟机。 Linux历史及版本 C语言 —&gt; Unix—&gt; Linux 内核版本： 是运行程序和管理硬件设备的核心程序。它提供了裸机与应用程序间的抽象层。 内核版又分为：稳定版和开发版，两个版本互相关联，互相循环。 发行版本： 建立在内核版本之上开发的桌面环境、办公套件、媒体播放器、数据库等应用软件。 常见的发行版本：Ubuntu/Redhat/Fedora/openSUSE 等 。 十大 Linux 服务器版 排行榜：http://os.51cto.com/art/201612/526126.html。 文件及目录结构根目录：/ 二级目录： /bin 可执行二进制文件目录。 /etc 系统配置文件存放的目录。 /home 用户家目录。 /lib、/user等等等等。 用户目录：home目录下的 admin 用户—&gt;/admin 用户下目录：/Desktop、/Documents、/Download… 命令格式了解格式，方便查阅。 1234command [-options] [parameter]# ls 查看文件内容# rm main.txt 删除文件# rm -r main 删除 main 目录 command：命令名，相应功能英文单词缩写。 [-options]：选项，对命令进行控制，可以省略。 parameter：传给命令的参数。 查阅命令 --help 12command --help# 显示 command 命令帮助信息 man 12man command# 查阅 command 命令的使用手册 man 是 manual 的缩写，包含了绝大部分命令的详细使用说明 man 操作键： 操作键 功能 空格键 显示手册下一屏 Enter 滚动到下一行 b 回滚下一屏 f 回滚前一屏 q 退出 /word 搜索word字符串 终端实用技巧 自动补全 tab 键，如果没有歧义，系统自动补全，如果有再按一下tab，提示可能存在的命令。 上下光标键 可以切换曾经使用过的命令。 ctrl + c 退出选择。 文件目录特点Linux 文件或者目录 名称最长可以有 256 个字符。 目录 . 代表当前目录。 .. 代表上一级目录。 文件 以 . 开头的文件为隐藏文件，需要用 -a （all）参数才能显示。 常用命令拓展增删改查 命令 对应英文 作用 ls list 查看当前文件夹下的内容 pwd print work directory 查看当前所在文件夹 cd [目录名] change directory 切换文件夹 touch [文件名] touch 如果文件名不存在新建文件 mkdir [目录名] make directory 创建目录 rm [文件名] remove 删除指定文件名 clear clear 清屏 ctrl + shift + = 略 放大终端字体 ctrl + - 略 缩小 字体 ls拓展说明list简写，列出当前文件夹下的内容，类似于 DOS 下的 dir 命令。 常用选项 参数 含义 -a （all） 显示指定目录下的所有目录与文件，包括隐藏文件 -l 以列表形式显示文件的详细信息 -h 配合 -l 以人性化的方式显示文件大小 通配符 通配符 含义 * 代表任意个数字符 ？ 代表任意一个字符，至少一个 [] 表示可以匹配字符组中的任意一个 [abc] 匹配 a、b、c中的任意一个 [a-f] 匹配从 a 到 f 范围内的任意一个字符 例： 12345ls 1* # 以 1 开头ls *1 # 以 1 结尾ls *3* # 包含 3 的文件ls ?3.txt # 匹配如 43.txtls [123]45.txt # 匹配 145.txt 245.txt 345.txt cd拓展说明：change directory 的简写，更改当前的工作目录。 注意：Linux 所有的 目录 和 文件名 都是大写小写敏感的 常用方式: 命令 含义 cd 切换到当前用户主目录 cd ~ 切换到当前用户主目录 cd . 当前目录不变 cd .. 上级目录 cd - 在最近两次工作目录之间切换 相/绝对路径绝对路径： /和~开头的就是绝对路径，相对于根目录或家目录。 相对路径：只要不是 /和~开头的就是相对路径，只相对于当前目录。 touch拓展 如果文件不存在，可以创建一个空白文件。 如果存在，修改文件末次修改日期。 mkdir拓展 创建新文件。 -p 可以递归创建目录。例：mkdir -p a/b/c/d 分别创建了 abcd 新建目录名称不能和其他目录重名。 rm拓展 可以删除文件或目录。 -f 强制删除，忽略不存在的文件，不需提示。 -r 递归删除目录下的内容，删除文件夹必须加这个参数。 rm 删除的文件是不能恢复的 拷贝和移动文件 命令 对应英文 作用 tree [目录名] tree 以树状图列出文件目录结构 cp 源文件 目标文件 copy 复制文件或目录 mv 源文件 目标文件 move 移动/重命名文件或目录 tree拓展 以树状图列出文件目录结构。 -d 只显示目录，不再显示文件。 tree ~ 树状显示家目录。 cp拓展 复制命令，相当于 DOS 下的 copy 命令。 -i 覆盖文件前提示“是否覆盖？”。 -r 若给出的源文件是目录文件，将递归 复制该目录下的所有子目录和文件。 mv拓展 可以用来 移动/重命名文件或目录。 覆盖文件前提示“是否覆盖？”。 查看文件内容 命令 对应英文 作用 cat 文件名 concatenate 查看文件内容、创建文件、文件合并、追加文件内容等功能 more 文件名 more 分屏显示文件内容 grep 搜索文本 文件名 grep 搜索文本文件内容 cat拓展 查看文件内容时，显示全部（适合文件内容较少的文件）。 -b 输出包括行号，不包括空行。 -n 输出包括行号及空行。 Linux 中还有一个 nl 的命令和 cat -b 的效果等价。 more拓展 查看文件内容时，显示部分，分屏显示。 空格键 Enter键 b 、f 、 q 分别为下一行下一页上一页和退出。 /word 搜索 word 字符串。 grep拓展 grep 允许对文本文件进行模式查找，即，正则表达式。 -n 显示匹配行及行号。 -v 显示不包含匹配文本的所有行（求反）。 -i 忽略大小写。 常用的模式查找： ^a 行首，搜寻以 a 开头的行。 ke$ 行尾，搜索以 ke 结束的行。 其它echo 文字内容 echo 会在终端中显示参数指定的文字，通常会和 重定向 联合使用。 重定向 &gt; 和 &gt;&gt; Linux 允许将命令执行结果 重定向到一个 文件。 将本应显示在终端上的内容 输出/追加 到 指定文件中。 &gt; 表示输出，会覆盖源文件内容。 &gt;&gt;表示追加，会将内容追加到已有文件。 12ls &gt; a # 把列表内容输出到 a 文件里echo Hello World &gt;&gt; a # 把 Hello World 追加到 a 文件里 管道 | Linux 允许将一个命令的输出 可以通过管道做为 另一个命令的输入。 [写入的内容] | [读取的内容] 12ls -lha ~ | more # 将 home 下所有的文件通过 more 进行分屏显示ls -lha ~ | grep DO # 将 home 下所有的文件中 包含 DO 的文件输出 远程管理命令拓展关机/重启 命令 对应英文 作用 shutdown 选项 时间 shutdown 关机、重新启动 shutdown拓展 shutdown 命令可以安全关闭或者重新启动系统。 -r 重新启动。 -c 取消关机 注意： 不指定选项和参数，默认表示 1分钟后关闭电脑。 远程维护服务器时，最好不要关闭系统，应该重新启动系统。 12345shutdown -r now # 立即重启shutdown now # 立即关机shutdown 20:25 # 在这个时候关机shutdown +10 # 十分钟后关机shutdown -c # 立刻取消上一个关机动作 查看或配置网卡信息 命令 对应英文 作用 ifconfig configure a network interface 查看、配置计算机当前的网卡配置信息 ping ip地址 ping 检测到目标 ip 地址的连接是否正常 概念网卡：是一个专门负责网络通信的硬件设备。 IP地址：设置在网卡上的地址信息。 将电脑比作电话，那么网卡相当于 SIM 卡，IP地址 相当于 电话号码。 ipconfig拓展1ifconfig | grep inet # 查看配置信息中包含 inet 的内容，及IP信息 ping拓展工作原理类似雷达：我们给目标IP地址发送一个数据包，对方返回一个数据包，根据返回的数据包及时间确定目标主机的存在。 1ping 127.0.0.1 # 检测本地网卡是否工作正常 SSH基础（重点）SSH（Secure Shell）安全外壳协议，Secure Shell（安全外壳协议，简称SSH）是一种加密的网络传输协议，可在不安全的网络中为网络服务提供安全的传输环境，及创建安全隧道。SSH最常见的用途是远程登录系统，人们通常利用SSH来传输命令行界面和远程执行命令。 Linux之SSH Linux 中 SSH 是非常常用的工具，通过 SSH客户端 我们可以连接到 SSH服务器 的远程机器上。 正确的使用SSH可以有效地避免信息泄露（进行加密）、提高传输速度（对数据进行压缩）。 域名端口号域名是为了方便记忆，端口号可以找到计算机运行的程序。SSH服务器的默认端口号是 22。 常见服务端口号： SSH服务器：22 Web服务器：80 HTTPS：445 FTP 服务器：21 SSH 客户端的简单使用Linux 大多自带SSH，可在终端命令使用。Windows 系统需要安装客户端软件PuTTY、XShell、MobaXterm。 123456# 使用 ssh 连接登录ssh [-p port] user@remote# user 用户名，不指定默认为当前用户# remote 远程机器地址，可以是IP/域名/别名# port 是 SSH Server 监听的端口，如果不指定，默认值为 22# -p 就是指定端口号的选项 exit 退出当前用户的登录。 1ssh -p 22 home@172.16.140.138 SCP（掌握）安全复制（英语：Secure copy，缩写SCP）是指在本地主机与远程主机或者两台远程主机之间基于Secure Shell（SSH）协议安全地传输电脑文件。 12345# 路径：如果不是绝对路径，则为用户家路径的相对路径# 将本地目录下的文件复制到远程家目录下scp -P port 01.py user@remote:Desktop/0.1py# 将远程家目录下的文件复制到本地目录下scp -P port user@remote:Desktop/0.1py 01.py -P P要大写。 1234# 将当前目录下的demo文件夹复制到家目录下的Desktopscp -r demo user@remote:Desktop# 将家目录下的Desktop复制到当前目录下的demo文件夹scp -r user@remote:Desktop demo windows 中可以安装 PuTTY，使用pscp命令传输，或者安装FileZilla使用FTP进行文件传输。 FileZilla 在传输文件时，使用的是 FTP服务而不是SSH服务，因此端口号应该设置为21。 SSH高级（知道） 有关 SSH 配置信息都保存在用户目录下的.ssh目录下 免密码登录 配置公钥 执行 ssh-keygen 即可生成 SSH 钥匙，一路回车即可 上传公钥到服务器 执行 ssh-copy-id -p port user@remote 可以让远程服务器记住我们的公钥。 原理 第一条命令在本地SSH客户端生成两条秘钥（公钥、私钥）。 第二条命令将公钥复制到SSH服务器。 本地使用私钥对数据进行加密、解密。 服务器使用公钥对数据进行加密、解密。 非对称加密算法： 使用公钥加密数据，需要使用私钥解密。 使用私钥加密数据，则需要使用公钥解密。 配置别名当我们想用 ssh user 来代替经常输入的 ssh -p port user@rermote 时，可以在配置文件~/.ssh/config （没有该文件就创建）里面追加一下内容： 1234Host mac HostName ip地址(remote) User userName(user) Port 22 scp 同样也可以使用。 用户权限命令拓展基本概念权限 用户管理包括 用户 与 组 管理。 每个系统都拥有一个账号，对于不同的系统资源拥有不同的使用权限。 每一个用户针对不同的文件或目录也有不同的权限。 这些不同的权限包括： 权限 英文 缩写 数字代号 读 read r 4 写 write w 2 执行 excute x 1 ./my.py 表示执行当前文件夹下 my.py 文件。 组给用户分组，方便进行用户管理。 文件/目录-rwxrw-r-- 1 user user 43 5月 9 00:00 user.txt - 开头代表是文件。 d 开头代表是目录。 接下来三个分为一组，一共三组，分别为：拥有者权限、用户组权限、其他用户权限。 接下来是硬链接数（cd 可以切换到该文件的方式种数），子目录越多硬链接数越大。 拥有者、组、大小、时间、名称。 权限修改chmod（重要） chmod 可以修改 用户、组 对文件、目录的权限。 命令格式为：chmod +/-rwx 文件名|目录。 超级用户 Linux系统中的root账号通常用于系统的维护和管理，对操作系统的所有资源都具有访问权限。 不推荐直接使用 root 账号登录系统。 在Linux安装过程中，系统会自动创建一个用户账号，这个默认用户称为“标准用户”。 sudo su是 substitute user的缩写，表示使用另一个用户身份。 sudo 用来以其他身份来执行命令，预设的身份为 root。 用户使用 sudo 必须先输入密码，有5分钟的有效期，过期限必须重新输入密码。 未授权的用户使用sudo ，会发出警告邮件给管理员。 组管理相关命令 创建组、删除组的终端命令都需要通过 sudo 执行。 命令 英文 作用 groupadd 组名 略 添加组 groupdel 组名 略 删除组 cat /ect/group 略 确认组信息 chgrp -R 组名 文件/目录名 change group 修改文件/目录的所属组 提示： 组信息保存在 /etc/group 文件中。 /etc 目录是专门用来保存 系统配置信息 的目录。 1234sudo groupadd dev # 创建一个dev组cat /etc/group # 查看是否创建成功sudo groupdel dev # 删除组 分组12345mkdir fileName # 创建 fileName 文件sudo groupadd dev # 创建 dev 组cat /etc/group # 查看是否创建成功ls -l # 查看文件夹下文件权限sudo chgrp -R dev fileName/ # 修改所属组 用户管理相关命令创建用户/设置密码/删除用户 命令 作用 说明 useradd -m -g 组新建用户名 添加新用户 1. -m 自动建立用户家目录。2. -g 指定用户所在组，负责会建立一个同名的组。 passwd 用户名 设置用户密码 如果是普通用户，直接用 passwd可以修改自己的账户密码。 userdel -r 用户名 删除用户 -r 选项会自动删除用户家目录。 cat /etc/passwd \ grep 确认用户信息 新建用户后，用户信息会保存在/etc/passwd文件中。 12sudo useradd -m -g dev userName # 创建新用户userName,并将其指定给dev组sudo passwd userName # 设置用户密码 创建用户时忘记添加 -m 选项指定新用户家目录，可以删除用户重新创建。 查看用户信息 命令 作用 id [用户名] 查看用户 UID 和 GID 信息。 who 查看当前所有登录的用户列表 whoami 查看当前登录的账户名 /etc/passwd文件存放的是用户的信息，由6个冒号:分组成的7个信息： 用户名、密码（x表示加密的密码）、UID（用户标识）、GID（组表示） 用户全名或本地账号、家目录、登陆之后，使用的终端命令—Shell（ubuntu默认是dash） usermodusermod 可以用来设置用户的主组、附加组和登录Shell： 主组：通常在新建用户时指定，在etc/passwd 的第4列 GID 对应的组。 附加组：在 etc/group 中的最后一列表示该组的用户列表，用于指定用户的附加权限。 12345678# 修改用户主组（passwd 中的 GID）usermod -g 组 用户名# 修改用户附加组usermod -G 组 用户名# 修改用户登录 Shellusermod -s /bin/bash 修改用户附加组要重新登陆生效 例如： 123# 默认使用 useradd 添加用户是没有权限使用 sudo 即以 root 身份执行命令的。# 可以使用以下命令，将用户添加到 sudo 附加组中usermod -G sudo 用户名 which（重要） /etc/passwd 可用于保存用户信息的文件 /usr/bin/passwd 是用于修改用户密码的程序 which 命令可以查看执行命令所在位置。 123which passwd # 输出 /usr/bin/passwdwhich ls # 输出 /bin/lswhich useradd # 输出 /usr/sbin/useradd bin和sbin在 Linux 中，绝大多数可执行文件都保存在/bin、sbin、/usr/bin、/usr/sbin。 /bin（binary）是二进制执行文件目录，主要用于具体应用。 /sbin（system binary）是系统管理员专用的二进制代码存放目录、主要用于系统管理。 /usr/bin （user commands for applications）后期安装的一些软件。 /usr/sbin（super user commands for applications）超级用户的一些管理程序。 切换用户相关命令 命令 作用 说明 su - 用户名 切换用户，并且切换目录 可以切换到用户家目录，否则位置保持不变 exit 退出当前登录账户 su 后不接用户名，可以切换到 root，不推荐因为不安全。 exit 退回到前一用户 12su userName # 切换到userName的当前目录su - userName # 切换到userName的家目录 修改文件权限相关命令 命令 作用 chown 修改拥有者 chgrp 修改组 chmod 修改权限 12345chown 用户名 文件名|目录名 # 修改文件|目录的拥有者chgrp -R 组名 文件名|目录名 # 递归修改文件|目录的组chmod -R 755 文件名|目录名 # 递归修改文件权限 755：7代表拥有者权限、5代表组权限、5代表其他用户权限。 -R 递归执行所有文件 可读（read） 可写（write） 可执行（excute） 值 字母代号 4 2 1 7 rwx 4 2 0 6 rw- 4 0 1 5 r-x 4 0 0 4 r– 0 2 1 3 -wx 0 2 0 2 -w- 0 0 1 1 –x 0 0 0 0 — 755： 7指 拥有者具有可读可写可执行权限。 5指 组拥有可读可执行权限。 5指 其他用户拥有可读可执行权限。 系统信息相关命令查询系统信息即通过远程终端维护服务器，查看服务器上当前系统日期和时间、磁盘空间占用情况、程序执行情况 时间和日期 命令 英文 作用 cal calendar 查看日历，-y选项可以查看一年的日历 date 略 查看系统时间 磁盘和目录空间 命令 英文 作用 df -h disk free 显示磁盘剩余空间 du -h[目录名] disk usage 显示目录下的文件大小 -h 以人性化的方式显示文件大小 进程信息 进程，当前正在执行的程序。 命令 作用 ps a/u/x process status 查看进程的详细情况 top 动态显示运行中的进程并且排序 kill [-9] 进程代号 终止指定代号的进程，-9表示强行终止。 ps拓展 ps 只会显示当前用户通过终端启动的应用程序。 a 选项 显示终端上所有进程，包括其他用户的进程。 u 选项显示进程的详细版本。 x 选项显示没有控制终端的进程（不是终端启动的进程）。 %cpu/%mem：分别为cpu占用率和内存占用率。 PID 表示进程代号，kill中会用到。 top拓展 退出top可以直接输入q。 kill拓展 使用 kill 命令时，最好指终止当前用户开启的进程，不要终止 root 身份开启进程， 否则可能导致系统崩溃。 其他命令查找文件find 通常用来在特定的目录下 搜索符合条件的文件。 1find [路径] -name "fileName.txt" 如果省略路径表示在当前文件夹下查找。 可以使用通配符。 例： 12find -name "*name*"find -name "*.txt" 其他用法：按权限、时间等去搜索 软链接 建立文件的软链接，就类似于Windows下的快捷方式。可快速访问。 命令 作用 ln -s 被链接的源文件 链接文件 建立文件的软链接 没有 -s 则创建的是一个硬链接文件。（由于两个文件占用相同的硬盘大小，因此一般不会建立硬链接） 源文件要使用绝对路径，不要用相对路径。（方便软链接移动后仍然可以正常使用） 12345678cat fileName.py # 查询文件内容tree # 查看目录结构mv fileName.py demo/a/b # 移动文件tree # 检查移动结果ln -s /home/user/Desktop/demo/a/b/fileName.py Link # 给fileName创建软链接 Linkcat Link # 查看软链接内容ls -l # 查看列表显示 Link—&gt;demo/a/b/fileName.py 硬链接（知道） 硬链接，有多少种方式可以访问文件或目录。 ln创建链接时，如果没有 -s选项，则会创建一个硬链接文件。 ls -l可以查看硬连接数。 相当于复制了一份文件名指向文件数据，源文件删除了，依然可以访问硬链接文件。 在Linux中，文件名和文件的数据是分开存储的，文件名指向文件数据。 创建软链接文件名—&gt;软链接文件数据—&gt;文件名—&gt;文件数据。 打包压缩在不同的操作系统中，常用的打包压缩方式是不同的： Windows 常用 rar、Mac常用zip、Linux常用tar.gz。 打包/解包tar 是 Linux 中最常用的备份工具，这个命令可以把一系列文件打包到一个大文件中，也可以把打包文件恢复成一系列文件。 12345# 打包文件tar -cvf [name].tar 被打包文件/路径...# 解包文件tar -xvf 打包文件.tar c ，生成档案文件，创建打包文件。 x ，解开档案文件。 v ，列出归档解档的详细过程，显示进度。 f ，指定档案文件名称，f后面一定是.tar文件，所以必须放在选项最后。 f 要放在最后 12345678910rm -r *touch 01.txttouch 02.txt # 创建文件tar -cvf name.tar 01.txt 02.txt # 打包ls -lh # 查看文件mkdir tarmv name.tar tartreecd tartar -xvf name.tar # 解压文件 压缩/解压缩gzip tar与gzip命令结合使用，实现文件 打包和压缩。 tar命令中有个选项-z可以调用gzip，从而可以方便的实现压缩和解压缩的功能。 在Linux中，最常见的压缩文件格式就是xxx.tar.gz。 12345678# 压缩文件tar -zcvf [name].tar.gz 被打包压缩文件/路径... # 解压文件tar -zcvf [name].tar.gz # 解压缩到指定路径tar -zcvf [name].tar.gz -C 目标路径 -C 解压到指定路径，该目录必须存在。 bzip2（two） 和 gzip 用法一样，扩展名为xxx.tar.bz2。 在tar命令中用-j选项调用bzip2来实现。 12345678# 压缩文件tar -jcvf [name].tar.bz2 被打包压缩文件/路径... # 解压文件tar -jcvf [name].tar.bz2 # 解压缩到指定路径tar -jcvf [name].tar.bz2 目标路径 软件安装通过 apt 安装/卸载软件 apt （全称：Advanced Packaging Tool）是Linux下的一款安装包管理工具。 可以在终端中方便的 安装/卸载/更新软件包。 12345678# 安装软件sudo apt install 软件包# 卸载软件sudo apt remove 软件名# 更新安装包sudo apt upgrate 例如： 123sudo apt install sl # 安装小火车提示sudo aot install htop # 作用类似 top 命令 配置软件源希望在ubuntu更加快速的安装软件，可以设置镜像源。]]></content>
+      <categories>
+        <category>技术</category>
+        <category>计算机基础</category>
+        <category>计算机系统</category>
+        <category>Linux 基础</category>
+      </categories>
+      <tags>
+        <tag>计算机基础</tag>
+        <tag>计算机系统</tag>
+        <tag>Linux 基础</tag>
       </tags>
   </entry>
   <entry>
