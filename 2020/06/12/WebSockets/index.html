@@ -92,18 +92,18 @@
 
 
 
-<meta name="description" content="双向通信 建立在 TCP 协议之上 数据格式轻量，性能开销小，通信高效 可以发送二进制数据 没有同源限制，可以与任意服务器通信 协议标示符 ws 加密为 wss  简单使用123456789101112131415var ws = new WebSocket(&quot;wss://echo.websocket.org&quot;);ws.onopen = function(evt) &amp;#123;   console">
+<meta name="description" content="双向通信 建立在 TCP 协议之上。 数据格式轻量，性能开销小，通信高效。 可以发送二进制数据。 没有同源限制，可以与任意服务器通信。 协议标示符 ws 加密为 wss。">
 <meta name="keywords" content="前端,前端通信">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebSockets">
 <meta property="og:url" content="http://yoursite.com/2020/06/12/WebSockets/index.html">
 <meta property="og:site_name" content="F-lancer">
-<meta property="og:description" content="双向通信 建立在 TCP 协议之上 数据格式轻量，性能开销小，通信高效 可以发送二进制数据 没有同源限制，可以与任意服务器通信 协议标示符 ws 加密为 wss  简单使用123456789101112131415var ws = new WebSocket(&quot;wss://echo.websocket.org&quot;);ws.onopen = function(evt) &amp;#123;   console">
+<meta property="og:description" content="双向通信 建立在 TCP 协议之上。 数据格式轻量，性能开销小，通信高效。 可以发送二进制数据。 没有同源限制，可以与任意服务器通信。 协议标示符 ws 加密为 wss。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-06-12T14:25:47.962Z">
+<meta property="og:updated_time" content="2020-06-12T14:44:43.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebSockets">
-<meta name="twitter:description" content="双向通信 建立在 TCP 协议之上 数据格式轻量，性能开销小，通信高效 可以发送二进制数据 没有同源限制，可以与任意服务器通信 协议标示符 ws 加密为 wss  简单使用123456789101112131415var ws = new WebSocket(&quot;wss://echo.websocket.org&quot;);ws.onopen = function(evt) &amp;#123;   console">
+<meta name="twitter:description" content="双向通信 建立在 TCP 协议之上。 数据格式轻量，性能开销小，通信高效。 可以发送二进制数据。 没有同源限制，可以与任意服务器通信。 协议标示符 ws 加密为 wss。">
 
 
 
@@ -375,7 +375,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-06-12T22:25:47+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2020-06-12T22:44:43+08:00">
                 2020-06-12
               </time>
             
@@ -489,14 +489,14 @@
 
       
         <h1 id="双向通信"><a href="#双向通信" class="headerlink" title="双向通信"></a>双向通信</h1><ol>
-<li>建立在 TCP 协议之上</li>
-<li>数据格式轻量，性能开销小，通信高效</li>
-<li>可以发送二进制数据</li>
-<li>没有同源限制，可以与任意服务器通信</li>
-<li>协议标示符 ws 加密为 wss</li>
+<li>建立在 TCP 协议之上。</li>
+<li>数据格式轻量，性能开销小，通信高效。</li>
+<li>可以发送二进制数据。</li>
+<li>没有同源限制，可以与任意服务器通信。</li>
+<li>协议标示符 ws 加密为 wss。<a id="more"></a></li>
 </ol>
 <h1 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">"wss://echo.websocket.org"</span>);</span><br><span class="line"></span><br><span class="line">ws.onopen = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123; </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Connection open ..."</span>); </span><br><span class="line">  ws.send(<span class="string">"Hello WebSockets!"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ws.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="string">"Received Message: "</span> + evt.data);</span><br><span class="line">  ws.close();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ws.onclose = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Connection closed."</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><p>webSocket 对象提供了用于创建和管理 WebSocket 连接，以及相关的API</p>
+<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><p>webSocket 对象提供了用于创建和管理 WebSocket 连接，以及相关的API。</p>
 <ol>
 <li><code>WebSocket.readyState</code>：返回实例对象的当前状态。CONNECTING/OPEN/CLOSING/CLOSED。</li>
 <li><code>WebSocket.onopen</code>：用于指定连接成功后的回调函数。指定多个使用 <code>addEventListener</code>方法。</li>
