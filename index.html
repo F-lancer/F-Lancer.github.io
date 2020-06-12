@@ -329,6 +329,249 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/12/WebSockets/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿忠">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/mephoto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="F-lancer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/12/WebSockets/" itemprop="url">WebSockets</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-12T22:23:00+08:00">
+                2020-06-12
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-06-12T22:25:47+08:00">
+                2020-06-12
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端通信/" itemprop="url" rel="index">
+                    <span itemprop="name">前端通信</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端通信/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/06/12/WebSockets/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/06/12/WebSockets/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  611
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="双向通信"><a href="#双向通信" class="headerlink" title="双向通信"></a>双向通信</h1><ol>
+<li>建立在 TCP 协议之上</li>
+<li>数据格式轻量，性能开销小，通信高效</li>
+<li>可以发送二进制数据</li>
+<li>没有同源限制，可以与任意服务器通信</li>
+<li>协议标示符 ws 加密为 wss</li>
+</ol>
+<h1 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">"wss://echo.websocket.org"</span>);</span><br><span class="line"></span><br><span class="line">ws.onopen = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123; </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Connection open ..."</span>); </span><br><span class="line">  ws.send(<span class="string">"Hello WebSockets!"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ws.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="string">"Received Message: "</span> + evt.data);</span><br><span class="line">  ws.close();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ws.onclose = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Connection closed."</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><p>webSocket 对象提供了用于创建和管理 WebSocket 连接，以及相关的API</p>
+<ol>
+<li><code>WebSocket.readyState</code>：返回实例对象的当前状态。CONNECTING/OPEN/CLOSING/CLOSED。</li>
+<li><code>WebSocket.onopen</code>：用于指定连接成功后的回调函数。指定多个使用 <code>addEventListener</code>方法。</li>
+<li><code>WebSocket.onclose</code>：用于指定连接关闭后的回调函数。</li>
+<li><code>WebSocket.onmessage</code>：用于指定收到服务器数据后的回调函数。</li>
+<li><code>WebSocket.send</code>：用于向服务器发送数据。</li>
+<li><code>bufferedAmount</code>：表示还有多少字节的二进制数据没有发送出去，可以用来判断发送是否结束。</li>
+<li><code>webSocket.onerror</code>：用于指定报错时的回调函数。</li>
+</ol>
+<h1 id="其它通讯对比"><a href="#其它通讯对比" class="headerlink" title="其它通讯对比"></a>其它通讯对比</h1><h2 id="轮询（短轮询）"><a href="#轮询（短轮询）" class="headerlink" title="轮询（短轮询）"></a>轮询（短轮询）</h2><p>原理：请求设置定时器，每隔一段时间向浏览器发送http请求。</p>
+<p>考验性能，数量级比较大的情况下，基于轮询对服务器的考验较大。</p>
+<h2 id="长轮询（comet）"><a href="#长轮询（comet）" class="headerlink" title="长轮询（comet）"></a>长轮询（comet）</h2><p>原理：Ajax 实现，当服务器收到客户端的请求，会将资源挂起，判断服务器端数据是否更新，如果没有更新则达到一定时间限制返回。客户端处理数据之后再次发起请求，重新建立连接。</p>
+<p>连接挂起也会占用资源。</p>
+<h2 id="长连接（SSE）"><a href="#长连接（SSE）" class="headerlink" title="长连接（SSE）"></a>长连接（SSE）</h2><p>Server-Sent Events。它可以允许服务端推送数据到客户端。服务端数据更新可以马上发送到客户端。</p>
+<p>ajax实现长连接：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span> <span class="title">longPolling</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: <span class="string">"$&#123;pageContext.request.contextPath&#125;/communication/user/ajax.mvc"</span>,</span><br><span class="line">            data: &#123;<span class="string">"timed"</span>: <span class="keyword">new</span> <span class="built_in">Date</span>().getTime()&#125;,</span><br><span class="line">            dataType: <span class="string">"text"</span>,</span><br><span class="line">            timeout: <span class="number">5000</span>,</span><br><span class="line">            error: <span class="function"><span class="keyword">function</span> (<span class="params">XMLHttpRequest, textStatus, errorThrown</span>) </span>&#123;</span><br><span class="line">                <span class="comment">// ... 打印错误信息</span></span><br><span class="line">                <span class="keyword">if</span> (textStatus == <span class="string">"timeout"</span>) &#123; <span class="comment">// 请求超时</span></span><br><span class="line">                     longPolling(); <span class="comment">// 递归调用</span></span><br><span class="line">                 <span class="comment">// 其他错误，如网络错误等</span></span><br><span class="line">                 &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">                     longPolling();</span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;,</span><br><span class="line">             success: <span class="function"><span class="keyword">function</span> (<span class="params">data, textStatus</span>) </span>&#123;</span><br><span class="line">                  <span class="comment">//... 操作 data</span></span><br><span class="line">                  <span class="keyword">if</span> (textStatus == <span class="string">"success"</span>) &#123; <span class="comment">// 请求成功</span></span><br><span class="line">                      longPolling();</span><br><span class="line">                  &#125;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;);</span><br><span class="line">     &#125;)();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h1><p>从兼容性角度考虑：</p>
+<blockquote>
+<p>短轮询 &gt; 长轮询 &gt; 长连接SSE &gt; WebSocket。</p>
+</blockquote>
+<p>从性能方面考虑：</p>
+<blockquote>
+<p>WebSocket &gt; 长连接SSE &gt; 长轮询 &gt; 短轮询。</p>
+</blockquote>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.ruanyifeng.com/blog/2017/05/websocket.html" target="_blank" rel="noopener">websocket基础</a></p>
+<p><a href="https://juejin.im/entry/59e08d2e6fb9a04514630e8b" target="_blank" rel="noopener">通讯对比</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+		
+	  <div>
+	    
+		</div>
+		
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/科学进站/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2365,241 +2608,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/14/Object/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="阿忠">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/mephoto.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="F-lancer">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/14/Object/" itemprop="url">Object 理解</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-14T16:39:00+08:00">
-                2020-02-14
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2020-03-26T18:47:08+08:00">
-                2020-03-26
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/前端技术/" itemprop="url" rel="index">
-                    <span itemprop="name">前端技术</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/前端技术/原生JS/" itemprop="url" rel="index">
-                    <span itemprop="name">原生JS</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/前端技术/原生JS/Object/" itemprop="url" rel="index">
-                    <span itemprop="name">Object</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/02/14/Object/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/14/Object/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  1.8k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  7
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Object-对象"><a href="#Object-对象" class="headerlink" title="Object 对象"></a>Object 对象</h1><p>a person or thing to which a specified action or feeling is directed.
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/02/14/Object/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-		
-	  <div>
-	    
-		</div>
-		
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2663,7 +2671,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -2674,7 +2682,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -2774,7 +2782,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">51.1k</span>
+    <span title="Site words total count">51.7k</span>
   
 </div>
 
