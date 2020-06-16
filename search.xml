@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F2020%2F06%2F16%2F%E8%BF%99%E6%98%AF%E7%A9%BA%E7%9A%84%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[BFC]]></title>
     <url>%2F2020%2F06%2F16%2FcssBFC%2F</url>
     <content type="text"><![CDATA[BFCCSS布局基础。 概念FC（formatting context）格式化上下文。它是页面中的一块渲染区域，有一套渲染规则，决定了其子元素如何布局，以及和其它元素之间的关系和作用。 常见的FC有：BFC、IFC（行级格式化上下文）、GFC（网格布局格式化上下文）、FFC（自适应格式化上下文）。 一个通俗的解释：BFC 可以简单的理解为某个元素的一个 CSS 属性，只不过这个属性不能被开发者显式的修改，拥有这个属性的元素对内部元素和外部元素会表现出一些特性，这就是BFC 。 触发条件 MDN：https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context 主要因素： 根元素&lt;html&gt;。 float 的值不为 none。 overflow 的值不为 visible。 display 的值为inline-block、table-cell、table-caption。 position 的值为 absolute 或 fixed。 BFC布局规则 内部的Box会在垂直的方向一个接一个放置。 Box之间的距离虽然也可以使用 padding 来控制，但是此时实际上还是属于box内部里面，而且使用padding 来控制的话就不能再使用border属性了 。（.） Box垂直方向的距离由 margin 决定，属于同一个BFC的两个相邻的BOX的 margin 会发生重叠。 例：兄 margin-bottom:20px，弟 margin-top:20px，页面默认显示兄弟之间的 margin 为 20px。并不会累加。 弟 position 设为 absolate 或 fixed 时，兄弟元素的 ”间距“ 值会进行累加，这是利用了将相邻的兄弟元素分属于不同的BFC，来阻止margin重叠。 也可以在弟外面包裹一层 &lt;div&gt; 设置为 overflow: hidden;。将弟设置为另一个BFC内元素。 子元素的 marginbox 左边 与 父元素 borderbox 的相接触，即会进行叠加（从右往左的格式化相反），对于存在浮动也是如此。 BFC 的区域不会与 float box重叠。 例：将第二条中 弟 设置为 float:left;，则兄弟元素的上下的间距值会进行累加。 BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之也如此。 计算BFC的高度时，浮动元素也参与计算。 作用 自适应两栏布局。 兄设置浮动 float:left; ，弟设置BFC overflow:hidden; 。如果不设置BFC，弟一部分会隐藏在兄下面，并不会并排排列。 阻止元素被浮动元素覆盖。 兄元素设为float，弟会忽略其高度，从而隐藏在了兄的下面。将弟设置为单独的BFC即可阻止被覆盖。 可以包含浮动元素——清除内部浮动。 内部浮动元素，引起高度塌陷，给父元素设置为的BFC，使得内部元素都属于BFC区域内，以达到清除浮动，解决浮动引起的高度塌陷问题 分属于不同的BFC时可以阻止margin重叠。 layoutLayout是 IE 中的 “BFC” ，为了处理IE的兼容性，在需要出发 BFC 时，除了以上的出发条件，还要针对IE浏览器使用 zoom:1 来触发 IE 浏览器的 Layout。 演示 演示地址：https://www.cnblogs.com/xiaohuochai/p/5248536.html 参考 https://juejin.im/post/5909db2fda2f60005d2093db https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flow_Layout/%E5%9C%A8Flow%E4%B8%AD%E5%92%8CFlow%E4%B9%8B%E5%A4%96 https://www.cnblogs.com/xiaohuochai/p/5248536.html]]></content>
@@ -16,9 +21,19 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>%2F2020%2F06%2F13%2FzNew%2F</url>
-    <content type="text"></content>
+    <title><![CDATA[布局]]></title>
+    <url>%2F2020%2F06%2F16%2FcssLayout%2F</url>
+    <content type="text"><![CDATA[布局梳理布局大致的几种方式。 简介 正常流 布局。 display 属性。 定位（position）。 浮动（float/BFC）。 弹性盒子（display: flex）。 网格（display: gird）。 CSS表格布局（display: table）。 多列布局。 正常流position：static; diplay: block/inline-block/inline; 所有的布局都是在正常流的基础上改动的，我们对布局进行改动时，应该与之协同，而不是与之对抗。 涉及知识点： 默认的块级元素、行内元素。 display、position基本属性特点（top，margin-top）。 盒模型、怪异盒模型。 FC（BFC…）。 定位position: ... ; 易混淆 涉及知识点： relative、absolute：top、margin-top。 position: sticky。 定位上下文。 绝对定位中的 z-index。 FC（BFC）。 浮动float:right/left; 注意高度塌陷。 涉及知识点： 经典布局（双飞翼，皇冠）。 清除浮动的场景和几种方式（clear:both）。 利用BFC清除浮动。 弹性盒子display: flex; 行内弹性盒子：display：inline-flex。 涉及知识点： flex-direction，指定主轴方向。 row-reverse和 column-reverse值反向排列 flex 项目。 flex-wrap ，换行。 flex-flow ，是（1和2）的缩写。 flex: 200px，每个项宽度为200px。（可以指定flex项的动态尺寸） 可以写三个属性（flex-grow、flex-shrink、flex-basis） 水平垂直对齐。 align-item:center，决定在交叉轴（纵轴）上的位置。（垂直居中） align-self：属性可以覆盖 align-item。 justify-content:center，决定在（主轴）横轴上的位置。（水平居中） 常用值 space-around / space-between。 排序 order （！！！） 嵌套 网格布局display:grid 在此之前，我们使用的是 flex 或者三方（bootstrap等UI框架）来实现网格的。 https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Grid_Layout 涉及知识点： grid-gap 网格间隔。 grid-template-columns属性。 repeat() 函数。 fr 单位。 网格实现居中小示例： 12345678910111213141516.father &#123; width: 400px; height: 400px; background-color: aqua; display: grid; grid-template-columns: repeat(4,1fr); /* 四行四列 */ grid-template-rows: repeat(4,1fr);&#125;.son &#123; background-color: aquamarine; /* 缩写：grid-area:2/2/span2/span2; */ grid-column: 2/span 2; /* 第二列开始占两列 */ grid-row: 2/span 2; /* 第二列开始占两列 */&#125; 参考 https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout]]></content>
+      <categories>
+        <category>技术</category>
+        <category>前端技术</category>
+        <category>CSS</category>
+        <category>布局</category>
+      </categories>
+      <tags>
+        <tag>前端技术</tag>
+        <tag>CSS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[WebSockets]]></title>
@@ -43,8 +58,8 @@
         <category>JAVA</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>后端技术</tag>
+        <tag>技术</tag>
         <tag>JAVA</tag>
       </tags>
   </entry>
@@ -134,8 +149,8 @@
         <category>javaScript</category>
       </categories>
       <tags>
-        <tag>javaScript</tag>
         <tag>前端端技术</tag>
+        <tag>javaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -155,7 +170,7 @@
   </entry>
   <entry>
     <title><![CDATA[Position]]></title>
-    <url>%2F2019%2F03%2F28%2Fposition%2F</url>
+    <url>%2F2019%2F03%2F28%2FcssPosition%2F</url>
     <content type="text"><![CDATA[position 定位问题position：static position:static,静态定位，这种定位是默认的，即正常的文档流，一般没有实际作用 特点 静态定位的元素不会受到 top right bottom left 的影响 position：relative position:relative,相对定位，不会脱离文档流，类似于static,默认按照顺序排列，可以通过 margin-top / top margin-right / right margin-bottom / bottom margin-left / left来改变元素的位置，（注意在简写的时候也是按照这个顺序，顺时针），可以看出，都只是相对于正常位置的偏移。 特点 相对于它原本的正常位置偏移，因此它原本的所占的空间不会改变。也就是说，在它之下的文档流元素依然按照它原本的位置排列。 经常被用作绝对定位的容器块。 position：absolute position:absolute,绝对定位，脱离文档流，可以用 top right bottom left​ 来控制元素的位置，需要注意的是，它是相对于最近祖先为非static定位来定位的，如果它的父级元素定位是默认的，它会继续向上找，直到找到为止，如果页面上没有，就相对于 html 。 特点 由于它是脱离文档流的，因此它的变动是不会对文档流的其他布局产生影响的。 在 absolute 定位下，float: left/right ,对它是不起作用的 子绝父相 即，父元素是相对定位（position：relative），子元素是绝对定位（position:absolute），被经常用来定位元素。因此相对定位经常被用作容器块。 position : fixed position : fixed,固定定位，它是相对于浏览器窗口来进行定位的，例如我们经常在网页中见到的 回到顶部 按钮就是利用这种定位，一般使用 top right bottom left,进行操作。 特点 它同样也脱离了文档流，它的位置与文档流无关。 fixed 定位在 IE7 和 IE8 下需要描述 !DOCTYPE 才会支持 position：sticky—– 这个定位好好玩啊啊啊，之前没有用过（暴露了我的无知、浅薄、傻了吧唧）。o(╥﹏╥)o position:sticky ,粘（zhan）性定位,基于用户的滚动位置来定位的。它有一个由 top/right/bottom/left构成的特定阀值，也必须有他们才能使粘性定位生效。在跨越特定阀值之前为相对定位（position：relative）,之后为固定定位（position:fixed）,固定在目标位置。 特点： Internet Explorer,Edge 15 及 更早的 IE 版本不支持 sticky 定位。 Safari需要使用 position: - webkit-prefix;来做兼容 。]]></content>
       <categories>
         <category>技术</category>
@@ -179,8 +194,8 @@
         <category>README</category>
       </categories>
       <tags>
-        <tag>后端技术</tag>
         <tag>node.js 技术栈</tag>
+        <tag>后端技术</tag>
         <tag>Express 框架</tag>
         <tag>mongoDB 数据库</tag>
       </tags>
@@ -196,8 +211,8 @@
         <category>README</category>
       </categories>
       <tags>
-        <tag>前端端技术</tag>
         <tag>ES6.js</tag>
+        <tag>前端端技术</tag>
       </tags>
   </entry>
   <entry>
@@ -300,23 +315,8 @@
         <category>poem - 美好事物</category>
       </categories>
       <tags>
-        <tag>美好事物</tag>
         <tag>poem</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[简谱]]></title>
-    <url>%2F2019%2F03%2F21%2F%E4%B9%90%E7%90%86%2F</url>
-    <content type="text"><![CDATA[认识简谱 简谱 1 2 3 4 5 6 7 唱名 do re mi fa sol la si 音名 C D E F G A B 简谱并不是因为比五线谱简单，只是因为书写方便 （1）简谱如何记录音的高低 （2）简谱如何记录音的长短 “—“表示增时线 （3）简谱如何记录音的休止 ​ 在简谱中，记录音的休止的基本符号是 “0” 。有怎样的音符就对应相应的休止符 （4）如何打拍子 ​ 完整的一拍子由“前半拍” “后半拍” 组成。打拍子的时候由一上一下来完成——“V”。 （5）附点音符 和 附点休止符 ​ 有什么样的音符就有什么样的休止符，以音符为例： ​ 在音符的右下方附加一个黑点，叫做单附点音符。加两个黑点，叫复附点音符。复附点音符的作用：增加前面音符时值的一半。 （6）连音符号 同音连接弧线后面的音符不演奏 异音连接：弧线内的音要演奏的连贯 （7）切分音 和 切分节奏 （8）强弱拍 小节 小节线 终止线 ​ ●表示强拍 ○表示弱拍 ​ 两条小节线之间的部分，就叫小节。 ​ 一粗一细两条小节线记在乐曲的末尾，表示乐曲的结束。 （9）拍号 ​ 表示拍子的记号，叫做“拍号”。 ​ 拍号用分数形式来标记：分子表示节拍的每一循环，也就是一小节有几拍；分母表示以什么音符为一拍。如： ​ 常用拍号有 四四 四二 四三 八二 八三 八六 等等]]></content>
-      <categories>
-        <category>Guitar</category>
-        <category>乐理</category>
-        <category>简谱</category>
-      </categories>
-      <tags>
-        <tag>music</tag>
         <tag>美好事物</tag>
-        <tag>Guitar</tag>
       </tags>
   </entry>
 </search>
