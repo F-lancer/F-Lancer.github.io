@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[BFC]]></title>
+    <url>%2F2020%2F06%2F16%2FcssBFC%2F</url>
+    <content type="text"><![CDATA[BFCCSS布局基础。 概念FC（formatting context）格式化上下文。它是页面中的一块渲染区域，有一套渲染规则，决定了其子元素如何布局，以及和其它元素之间的关系和作用。 常见的FC有：BFC、IFC（行级格式化上下文）、GFC（网格布局格式化上下文）、FFC（自适应格式化上下文）。 一个通俗的解释：BFC 可以简单的理解为某个元素的一个 CSS 属性，只不过这个属性不能被开发者显式的修改，拥有这个属性的元素对内部元素和外部元素会表现出一些特性，这就是BFC 。 触发条件 MDN：https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context 主要因素： 根元素&lt;html&gt;。 float 的值不为 none。 overflow 的值不为 visible。 display 的值为inline-block、table-cell、table-caption。 position 的值为 absolute 或 fixed。 BFC布局规则 内部的Box会在垂直的方向一个接一个放置。 Box之间的距离虽然也可以使用 padding 来控制，但是此时实际上还是属于box内部里面，而且使用padding 来控制的话就不能再使用border属性了 。（.） Box垂直方向的距离由 margin 决定，属于同一个BFC的两个相邻的BOX的 margin 会发生重叠。 例：兄 margin-bottom:20px，弟 margin-top:20px，页面默认显示兄弟之间的 margin 为 20px。并不会累加。 弟 position 设为 absolate 或 fixed 时，兄弟元素的 ”间距“ 值会进行累加，这是利用了将相邻的兄弟元素分属于不同的BFC，来阻止margin重叠。 也可以在弟外面包裹一层 &lt;div&gt; 设置为 overflow: hidden;。将弟设置为另一个BFC内元素。 子元素的 marginbox 左边 与 父元素 borderbox 的相接触，即会进行叠加（从右往左的格式化相反），对于存在浮动也是如此。 BFC 的区域不会与 float box重叠。 例：将第二条中 弟 设置为 float:left;，则兄弟元素的上下的间距值会进行累加。 BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之也如此。 计算BFC的高度时，浮动元素也参与计算。 作用 自适应两栏布局。 兄设置浮动 float:left; ，弟设置BFC overflow:hidden; 。如果不设置BFC，弟一部分会隐藏在兄下面，并不会并排排列。 阻止元素被浮动元素覆盖。 兄元素设为float，弟会忽略其高度，从而隐藏在了兄的下面。将弟设置为单独的BFC即可阻止被覆盖。 可以包含浮动元素——清除内部浮动。 内部浮动元素，引起高度塌陷，给父元素设置为的BFC，使得内部元素都属于BFC区域内，以达到清除浮动，解决浮动引起的高度塌陷问题 分属于不同的BFC时可以阻止margin重叠。 layoutLayout是 IE 中的 “BFC” ，为了处理IE的兼容性，在需要出发 BFC 时，除了以上的出发条件，还要针对IE浏览器使用 zoom:1 来触发 IE 浏览器的 Layout。 演示 演示地址：https://www.cnblogs.com/xiaohuochai/p/5248536.html 参考 https://juejin.im/post/5909db2fda2f60005d2093db https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flow_Layout/%E5%9C%A8Flow%E4%B8%AD%E5%92%8CFlow%E4%B9%8B%E5%A4%96 https://www.cnblogs.com/xiaohuochai/p/5248536.html]]></content>
+      <categories>
+        <category>技术</category>
+        <category>前端技术</category>
+        <category>CSS</category>
+        <category>BFC</category>
+      </categories>
+      <tags>
+        <tag>前端技术</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2020%2F06%2F13%2FzNew%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[WebSockets]]></title>
     <url>%2F2020%2F06%2F12%2FWebSockets%2F</url>
     <content type="text"><![CDATA[双向通信 建立在 TCP 协议之上。 数据格式轻量，性能开销小，通信高效。 可以发送二进制数据。 没有同源限制，可以与任意服务器通信。 协议标示符 ws 加密为 wss。 简单使用123456789101112131415var ws = new WebSocket("wss://echo.websocket.org");ws.onopen = function(evt) &#123; console.log("Connection open ..."); ws.send("Hello WebSockets!");&#125;;ws.onmessage = function(evt) &#123; console.log( "Received Message: " + evt.data); ws.close();&#125;;ws.onclose = function(evt) &#123; console.log("Connection closed.");&#125;; APIwebSocket 对象提供了用于创建和管理 WebSocket 连接，以及相关的API。 WebSocket.readyState：返回实例对象的当前状态。CONNECTING/OPEN/CLOSING/CLOSED。 WebSocket.onopen：用于指定连接成功后的回调函数。指定多个使用 addEventListener方法。 WebSocket.onclose：用于指定连接关闭后的回调函数。 WebSocket.onmessage：用于指定收到服务器数据后的回调函数。 WebSocket.send：用于向服务器发送数据。 bufferedAmount：表示还有多少字节的二进制数据没有发送出去，可以用来判断发送是否结束。 webSocket.onerror：用于指定报错时的回调函数。 其它通讯对比轮询（短轮询）原理：请求设置定时器，每隔一段时间向浏览器发送http请求。 考验性能，数量级比较大的情况下，基于轮询对服务器的考验较大。 长轮询（comet）原理：Ajax 实现，当服务器收到客户端的请求，会将资源挂起，判断服务器端数据是否更新，如果没有更新则达到一定时间限制返回。客户端处理数据之后再次发起请求，重新建立连接。 连接挂起也会占用资源。 长连接（SSE）Server-Sent Events。它可以允许服务端推送数据到客户端。服务端数据更新可以马上发送到客户端。 ajax实现长连接： 12345678910111213141516171819202122232425$(function () &#123; (function longPolling() &#123; $.ajax(&#123; url: "$&#123;pageContext.request.contextPath&#125;/communication/user/ajax.mvc", data: &#123;"timed": new Date().getTime()&#125;, dataType: "text", timeout: 5000, error: function (XMLHttpRequest, textStatus, errorThrown) &#123; // ... 打印错误信息 if (textStatus == "timeout") &#123; // 请求超时 longPolling(); // 递归调用 // 其他错误，如网络错误等 &#125; else &#123; longPolling(); &#125; &#125;, success: function (data, textStatus) &#123; //... 操作 data if (textStatus == "success") &#123; // 请求成功 longPolling(); &#125; &#125; &#125;); &#125;)();&#125;); 对比从兼容性角度考虑： 短轮询 &gt; 长轮询 &gt; 长连接SSE &gt; WebSocket。 从性能方面考虑： WebSocket &gt; 长连接SSE &gt; 长轮询 &gt; 短轮询。 参考websocket基础 通讯对比]]></content>
@@ -23,8 +43,8 @@
         <category>JAVA</category>
       </categories>
       <tags>
-        <tag>后端技术</tag>
         <tag>技术</tag>
+        <tag>后端技术</tag>
         <tag>JAVA</tag>
       </tags>
   </entry>
@@ -120,7 +140,7 @@
   </entry>
   <entry>
     <title><![CDATA[float 相关]]></title>
-    <url>%2F2019%2F03%2F28%2Ffloat%2F</url>
+    <url>%2F2019%2F03%2F28%2FcssFloat%2F</url>
     <content type="text"><![CDATA[float 相关定义float CSS属性指定一个元素应沿其容器的左侧或右侧放置，允许文本和内联元素环绕它。该元素从网页的正常流动(文档流)中移除，尽管仍然保持部分的流动性（与绝对定位相反） 如何定位当一个元素浮动之后，它会被移出正常的文档流，然后向左或者向右平移，一直平移直到碰到了所处的容器的边框，或者碰到另外一个浮动的元素。 理解display首先 float 属性会影响到页面的布局，所以涉及到一些 display 的一些块级元素（block），内联元素（inline）及内联块级（inline-block）的知识。 因为 float 元素 定义： “允许文本和内联元素环绕它” 可以使文本和兄弟内联元素环绕，也是设计该属性的初衷。 因为 float 元素定义： “该元素从网页的正常流动(文档流)中移除，尽管仍然保持部分的流动性” 对于该句我是这样理解的： 首先 block元素 的默认宽度是 width:auto; 自动调整宽度。在不带float的情况下，block元素 的宽度会自动调整至最大化占据整行，而float元素会自动调整至最小化，在不设置宽高的情况下会被内容撑起。 float元素仅会对自身（宽高默认自适应但可设置），文字及内联兄弟元素（inline元素）环绕，下一个兄弟float元素产生影响。 对于块级（block元素会另起一行）、兄弟父元素（忽略其高度） 及 父兄元素（相对父元素排列，与float元素无关）。 因此： 它会将 float 元素当做 display：block 元素去计算宽高（像是自动添加了 block 框），包裹性 即可设置宽高。 block元素默认高度也是 height:auto 由内容撑起，在计算高度（height 值）时，会忽略浮动的元素的高度，而基于此父元素的下一个文档流的父兄弟元素就也会忽略该浮动元素，及为其父亲 带来 高度塌陷问题。 float 特性总结img div float 使用 float 可以带来 ： 将元素浮向左或右、宽高默认自适应、文字及内联元素环绕、包裹性（可设置宽高）、高度塌陷（高度被父忽略）。 清除浮动为什么要清除浮动根据 float 的 特性，当这些特性影响了我们的布局，即，超出了我们的设计的预期时，我们就想要清除浮动。主要是为了解决 清除文字环绕，和高度塌陷带来的布局问题。 如何清除 利用 clear 属性 利用 BFC 全文参考 float：https://developer.mozilla.org/zh-CN/docs/CSS/floatdisplay：https://developer.mozilla.org/zh-CN/docs/Web/CSS/displayposition：https://developer.mozilla.org/zh-CN/docs/Web/CSS/position#Absolute_positioning块级元素：&lt;https://developer.mozilla.org/zh-CN/docs/Web/HTML/Block-level_elements float对内联元素和块元素的影响 清除浮动的四种方式及其原理理解 完全理解float之“不完全脱离文档流” 理解为何需要清除浮动及清除浮动的方法 行内元素在为什么设置浮动后可以设置高宽 inline-block和float的共性和区别]]></content>
       <categories>
         <category>技术</category>
@@ -159,8 +179,8 @@
         <category>README</category>
       </categories>
       <tags>
-        <tag>node.js 技术栈</tag>
         <tag>后端技术</tag>
+        <tag>node.js 技术栈</tag>
         <tag>Express 框架</tag>
         <tag>mongoDB 数据库</tag>
       </tags>
