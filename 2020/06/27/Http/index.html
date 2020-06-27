@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/zhong_logo.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/zhong_logo.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端,前端通信,HTTP,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="F-lancer" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="HTTPTCP：TCP头和数据部分。 HTTP：header + body 结构。 1起始行 + 头部 + 空行 + 实体">
+<meta name="keywords" content="前端,前端通信,HTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP">
+<meta property="og:url" content="http://yoursite.com/2020/06/27/Http/index.html">
+<meta property="og:site_name" content="F-lancer">
+<meta property="og:description" content="HTTPTCP：TCP头和数据部分。 HTTP：header + body 结构。 1起始行 + 头部 + 空行 + 实体">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2020/3/22/170ffd677629b70d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:updated_time" content="2020-06-27T13:37:46.090Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTTP">
+<meta name="twitter:description" content="HTTPTCP：TCP头和数据部分。 HTTP：header + body 结构。 1起始行 + 头部 + 空行 + 实体">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2020/3/22/170ffd677629b70d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/06/27/Http/">
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "d39ddd02"
+    });
+  daovoice('update');
+  </script>
+
+
+
+  <title>HTTP | F-lancer</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/F-lancer" class="github-corner" aria-label="View source on GitHub">
+		<svg width="80" height="80" viewbox="0 0 250 250" style="fill:transparent; z-index:1; color:#151513; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">F-lancer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">阿忠</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            links
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/27/Http/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿忠">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/mephoto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="F-lancer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTTP</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-27T21:35:00+08:00">
+                2020-06-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-06-27T21:37:46+08:00">
+                2020-06-27
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端通信/" itemprop="url" rel="index">
+                    <span itemprop="name">前端通信</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端通信/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端通信/前端/HTTP/" itemprop="url" rel="index">
+                    <span itemprop="name">HTTP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/06/27/Http/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/06/27/Http/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>times
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  4.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  15
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><p>TCP：TCP头和数据部分。</p>
+<p>HTTP：<code>header + body</code> 结构。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">起始行 + 头部 + 空行 + 实体</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="起始行"><a href="#起始行" class="headerlink" title="起始行"></a>起始行</h2><ol>
+<li>请求报文，方法 + 路径 + http版本，例：<code>GET /home HTTP/1.1</code>。</li>
+<li>响应报文，http版本 + 状态码 + 原因，例：<code>HTTP/1.1 200 OK</code>。</li>
+</ol>
+<h2 id="头部"><a href="#头部" class="headerlink" title="头部"></a>头部</h2><ol>
+<li>涉及诸多特性</li>
+</ol>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers</a></p>
+</blockquote>
+<ol start="2">
+<li>头部字段格式<ul>
+<li>字段名不区分大小写。</li>
+<li>字段名不允许出现空格，不可以出现下划线<code>_</code>。</li>
+<li>字段名后面必须紧接着<code>：</code>。</li>
+</ul>
+</li>
+</ol>
+<h2 id="空行"><a href="#空行" class="headerlink" title="空行"></a>空行</h2><p>用来区分开<code>头部</code> 和 <code>实体</code>。</p>
+<blockquote>
+<p>问：如果说在头部中间故意加一个空行会怎么样？</p>
+<p>答：空行后的内容全部被视为实体。</p>
+</blockquote>
+<h2 id="实体"><a href="#实体" class="headerlink" title="实体"></a>实体</h2><p><code>body</code>部分，具体数据。分别对应 请求体 和 响应体。</p>
+<h1 id="理解请求方法"><a href="#理解请求方法" class="headerlink" title="理解请求方法"></a>理解请求方法</h1><p>前端涉及的最多的就是请求头中的请求方法。</p>
+<ol>
+<li>GET：获取资源。</li>
+<li>HEAD：获取资源的元信息。</li>
+<li>POST：提交数据，即上传数据。</li>
+<li>PUT：修改数据。</li>
+<li>DELETE：删除资源。</li>
+<li>CONNECT：建立隧道，用于代理服务器（？）。</li>
+<li>OPTIONS：列出对资源实行的请求方法，用来跨域请求（？）。</li>
+<li>TRACE：追踪请求-响应的传输路径。</li>
+</ol>
+<h2 id="GET-POST区别"><a href="#GET-POST区别" class="headerlink" title="GET/POST区别"></a>GET/POST区别</h2><ol>
+<li>语义。</li>
+<li>缓存：GET请求会被浏览器主动缓存下来留下历史记录，POST不会。</li>
+<li>编码：GET 只能进行 URL 编码，只能接收 ASCII 字符，而 POST 没有限制。</li>
+<li>参数：GET 一般放在 URL 中，因此不安全，POST 放在请求体中，更适合传输敏感信息。</li>
+<li>幂等性：GET 是<strong>幂等</strong>的，而POST不是。(<strong>幂等</strong>表示执行相同的操作，结果也是相同的)</li>
+<li>TCP：GET 请求会把请求报文一次性发出去，而 POST 会分为两个 TCP 数据包，首先发 header 部分，如果服务器响应 100(continue)， 然后发 body 部分。(<strong>火狐</strong>浏览器除外，它的 POST 请求只发一个 TCP 包)</li>
+</ol>
+<h1 id="URI"><a href="#URI" class="headerlink" title="URI"></a>URI</h1><p><img src="https://user-gold-cdn.xitu.io/2020/3/22/170ffd677629b70d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<ol>
+<li><strong>scheme</strong> 表示协议名，比如<code>http</code>, <code>https</code>, <code>file</code>等等。后面必须和<code>://</code>连在一起。</li>
+<li><strong>user:passwd</strong>@ 表示登录主机时的用户信息，不过很不安全，不推荐使用，也不常用。</li>
+<li><strong>host:port </strong>表示主机名和端口。</li>
+<li><strong>path </strong>表示请求路径，标记资源所在位置。</li>
+<li><strong>query </strong> 表示查询参数，为<code>key=val</code>这种形式，多个键值对之间用<code>&amp;</code>隔开。</li>
+<li><strong>fragment</strong> 表示 URI 所定位的资源内的一个<strong>锚点</strong>，浏览器可以根据这个锚点跳转到对应的位置。</li>
+</ol>
+<h2 id="URI编码"><a href="#URI编码" class="headerlink" title="URI编码"></a>URI编码</h2><p>URI 只能使用<code>ASCII</code>, ASCII 之外的字符是不支持显示的，而且还有一部分符号是界定符，如果不加以处理就会导致解析出错。</p>
+<p>因此，URI 引入了<code>编码</code>机制，将所有<strong>非 ASCII 码字符</strong>和<strong>界定符</strong>转为十六进制字节值，然后在前面加个<code>%</code>。</p>
+<h1 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h1><p>略。</p>
+<h1 id="HTTP特点"><a href="#HTTP特点" class="headerlink" title="HTTP特点"></a>HTTP特点</h1><p>优点：</p>
+<ol>
+<li>灵活可扩展。</li>
+<li>可靠传输。</li>
+<li>请求-应答。</li>
+<li>无状态。</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>需要长连接的场景中，无状态就是缺点。</li>
+<li>明文传输，（WIFI陷阱？）</li>
+<li>队头阻塞问题。</li>
+</ol>
+<h1 id="Accept系列字段"><a href="#Accept系列字段" class="headerlink" title="Accept系列字段"></a>Accept系列字段</h1><p>指定了，<strong>数据格式</strong>、<strong>压缩方式</strong>、<strong>支持语言</strong>、<strong>字符集</strong>。</p>
+<h1 id="定长和不定长数据"><a href="#定长和不定长数据" class="headerlink" title="定长和不定长数据"></a>定长和不定长数据</h1><h2 id="定长包体"><a href="#定长包体" class="headerlink" title="定长包体"></a>定长包体</h2><p>发送端头部会带上 <code>content-Length</code>，来指定包体的长度。</p>
+<p><code>Content-Length</code> 对于http 传输过程起到了十分关键的作用，如果设置不当可以直接导致传输的失败。</p>
+<h2 id="不定长包体"><a href="#不定长包体" class="headerlink" title="不定长包体"></a>不定长包体</h2><p>利用头部字段 <code>Transfer-Encoding:chunked</code> 表示分块传输数据，设置这个字段会产生两个效果：</p>
+<ol>
+<li>Content-Length 字段会被忽略。</li>
+<li>基于<strong>长连接</strong>持续推送动态的内容。</li>
+</ol>
+<h1 id="处理大文件传输"><a href="#处理大文件传输" class="headerlink" title="处理大文件传输"></a>处理大文件传输</h1><p>采取 <strong>范围请求</strong> ，允许客户端仅仅请求一个资源的一部分。</p>
+<h2 id="范围请求—服务端"><a href="#范围请求—服务端" class="headerlink" title="范围请求—服务端"></a>范围请求—服务端</h2><p>添加响应头 <code>Accept-Ranges: none</code> 用来告知客户端支持范围请求。</p>
+<h2 id="范围请求—客户端"><a href="#范围请求—客户端" class="headerlink" title="范围请求—客户端"></a>范围请求—客户端</h2><p>客户端需要指定请求哪一部分，通过 <code>Range</code> 这个请求头字段，格式为 <code>bytes=x-y</code>：</p>
+<ul>
+<li><strong>0-499</strong>表示从开始到第 499 个字节。</li>
+<li><strong>500</strong>- 表示从第 500 字节到文件终点。</li>
+<li><strong>-100</strong>表示文件的最后100个字节。</li>
+</ul>
+<p>服务端验证是否合法，越界报 <code>416</code> ，否则读取相应片段，返回<code>206</code>状态码。</p>
+<h3 id="响应格式"><a href="#响应格式" class="headerlink" title="响应格式"></a>响应格式</h3><p>响应格式分为，单/多段数据</p>
+<p>服务端添加字段 <code>Content-Range</code> 字段：</p>
+<p>请求头：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单段数据</span></span><br><span class="line">Range: bytes=<span class="number">0</span><span class="number">-9</span></span><br><span class="line"><span class="comment">// 多段数据</span></span><br><span class="line">Range: bytes=<span class="number">0</span><span class="number">-9</span>, <span class="number">30</span><span class="number">-39</span></span><br></pre></td></tr></table></figure>
+<p>响应头：单段数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTTP/<span class="number">1.1</span> <span class="number">206</span> Partial Content</span><br><span class="line">Content-Length: <span class="number">10</span></span><br><span class="line">Accept-Ranges: bytes</span><br><span class="line">Content-Range: bytes <span class="number">0</span><span class="number">-9</span>/<span class="number">100</span>        <span class="comment">// 0-9表示请求的返回，100表示资源的总大小</span></span><br></pre></td></tr></table></figure>
+<p>多段数据：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">HTTP/<span class="number">1.1</span> <span class="number">206</span> Partial Content</span><br><span class="line">Content-Type: multipart/byteranges; boundary=<span class="number">00000010101</span></span><br><span class="line">Content-Length: <span class="number">189</span></span><br><span class="line">Connection: keep-alive</span><br><span class="line">Accept-Ranges: bytes</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-<span class="number">-00000010101</span></span><br><span class="line">Content-Type: text/plain</span><br><span class="line">Content-Range: bytes <span class="number">0</span><span class="number">-9</span>/<span class="number">96</span></span><br><span class="line"></span><br><span class="line">i am xxxxx</span><br><span class="line">-<span class="number">-00000010101</span></span><br><span class="line">Content-Type: text/plain</span><br><span class="line">Content-Range: bytes <span class="number">20</span><span class="number">-29</span>/<span class="number">96</span></span><br><span class="line"></span><br><span class="line">eex jspy e</span><br><span class="line">-<span class="number">-00000010101</span>--</span><br></pre></td></tr></table></figure>
+<p><code>Content-Type: multipart/byteranges;boundary=00000010101</code>，它代表了信息量是这样的:</p>
+<ul>
+<li>请求一定是多段数据请求</li>
+<li>响应体中的分隔符是 00000010101</li>
+</ul>
+<p>因此，在响应体中各段数据之间会由这里指定的分隔符分开，而且在最后的分隔末尾添上 <code>--</code> 表示结束。</p>
+<h1 id="HTTP处理表单提交"><a href="#HTTP处理表单提交" class="headerlink" title="HTTP处理表单提交"></a>HTTP处理表单提交</h1><p>利用 <code>Content-Type</code> ，根据取值不同有两种方法：</p>
+<ul>
+<li>application/x-www-form-urlencoded</li>
+<li>multipart/form-data</li>
+</ul>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p><code>application/x-www-form-urlencoded</code> ：</p>
+<ol>
+<li>数据会被编码成以 <code>&amp;</code> 分隔的键值对。</li>
+<li>字符以URL编码方式编码。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 转换过程: &#123;a: 1, b: 2&#125; -&gt; a=1&amp;b=2 -&gt; 如下(最终形式)</span></span><br><span class="line"><span class="string">"a%3D1%26b%3D2"</span></span><br></pre></td></tr></table></figure>
+<p><code>multipart/form-data</code>：</p>
+<p>每个表单元素都是独立的资源表述。（略）</p>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><p>实际场景中，对于 <strong>图片等文件的上传</strong> ，基本采用 <code>multipart/form-data</code> 而不用 <code>application/x-www-form-urlencoded</code>，因为没有必要做 URL 编码，带来巨大耗时的同时也占用更多的空间。</p>
+<h1 id="解决队头阻塞问题"><a href="#解决队头阻塞问题" class="headerlink" title="解决队头阻塞问题"></a>解决队头阻塞问题</h1><h2 id="队头阻塞"><a href="#队头阻塞" class="headerlink" title="队头阻塞"></a>队头阻塞</h2><p>HTTP 传输是基于 <strong>请求-应答</strong> 的模式进行，报文必须是一发一收，里面的任务被放到了一个任务队列中串行执行，一旦对首的请求处理太慢就会阻塞后面的请求处理。</p>
+<h2 id="并发连接"><a href="#并发连接" class="headerlink" title="并发连接"></a>并发连接</h2><p>对于一个域名允许分配多个长连接，相当于增加了任务队列，不至于一个队伍的任务阻塞了其它所有的任务，现代浏览器的标准中，可以并发许多，Chrome上限是6个。</p>
+<h2 id="域名分片"><a href="#域名分片" class="headerlink" title="域名分片"></a>域名分片</h2><p>一个域名并发6个长连接，一个域名下可以分出多个二级域名，它们都指向同样的一台服务器，能够并发的长连接数就更多了。</p>
+<h1 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h1><h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>Cookie 的有效期通过属性 <strong>Expires</strong> 和 <strong>Max-Age</strong> 两个属性设置。</p>
+<ol>
+<li><strong>Expires</strong>：表示过期时间。</li>
+<li><strong>Max-Age</strong>：用的是一段时间间隔，单位是秒，从浏览器收到报文开始计算。</li>
+</ol>
+<p>如果 Cookie 过期，则会被删除，也就不会发送到服务端。</p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>绑定了域名和路径的两个属性：</p>
+<ol>
+<li><strong>Domain</strong>：绑定了域名。</li>
+<li><strong>path</strong>：绑定了路径。对于路径来说，<code>/</code>表示任意路径下都可以使用。</li>
+</ol>
+<p>如果发现域名或者路径不匹配，就不会带上Cookie。</p>
+<h2 id="安全相关"><a href="#安全相关" class="headerlink" title="安全相关"></a>安全相关</h2><ol>
+<li><p><strong>Secure</strong>：如果带上 Secure，说明只能通过 HTTPS 传输 cookie。</p>
+</li>
+<li><p><strong>HttpOnly</strong>：说明只能通过 HTTP 协议传输，不能通过 JS 访问，这是预防 <strong>XSS</strong> 攻击的重要手段。</p>
+</li>
+<li><p>SameSite：为了防御 CSRF 的攻击。一共有三个属性：</p>
+<ul>
+<li>Strict，浏览器完全禁止三方请求携带 Cookie，该网站只能在其自己的域名下携带 Cookie ，在其他情况下均不能。</li>
+<li>Lax，只能在<code>get方法提交表单</code> 时，或 <code>a 标签发送 get 请求</code> 的情况下可以携带 Cookie ，其他情况不能。</li>
+<li>None，默认模式，请求会自动携带 Cookie。</li>
+</ul>
+</li>
+</ol>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ol>
+<li>容量。Cookie 的体积上限只有 4KB，只能存储少量的信息。</li>
+<li>性能。请求会携带上完整的Cookie，随着请求数的增多，携带了很多不必要的内容，造成了巨大的性能浪费，可以通过 <code>Domain</code> 和 <code>Path</code> 指定作用域来解决。</li>
+<li>安全缺陷。Cookie 以纯文本的形式在浏览器和服务器中传递，很容易被非法用户截获，在有效期内重新发送给服务器是危险的。另外，在HttpOnly 为 false 时，Cookie 信息能直接通过 JS 脚本来读取。</li>
+</ol>
+<h1 id="HTTP代理"><a href="#HTTP代理" class="headerlink" title="HTTP代理"></a>HTTP代理</h1><p>HTTP 是基于 <code>请求-响应</code> 模型，引入代理服务器，代理服务器可以向客户端进行进行响应，对服务端进行请求。</p>
+<h2 id="代理服务器功能"><a href="#代理服务器功能" class="headerlink" title="代理服务器功能"></a>代理服务器功能</h2><ol>
+<li>负载均衡，代理服务器可以通过特定的算法将请求分发送给不同的源服务器，使各源服务器尽量达到负载均衡。</li>
+<li>保障安全，利用心跳机制监控后台的服务器，保障运行。对非法 IP 进行限流，对上下行的数据进行过滤，等。</li>
+<li>缓存代理，将内容缓存到代理服务器，使得客户端可直接从代理服务器获得，不必再去源服务器。</li>
+</ol>
+<h2 id="相关头部"><a href="#相关头部" class="headerlink" title="相关头部"></a>相关头部</h2><h3 id="via"><a href="#via" class="headerlink" title="via"></a>via</h3><p>代理服务器需要标明自己的身份，在 HTTP 传输中留下自己的痕迹，就通过 Via 字段来记录。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 客户端 -&gt; 代理1 -&gt; 代理2 -&gt; 源服务器</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 服务端拿到的 请求头</span></span><br><span class="line">Via: proxy_server1, proxy_server2</span><br><span class="line"></span><br><span class="line"><span class="comment">// 客户端拿到的 响应头</span></span><br><span class="line">Via: proxy_server2, proxy_server1</span><br></pre></td></tr></table></figure>
+<p>Via 中代理的顺序即为在HTTP传输中报文传达的顺序。</p>
+<h3 id="X-Forwarded-For"><a href="#X-Forwarded-For" class="headerlink" title="X-Forwarded-For"></a>X-Forwarded-For</h3><p>该字段记录了请求方的IP地址。</p>
+<p>仅仅记录的是上一个请求方的一个 <code>IP</code>，会带来两个问题：</p>
+<ol>
+<li>代理必须解析 HTTP 请求头，然后修改，比直接转发数据性能下降。</li>
+<li>HTTPS 通信加密的过程中，原始报文不允许修改。</li>
+</ol>
+<p>解决：使用 <strong>代理协议</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// PROXY + TCP4/TCP6 + 请求方地址 + 接收方地址 + 请求端口 + 接收端口</span></span><br><span class="line">PROXY TCP4 <span class="number">0.0</span><span class="number">.0</span><span class="number">.1</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.2</span> <span class="number">1111</span> <span class="number">2222</span></span><br><span class="line">GET / HTTP/<span class="number">1.1</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="X-Real-IP"><a href="#X-Real-IP" class="headerlink" title="X-Real-IP"></a>X-Real-IP</h3><p>获取用户真实IP的字段，不管中间经过多少代理，该字段始终记录最初的客户端的IP。</p>
+<blockquote>
+<p><code>X-Forwarded-Host</code> 和 <code>X-Forwarded-Proto</code>，分别记录<strong>客户端</strong>(不包括代理)的 <code>域名</code> 和 <code>协议名</code>。</p>
+</blockquote>
+<h1 id="HTTP缓存及缓存代理"><a href="#HTTP缓存及缓存代理" class="headerlink" title="HTTP缓存及缓存代理"></a>HTTP缓存及缓存代理</h1><h2 id="强缓存和协商缓存"><a href="#强缓存和协商缓存" class="headerlink" title="强缓存和协商缓存"></a>强缓存和协商缓存</h2><p><code>Cache-Control</code> 验证强缓存是否可用：</p>
+<ol>
+<li><p>强缓存可用直接使用。</p>
+</li>
+<li><p>强缓存不可用，进入协商缓存，即发送 HTTP 请求，服务器通过请求头中的 <code>If-Modified-Since</code> 或者 <code>If-None-Match</code> 这些条件请求字段检查资源更新。</p>
+<ul>
+<li>若资源更新，返回资源和200状态码。</li>
+<li>否则，返回304，告诉浏览器直接从缓存获取资源。</li>
+</ul>
+</li>
+</ol>
+<h2 id="代理缓存"><a href="#代理缓存" class="headerlink" title="代理缓存"></a>代理缓存</h2><p>源服务器存在缓存，比如，<strong>Redis，Memcache</strong>，但是对于 HTTP 缓存来说，如果每次客户端缓存失效都要到源服务器获取，给与源服务器压力过大。</p>
+<p>引入代理缓存机制，客户端缓存过期去代理缓存获取，代理缓存过期去源服务器获取。</p>
+<p>代理缓存可以由源服务器端控制，也可以由客户端控制。</p>
+<h3 id="源服务器控制"><a href="#源服务器控制" class="headerlink" title="源服务器控制"></a>源服务器控制</h3><p>根据 <strong>Cache-Control</strong> 中的取值不同，进行控制：</p>
+<ol>
+<li>private：禁止代理服务器缓存。</li>
+<li>public：允许代理服务器缓存。</li>
+<li>must-revalidate：表示看客户端缓存过期后去源服务器获取。</li>
+<li>proxy-revalidate：表示代理服务器的缓存过期后到源服务器获取。</li>
+<li>s-maxage：限定了缓存在代理服务器中可以存放多久。</li>
+<li>max-age：限制了客户端缓存时间。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Cache-Control: public, max-age=<span class="number">1000</span>, s-maxage=<span class="number">2000</span></span><br><span class="line"><span class="comment">// 表示可以使用代理缓存，客户端缓存 1000s，代理缓存 2000s</span></span><br></pre></td></tr></table></figure>
+<h3 id="客户端的缓存控制"><a href="#客户端的缓存控制" class="headerlink" title="客户端的缓存控制"></a>客户端的缓存控制</h3><p><code>max-stale：5</code>，表示代理缓存过期了，但在5s之内依然可以使用。</p>
+<p><code>max-fresh: 5</code>，表示要在缓存到期前5s内才可以拿去使用。保证了代理缓存的新鲜度。</p>
+<p><code>only-if-cached</code>，表示客户端只接受代理缓存，代理缓存无效直接返回504（gateway Timeout）。</p>
+<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><p>跨域，即scheme（协议）、host（主机）、port（端口）相同即为“同源”。</p>
+<p>同源策略做出了如下限制：</p>
+<ol>
+<li>不能读取和修改对方DOM。</li>
+<li>不能访问对方的 Cookie、IndexDB、LocalStorage。</li>
+<li>限制 XMLHttpRequest 请求。</li>
+</ol>
+<p>跨域请求一般响应是成功到达客户端了，但是会被浏览器拦截。</p>
+<h2 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h2><p>网络进程将数据传递给主进程，主进程接收后发出网络请求，服务端处理完数据后返回，主进程检查到跨域，并且没有 <code>cors</code> 响应头，则将响应体全部丢掉，不会发送给渲染进程，从而达到了拦截的目的。</p>
+<h2 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h2><p>CORS，跨域资源共享。</p>
+<h3 id="简单请求-非简单请求"><a href="#简单请求-非简单请求" class="headerlink" title="简单请求/非简单请求"></a>简单请求/非简单请求</h3><ol>
+<li>请求方法为 GET、POST、HEAD。</li>
+<li>请求头的取值范围：Accept，Accept-Language、Content-Language、Content-Type（只限于三个值，<code>application/x-www-from-urlencoded</code>、<code>multipart/form-data</code>、<code>text/plain</code>）。</li>
+</ol>
+<p>浏览器将满足上述条件称为 <strong>简单请求</strong>，否则为 <strong>非简单请求</strong>。</p>
+<h4 id="简单请求"><a href="#简单请求" class="headerlink" title="简单请求"></a>简单请求</h4><p>请求头：</p>
+<ol>
+<li><code>Origin</code>：该字段会自动被添加到请求头，用来说明请求来自哪个源。</li>
+</ol>
+<p>响应头：</p>
+<ol>
+<li><code>Access-Control-Allow-Origin</code>：服务器拿到<code>Origin</code>字段，对应添加该字段，如果<code>Origin</code>不在这个字段里，将会被拦截。</li>
+</ol>
+<p>其它可选：</p>
+<ol>
+<li><p><code>Access-Control-Allow-Credentials</code>：布尔值，表示是否允许发送Cookie，对于跨域请求，浏览器默认设置为<code>false</code>，如果需要拿到Cookie，需要添加该响应头并设为 <code>true</code> ，前端需要设置 <code>withCredentials</code> 属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.withCredentials = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Access-Control-Expose-Headers</code>：给 <code>XMLHttpRequest</code> 对象赋能，包括，<code>Cache-Control</code>/<code>Content-Language</code>/<code>Content-Type</code>/<code>Expires</code>/<code>Last-Modified</code>/<code>Pragma</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Access-Control-Expose-Headers: aaa</span></span><br><span class="line">XMLHttpRequest.getResponseHeader(<span class="string">'aaa'</span>) <span class="comment">// 前端可以拿到 aaa 这个字段的值。</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="非简单请求"><a href="#非简单请求" class="headerlink" title="非简单请求"></a>非简单请求</h4><p>非简单请求有两点不同：<strong>预检请求</strong>和<strong>响应字段</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="string">'http://xxx.com'</span>;</span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">'PUT'</span>, url, <span class="literal">true</span>);</span><br><span class="line">xhr.setRequestHeader(<span class="string">'X-Custom-Header'</span>, <span class="string">'xxx'</span>);</span><br><span class="line">xhr.send();</span><br></pre></td></tr></table></figure>
+<p>发送预检请求，请求格式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">OPTIONS / HTTP/<span class="number">1.1</span>                        <span class="comment">// 请求方法</span></span><br><span class="line">Origin: 当前地址                           <span class="comment">// 源地址</span></span><br><span class="line">Host: xxx.com                             <span class="comment">// 目标地址</span></span><br><span class="line">Access-Control-Request-Method: PUT        <span class="comment">// CORS 请求用到哪个方法</span></span><br><span class="line">Access-Control-Request-Headers: X-Custom-Header    <span class="comment">// CORS 请求要加上什么请求</span></span><br></pre></td></tr></table></figure>
+<p>预检请求的响应：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</span><br><span class="line">Access-Control-Allow-Origin: *              <span class="comment">// 表示允许请求的源，`*`表示允许任意源请求</span></span><br><span class="line">Access-Control-Allow-Methods: GET, POST, PUT  <span class="comment">// 表示允许的请求方法列表</span></span><br><span class="line">Access-Control-Allow-Headers: X-Custom-Header  <span class="comment">// 表示允许发送的请求头字段</span></span><br><span class="line">Access-Control-Allow-Credentials: <span class="literal">true</span>      <span class="comment">// 表示是否允许发送 Cookie</span></span><br><span class="line">Access-Control-Max-Age: <span class="number">1728000</span>             <span class="comment">// 预检请求的有效期，在此期间不用发出另外的检测请求</span></span><br><span class="line">Content-Type: text/html; charset=utf<span class="number">-8</span></span><br><span class="line">Content-Encoding: gzip</span><br><span class="line">Content-Length: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>预检请求的响应返回后，如果请求不满足响应头的条件，会触发XMLHttpRequest 的onerror方法，后面真正的 CORS请求将不会发出去。</p>
+<h3 id="CORS-1"><a href="#CORS-1" class="headerlink" title="CORS"></a>CORS</h3><p>后续请求将和简单请求情况一样，浏览器自动加上 <code>Origin</code> 字段…。</p>
+<h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p>略</p>
+<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><p>VPN是正向代理，VPN获取客户端无法获取的服务器的资源，然后客户端再从VPN获取，即为正向代理。</p>
+<p>而反向代理，主要是获取客户端的请求，分发给不同的服务器，以达到维持服务器的负载均衡的问题。</p>
+<p>正向代理是获取客户端获取不到的服务端资源。</p>
+<p>反向代理是将客户端的请求分发给不同的服务端处理。</p>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>WebSocket等…</p>
+<h1 id="TLS1-2"><a href="#TLS1-2" class="headerlink" title="TLS1.2"></a>TLS1.2</h1><p>HTTP是明文传输协议，传输报文对外透明，不安全。引入HTTPS：</p>
+<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2><p>HTTPS是在HTTP下增加了一层 <code>SSL/TLS</code> 协议。</p>
+<p>HTTP是明文通信，存在三个安全问题：</p>
+<ol>
+<li>明文可能会被窃听。需要进行通信加密和内容加密。</li>
+<li>不验证通信双方，可能遭遇伪装。可以利用 SSL 查明对手证书。</li>
+<li>无法证明报文完整性，可能已遭篡改。MD5/PGP防篡改。</li>
+</ol>
+<p>HTTS为解决这三个问题应运而生。</p>
+<h2 id="加密、解密、密钥"><a href="#加密、解密、密钥" class="headerlink" title="加密、解密、密钥"></a>加密、解密、密钥</h2><h3 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h3><p>加密、解密同用一个密钥被称为 <strong>共享密钥加密</strong> ，也称为 对称密钥加密。</p>
+<blockquote>
+<p>但是也要安全的传输密钥，否则一切就失去了意义。</p>
+</blockquote>
+<h3 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h3><p>利用公开密钥加密，私有密钥解密，解决密钥传输安全问题。</p>
+<h3 id="混合加密机制"><a href="#混合加密机制" class="headerlink" title="混合加密机制"></a>混合加密机制</h3><ol>
+<li>交换密钥利用公开密钥加密的方式。</li>
+<li>建立通信交换报文使用，共享密钥加密（对称加密）方式。</li>
+</ol>
+<p>即，在确保密钥安全的前提下进行对称加密通信。</p>
+<h1 id="TLS1-3改进"><a href="#TLS1-3改进" class="headerlink" title="TLS1.3改进"></a>TLS1.3改进</h1><p>待…</p>
+<h1 id="HTTP-2改进"><a href="#HTTP-2改进" class="headerlink" title="HTTP/2改进"></a>HTTP/2改进</h1><p>待…</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p>《图解HTTP》</p>
+</blockquote>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Overview" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Overview</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://juejin.im/post/5e76bd516fb9a07cce750746" target="_blank" rel="noopener">https://juejin.im/post/5e76bd516fb9a07cce750746</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+		
+	  <div>
+	    
+		    <div>
+    
+	    <div style="display: flex;justify-content: space-between;align-items: center;text-align:center;color:#555;font-size:14px;">
+		    <span style="flex-grow:10;">---</span>
+			<span style="flex-grow:10;">---</span>
+			<span>江郎o(╥﹏╥)o才尽</span>
+			<span style="flex-grow:10;">---</span>
+			<span style="flex-grow:10;">---</span>
+		</div>
+    
+</div>
+	    
+		</div>
+		
+    
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>I celebrate Chinese New Year every day, and I am still a baby</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="阿忠 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/mayi.jpg" alt="阿忠 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/前端通信/" rel="tag"># 前端通信</a>
+          
+            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/27/这是null/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/mephoto.jpg" alt="阿忠">
+            
+              <p class="site-author-name" itemprop="name">阿忠</p>
+              <p class="site-description motion-element" itemprop="description">对美好的事物无比贪婪</p>
+          </div>
+   
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/f-lancer" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1366719070@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Beautiful things
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.mvcat.com/" title="Movie" target="_blank">Movie</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://music.163.com/#/user/home?id=594502853" title="CouldMusic" target="_blank">CouldMusic</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.thepoemforyou.com/ruheshouting/2019nianbochudan/" title="为你读诗" target="_blank">为你读诗</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.nationalgeographic.com/" title="NGC" target="_blank">NGC</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP"><span class="nav-number">1.</span> <span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#起始行"><span class="nav-number">1.1.</span> <span class="nav-text">起始行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#头部"><span class="nav-number">1.2.</span> <span class="nav-text">头部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#空行"><span class="nav-number">1.3.</span> <span class="nav-text">空行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实体"><span class="nav-number">1.4.</span> <span class="nav-text">实体</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理解请求方法"><span class="nav-number">2.</span> <span class="nav-text">理解请求方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GET-POST区别"><span class="nav-number">2.1.</span> <span class="nav-text">GET/POST区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#URI"><span class="nav-number">3.</span> <span class="nav-text">URI</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#URI编码"><span class="nav-number">3.1.</span> <span class="nav-text">URI编码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#状态码"><span class="nav-number">4.</span> <span class="nav-text">状态码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP特点"><span class="nav-number">5.</span> <span class="nav-text">HTTP特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Accept系列字段"><span class="nav-number">6.</span> <span class="nav-text">Accept系列字段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定长和不定长数据"><span class="nav-number">7.</span> <span class="nav-text">定长和不定长数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定长包体"><span class="nav-number">7.1.</span> <span class="nav-text">定长包体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不定长包体"><span class="nav-number">7.2.</span> <span class="nav-text">不定长包体</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理大文件传输"><span class="nav-number">8.</span> <span class="nav-text">处理大文件传输</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#范围请求—服务端"><span class="nav-number">8.1.</span> <span class="nav-text">范围请求—服务端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范围请求—客户端"><span class="nav-number">8.2.</span> <span class="nav-text">范围请求—客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#响应格式"><span class="nav-number">8.2.1.</span> <span class="nav-text">响应格式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP处理表单提交"><span class="nav-number">9.</span> <span class="nav-text">HTTP处理表单提交</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">9.1.</span> <span class="nav-text">特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对比"><span class="nav-number">9.1.1.</span> <span class="nav-text">对比</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决队头阻塞问题"><span class="nav-number">10.</span> <span class="nav-text">解决队头阻塞问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#队头阻塞"><span class="nav-number">10.1.</span> <span class="nav-text">队头阻塞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发连接"><span class="nav-number">10.2.</span> <span class="nav-text">并发连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域名分片"><span class="nav-number">10.3.</span> <span class="nav-text">域名分片</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookie"><span class="nav-number">11.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期"><span class="nav-number">11.1.</span> <span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-number">11.2.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全相关"><span class="nav-number">11.3.</span> <span class="nav-text">安全相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点"><span class="nav-number">11.4.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP代理"><span class="nav-number">12.</span> <span class="nav-text">HTTP代理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代理服务器功能"><span class="nav-number">12.1.</span> <span class="nav-text">代理服务器功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关头部"><span class="nav-number">12.2.</span> <span class="nav-text">相关头部</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#via"><span class="nav-number">12.2.1.</span> <span class="nav-text">via</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#X-Forwarded-For"><span class="nav-number">12.2.2.</span> <span class="nav-text">X-Forwarded-For</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#X-Real-IP"><span class="nav-number">12.2.3.</span> <span class="nav-text">X-Real-IP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP缓存及缓存代理"><span class="nav-number">13.</span> <span class="nav-text">HTTP缓存及缓存代理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#强缓存和协商缓存"><span class="nav-number">13.1.</span> <span class="nav-text">强缓存和协商缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理缓存"><span class="nav-number">13.2.</span> <span class="nav-text">代理缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#源服务器控制"><span class="nav-number">13.2.1.</span> <span class="nav-text">源服务器控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端的缓存控制"><span class="nav-number">13.2.2.</span> <span class="nav-text">客户端的缓存控制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跨域"><span class="nav-number">14.</span> <span class="nav-text">跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#进程间通信"><span class="nav-number">14.1.</span> <span class="nav-text">进程间通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS"><span class="nav-number">14.2.</span> <span class="nav-text">CORS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单请求-非简单请求"><span class="nav-number">14.2.1.</span> <span class="nav-text">简单请求/非简单请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单请求"><span class="nav-number">14.2.1.1.</span> <span class="nav-text">简单请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非简单请求"><span class="nav-number">14.2.1.2.</span> <span class="nav-text">非简单请求</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CORS-1"><span class="nav-number">14.2.2.</span> <span class="nav-text">CORS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSONP"><span class="nav-number">14.3.</span> <span class="nav-text">JSONP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx"><span class="nav-number">14.4.</span> <span class="nav-text">Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它"><span class="nav-number">14.5.</span> <span class="nav-text">其它</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TLS1-2"><span class="nav-number">15.</span> <span class="nav-text">TLS1.2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS"><span class="nav-number">15.1.</span> <span class="nav-text">HTTPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加密、解密、密钥"><span class="nav-number">15.2.</span> <span class="nav-text">加密、解密、密钥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对称加密"><span class="nav-number">15.2.1.</span> <span class="nav-text">对称加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非对称加密"><span class="nav-number">15.2.2.</span> <span class="nav-text">非对称加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合加密机制"><span class="nav-number">15.2.3.</span> <span class="nav-text">混合加密机制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TLS1-3改进"><span class="nav-number">16.</span> <span class="nav-text">TLS1.3改进</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-2改进"><span class="nav-number">17.</span> <span class="nav-text">HTTP/2改进</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">18.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">阿忠</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">56.8k</span>
+  
+</div>
+
+
+  <span class="post-meta-divider">|</span>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://f-lancer.github.io/about/">阿忠</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      people
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      times
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sx1Q5KOcuvjmvHs4GxtXXEy6-gzGzoHsz',
+        appKey: 'u67OmJTqO64kTNYv8L8hxUSE',
+        placeholder: '小时候妈妈告诉我到别人家，要说两句才能走......ε=ε=ε=ε=ε=┌(;￣◇￣)┘',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
