@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/zhong_logo.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/zhong_logo.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计算机基础,技术,数据结构,算法,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="F-lancer" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="数据结构与算法数据结构、算法基础…….de复习~。">
+<meta name="keywords" content="计算机基础,技术,数据结构,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法">
+<meta property="og:url" content="http://yoursite.com/2020/06/28/数据结构与算法/index.html">
+<meta property="og:site_name" content="F-lancer">
+<meta property="og:description" content="数据结构与算法数据结构、算法基础…….de复习~。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-27T16:36:22.411Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构与算法">
+<meta name="twitter:description" content="数据结构与算法数据结构、算法基础…….de复习~。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/06/28/数据结构与算法/">
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "d39ddd02"
+    });
+  daovoice('update');
+  </script>
+
+
+
+  <title>数据结构与算法 | F-lancer</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/F-lancer" class="github-corner" aria-label="View source on GitHub">
+		<svg width="80" height="80" viewbox="0 0 250 250" style="fill:transparent; z-index:1; color:#151513; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">F-lancer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">阿忠</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            links
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/28/数据结构与算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿忠">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/mephoto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="F-lancer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据结构与算法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-28T00:35:00+08:00">
+                2020-06-28
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-06-28T00:36:22+08:00">
+                2020-06-28
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/计算机基础/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/06/28/数据结构与算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/06/28/数据结构与算法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>times
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h1><p>数据结构、算法基础…….<strong>de</strong>复习~。<a id="more"></a></p>
+<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><p>f(n) 的代码复杂度是f(n) —&gt;O(f(n))</p>
+<p><code>O(n)</code> 表示，复杂度与计算实例的个数 n 线性相关。</p>
+<p><code>O(logn)</code> 表示，复杂度与计算实例的个数 n 对数相关。</p>
+<h2 id="计算原则"><a href="#计算原则" class="headerlink" title="计算原则"></a>计算原则</h2><ol>
+<li>复杂度与具体的常系数无关。<ul>
+<li><code>O(2n)</code>与<code>O(n)</code>复杂度一致。</li>
+</ul>
+</li>
+<li>多项式级的复杂度相加的时候，选择高者作为结果。<ul>
+<li><code>O(n²)+O(n) = O(n²+n)</code></li>
+</ul>
+</li>
+<li><code>O(1)</code> 表示某任务通过有限可数的资源即可完成。</li>
+</ol>
+<blockquote>
+<p>定义一个新的空间与原空间一致，则空间复杂度为O(n)。未定义则为O(1)</p>
+</blockquote>
+<h2 id="复杂度与代码结构的关系"><a href="#复杂度与代码结构的关系" class="headerlink" title="复杂度与代码结构的关系"></a>复杂度与代码结构的关系</h2><p>时间复杂度与 <strong>代码的结构设计</strong> 有着非常紧密的关系。</p>
+<p>空间复杂度与 <strong>数据结构的设计</strong> 有关。</p>
+<blockquote>
+<p>常用的经验性结论：</p>
+<ol>
+<li>顺序结构的代码，事件复杂度为O(1)。</li>
+<li>二分查找，即，采用二分策略，时间复杂度为O(logn)。</li>
+<li>一个for循环，时间复杂度为O(n)。</li>
+<li>两个顺序执行的for循环也为O(n)。</li>
+<li>两个嵌套的for循环为O(n²) </li>
+</ol>
+</blockquote>
+<h2 id="降低复杂度"><a href="#降低复杂度" class="headerlink" title="降低复杂度"></a>降低复杂度</h2><ol>
+<li><p>梳理减除无效程序。</p>
+<ul>
+<li>常用 <strong>降低时间复杂度 </strong> 的方法有：递归、二分法、排序算法、动态规划等。</li>
+<li><strong>降低空间复杂度</strong> 的核心思路：尽量用低复杂度的数据结构解决问题。 </li>
+</ul>
+</li>
+<li><p>空间复杂度换取时间复杂度。</p>
+</li>
+</ol>
+<blockquote>
+<p>问：如何在一个无序数组中查找出出现次数最多的数字？</p>
+</blockquote>
+<h1 id="增删查"><a href="#增删查" class="headerlink" title="增删查"></a>增删查</h1><p>数据处理的操作，即：</p>
+<ol>
+<li>找到需要处理的数据。查。</li>
+<li>将结果存到新的内存空间。增。</li>
+<li>删除旧结果，将新的结果存入内存空间。删。</li>
+</ol>
+<blockquote>
+<p>遇到优化算法思路：</p>
+<ol>
+<li>分析代码对数据进行了哪些操作。</li>
+<li>根据分析出来的数据操作，找到合理的数据结构。</li>
+</ol>
+</blockquote>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><ol>
+<li>根据 <strong>元素的位置或索引</strong> 来进行查找。</li>
+<li>根据 <strong>元素的数值特征</strong> 来查找。</li>
+</ol>
+<p>例1：查找第几个元素？</p>
+<ol>
+<li><p>如果是数组，具有索引，查找第二个元素时间复杂度为 <code>O(1)</code>。</p>
+</li>
+<li><p>如果是链表，需要进行一个一个查找。时间复杂度为O(n)。</p>
+</li>
+</ol>
+<p>例2：查找等于 5 的元素？</p>
+<ol>
+<li><p>数组和链表都为O(n)。</p>
+</li>
+<li><p>能在O(1)的时间复杂度内完成查找动作的数据结构，只有<strong>字典类型</strong>。</p>
+</li>
+</ol>
+<h2 id="新增"><a href="#新增" class="headerlink" title="新增"></a>新增</h2><ol>
+<li>在复杂数据结构的最后，新增一条数据。</li>
+<li>在复杂数据结构的中间某个位置，新增一条数据。</li>
+</ol>
+<p>区别：新增了数据之后，是否会导致原有数据结构中数据的位置顺序改变。</p>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><ol>
+<li>在复杂数据结构的最后，删除一条数据。</li>
+<li>在复杂数据结构的中间某个位置，删除一条数据。</li>
+</ol>
+<p>区别：删除了数据之后，是否会导致原有数据结构中数据的位置顺序改变。</p>
+<h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><p>线性表是 n 个数据元素的有限序列，最常用的是链式表达，通常也叫作线性链表或者链表。数据元素也叫作结点，一个结点存储的就是一条数据记录。</p>
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="单项链表"><a href="#单项链表" class="headerlink" title="单项链表"></a>单项链表</h3><ol>
+<li>第一是具体的数据值。</li>
+<li>第二是指向下一个结点的指针。</li>
+<li>最后一个指向空。</li>
+</ol>
+<h3 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h3><ol>
+<li>对于单项链表，让最后一个元素的指针指向第一个元素就是循环链表。</li>
+</ol>
+<h3 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h3><ol>
+<li>除了指向下一个结点的指针，增加一个指向上一个结点的指针，就得到了双向链表。</li>
+</ol>
+<h3 id="双向循环链表"><a href="#双向循环链表" class="headerlink" title="双向循环链表"></a>双向循环链表</h3><ol>
+<li>将双向链表和循环列表融合。</li>
+</ol>
+<blockquote>
+<p>新增删除为O(1)，查找为O(n)。</p>
+</blockquote>
+<p>线性表真正的价值在于，它对数据的存储方式是按照顺序的存储：</p>
+<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><ol>
+<li>如果数据的元素个数不确定，且需要经常进行数据的新增和删除时，那么链表会比较合适。</li>
+<li>如果数据元素大小确定，删除插入的操作并不多，那么数组可能更适合些。</li>
+</ol>
+<blockquote>
+<p>问：</p>
+<ol>
+<li>链表反转？（对当前、前、后，元素进行缓存）</li>
+<li>奇数个元素链表，查找中间位置的结点数值？（暴力解法、快慢指针）</li>
+<li>判断链表是否有环？（快慢指针相遇）</li>
+</ol>
+</blockquote>
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>一种特殊的线性表。栈和线性表的不同主要是增删操作，栈必须先进后出，即，对线性表的操作进行了限制。</p>
+<h3 id="顺序栈"><a href="#顺序栈" class="headerlink" title="顺序栈"></a>顺序栈</h3><p>栈的顺序存储可以借助数组来实现：</p>
+<ol>
+<li>把数组的首元素存在栈底，最后一个元素放在栈顶。</li>
+<li>定义一个 top 指针来指示栈顶元素在数组中的位置。</li>
+<li>假设栈中只有一个数据元素，则 top = 0。一般以 top 是否为 -1 来判定是否为空栈。</li>
+<li>当定义了栈的最大容量为 StackSize 时，则栈顶 top 必须小于 StackSize。</li>
+<li>当需要新增数据元素，即入栈操作时，就需要将新插入元素放在栈顶，并将栈顶指针增加 1。</li>
+</ol>
+<blockquote>
+<ol>
+<li><p>JS 中可以用数组中的push和pop来模拟进栈出栈的操作。</p>
+</li>
+<li><p>对于栈的查找操作，也需要遍历整个栈来完成基于某些条件的数值查找。</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="链栈"><a href="#链栈" class="headerlink" title="链栈"></a>链栈</h3><p>用链表的方式对栈的表示。</p>
+<blockquote>
+<ol>
+<li><p>对于链栈新增删除没有进行循环操作都为O(1)，但只能在栈顶进行操作。</p>
+</li>
+<li><p>对于链栈的查找操作，也需要遍历整个栈来完成基于某些条件的数值查找。</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="适用场景-1"><a href="#适用场景-1" class="headerlink" title="适用场景"></a>适用场景</h3><ol>
+<li>当你面对的问题需要高频使用新增、删除操作，且新增和删除操作的数据执行顺序具备后来居上的相反关系时，栈就是个不错的选择。</li>
+</ol>
+<blockquote>
+<p>问：利用栈</p>
+<ol>
+<li>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。有效字符串需满足：左括号必须与相同类型的右括号匹配，左括号必须以正确的顺序匹配。</li>
+<li>浏览器的页面访问都包含了后退和前进功能，利用栈如何实现？（前进栈、后退栈）。</li>
+<li>大多数程序运行环境都有的子程序的调用，函数的递归调用。</li>
+</ol>
+</blockquote>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>待续</p>
+
+      
+    </div>
+    
+    
+    
+		
+	  <div>
+	    
+		    <div>
+    
+	    <div style="display: flex;justify-content: space-between;align-items: center;text-align:center;color:#555;font-size:14px;">
+		    <span style="flex-grow:10;">---</span>
+			<span style="flex-grow:10;">---</span>
+			<span>江郎o(╥﹏╥)o才尽</span>
+			<span style="flex-grow:10;">---</span>
+			<span style="flex-grow:10;">---</span>
+		</div>
+    
+</div>
+	    
+		</div>
+		
+    
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>I celebrate Chinese New Year every day, and I am still a baby</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="阿忠 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/mayi.jpg" alt="阿忠 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机基础/" rel="tag"># 计算机基础</a>
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/27/Http/" rel="next" title="HTTP">
+                <i class="fa fa-chevron-left"></i> HTTP
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/mephoto.jpg" alt="阿忠">
+            
+              <p class="site-author-name" itemprop="name">阿忠</p>
+              <p class="site-description motion-element" itemprop="description">对美好的事物无比贪婪</p>
+          </div>
+   
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/f-lancer" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1366719070@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Beautiful things
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.mvcat.com/" title="Movie" target="_blank">Movie</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://music.163.com/#/user/home?id=594502853" title="CouldMusic" target="_blank">CouldMusic</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.thepoemforyou.com/ruheshouting/2019nianbochudan/" title="为你读诗" target="_blank">为你读诗</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.nationalgeographic.com/" title="NGC" target="_blank">NGC</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构与算法"><span class="nav-number">1.</span> <span class="nav-text">数据结构与算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复杂度"><span class="nav-number">2.</span> <span class="nav-text">复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算原则"><span class="nav-number">2.1.</span> <span class="nav-text">计算原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂度与代码结构的关系"><span class="nav-number">2.2.</span> <span class="nav-text">复杂度与代码结构的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#降低复杂度"><span class="nav-number">2.3.</span> <span class="nav-text">降低复杂度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增删查"><span class="nav-number">3.</span> <span class="nav-text">增删查</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查找"><span class="nav-number">3.1.</span> <span class="nav-text">查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新增"><span class="nav-number">3.2.</span> <span class="nav-text">新增</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除"><span class="nav-number">3.3.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表"><span class="nav-number">4.</span> <span class="nav-text">线性表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#链表"><span class="nav-number">4.1.</span> <span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单项链表"><span class="nav-number">4.1.1.</span> <span class="nav-text">单项链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环链表"><span class="nav-number">4.1.2.</span> <span class="nav-text">循环链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向链表"><span class="nav-number">4.1.3.</span> <span class="nav-text">双向链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向循环链表"><span class="nav-number">4.1.4.</span> <span class="nav-text">双向循环链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景"><span class="nav-number">4.1.5.</span> <span class="nav-text">适用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栈"><span class="nav-number">4.2.</span> <span class="nav-text">栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序栈"><span class="nav-number">4.2.1.</span> <span class="nav-text">顺序栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链栈"><span class="nav-number">4.2.2.</span> <span class="nav-text">链栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景-1"><span class="nav-number">4.2.3.</span> <span class="nav-text">适用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#队列"><span class="nav-number">4.3.</span> <span class="nav-text">队列</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">阿忠</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">58.5k</span>
+  
+</div>
+
+
+  <span class="post-meta-divider">|</span>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://f-lancer.github.io/about/">阿忠</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      people
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      times
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sx1Q5KOcuvjmvHs4GxtXXEy6-gzGzoHsz',
+        appKey: 'u67OmJTqO64kTNYv8L8hxUSE',
+        placeholder: '小时候妈妈告诉我到别人家，要说两句才能走......ε=ε=ε=ε=ε=┌(;￣◇￣)┘',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
