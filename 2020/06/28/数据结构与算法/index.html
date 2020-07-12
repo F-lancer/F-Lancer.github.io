@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="F-lancer">
 <meta property="og:description" content="数据结构与算法数据结构、算法基础…….de复习~。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-07-06T04:54:10.247Z">
+<meta property="og:updated_time" content="2020-07-12T04:07:52.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法">
 <meta name="twitter:description" content="数据结构与算法数据结构、算法基础…….de复习~。">
@@ -375,8 +375,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-07-06T12:54:10+08:00">
-                2020-07-06
+              <time title="Post modified" itemprop="dateModified" datetime="2020-07-12T12:07:52+08:00">
+                2020-07-12
               </time>
             
           </span>
@@ -462,7 +462,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  3.2k
+                  5.2k
                 </span>
               
 
@@ -478,7 +478,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  11
+                  17
                 </span>
               
             </div>
@@ -772,7 +772,196 @@
 <blockquote>
 <p>对于没有任何特殊性质的二叉树而言，抛开遍历的时间复杂度以外，真正执行增加和删除操作的时间复杂度是 O(1)。树数据的查找操作和链表一样，都需要遍历每一个数据去判断，所以时间复杂度是 O(n)。</p>
 </blockquote>
-<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="二叉查找树的特性"><a href="#二叉查找树的特性" class="headerlink" title="二叉查找树的特性"></a>二叉查找树的特性</h3><p>待续</p>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="二叉查找树的特性"><a href="#二叉查找树的特性" class="headerlink" title="二叉查找树的特性"></a>二叉查找树的特性</h3><ol>
+<li>在二叉查找树中，<code>左边子结点的值 &lt; 该结点 &lt; 右子树结点的值</code> 。</li>
+<li>尽可能规避两个结点数值相等的情况（尽量？）。</li>
+<li>对二叉查找树中序遍历（左中右）即可得到一个从小到大的有序数据队列。</li>
+</ol>
+<h3 id="查找操作"><a href="#查找操作" class="headerlink" title="查找操作"></a>查找操作</h3><p>利用的是“二分查找”思想，时间复杂度为O(logn)：</p>
+<ol>
+<li>如果根节点即是查找数据，直接返回。</li>
+<li>如果大于根节点值，递归向右子树执行查找动作，直到叶子结点。</li>
+<li>如果小于根节点值，递归向左子树执行查找动作，直到叶子结点。</li>
+</ol>
+<h3 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h3><p>同样与根节点比大小，直到找到为空的子结点尝试插入操作。</p>
+<blockquote>
+<p>查找时间复杂度为O(logn)，插入操作时间复杂度为O(1)。</p>
+</blockquote>
+<h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><ol>
+<li>如果删除的是叶子结点，直接删除，父结点指向 null。</li>
+<li>如果要删除结点只有一个子结点，则直接删除，父结点直接指向删除结点的子结点。</li>
+<li>如果要删除的结点有两个子结点：<ul>
+<li>找到左子树最大的结点替换当前结点。</li>
+<li>找到右子树最小结点替换当前结点。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>左子树最大和右子树最小都是 “最中间” 的元素</p>
+</blockquote>
+<h2 id="案例-2"><a href="#案例-2" class="headerlink" title="案例"></a>案例</h2><ol>
+<li><p>输入字符串，判断它在已有的字符串集合中是否出现过？</p>
+<blockquote>
+<p>暴力解法。</p>
+<p>利用 Trie 树。Trie树特点：</p>
+<ol>
+<li>根结点不包含字符。</li>
+<li>一个结点一个字符。</li>
+<li>从根到叶构成一个字符串。</li>
+</ol>
+<p>步骤：构建 Trie 树，看是否可以走到叶子节点。</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="哈希"><a href="#哈希" class="headerlink" title="哈希"></a>哈希</h1><p>线性表在于顺序。数字字符串在于数据类型的统一。树在于层次结构。但是它们在按数值进行查找操作时都需要遍历。由此引入哈希（散列表）</p>
+<h2 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h2><p>采用了函数映射的思想，数组是通过索引和值形成一一对应的关系。哈希则是通过，哈希函数实现 <code>地址 = f(关键字)</code> 的映射关系。</p>
+<h3 id="哈希函数"><a href="#哈希函数" class="headerlink" title="哈希函数"></a>哈希函数</h3><p>因此哈希函数设计的好坏会直接影响到对哈希表的操作效率。</p>
+<p>设计哈希函数常用的方法：</p>
+<ol>
+<li>直接定址法。即哈希函数为，关键字到地址的线性函数。</li>
+<li>数字分析法。由均匀分布的特征值组成哈希地址。</li>
+<li>平方取中法。</li>
+<li>折叠法。</li>
+<li>除留余数法。</li>
+</ol>
+<h3 id="哈希冲突"><a href="#哈希冲突" class="headerlink" title="哈希冲突"></a>哈希冲突</h3><p>再者，哈希函数存在哈希冲突，即通过哈希函数的映射，将多个关键字映射到了同一个地方，这个现象称为：哈希冲突。</p>
+<p>解决哈希冲突的常用方法：</p>
+<ol>
+<li>开放定址法：<ul>
+<li>线性探测法</li>
+</ul>
+</li>
+<li>链地址法</li>
+</ol>
+<blockquote>
+<p>哈希表对于顺序是不敏感的，且key值是不允许重复的，在重复性高的数据中，哈希表不是好多选择。</p>
+</blockquote>
+<h2 id="基本操作-2"><a href="#基本操作-2" class="headerlink" title="基本操作"></a>基本操作</h2><p>在高级语言中，对哈希函数以及哈希冲突进行了黑盒化处理，一般都可以在常数级时间复杂度查找到数据。在哈希表中的增删操作都不涉及对数据的挪移问题，因此主要在于查找。</p>
+<blockquote>
+<p>如果不需要有序遍历数据，并且可以提前预测数据量的大小。那么哈希表在速度和易用性方面是无与伦比的。</p>
+</blockquote>
+<h2 id="案例-3"><a href="#案例-3" class="headerlink" title="案例"></a>案例</h2><p>例 1，将关键字序列 {7, 8, 30, 11, 18, 9, 14} 存储到哈希表中。哈希函数为： H (key) = (key * 3) % 7，处理冲突采用线性探测法。</p>
+<p>例 2，假设有一个在线系统，可以实时接收用户提交的字符串型关键字，并实时返回给用户累积至今这个关键字被提交的次数。</p>
+<h1 id="常用算法"><a href="#常用算法" class="headerlink" title="常用算法"></a>常用算法</h1><h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><blockquote>
+<p>常见：略</p>
+</blockquote>
+<p>注意：</p>
+<ol>
+<li>递归主体：可以将问题分解为多个完全相同的小问题来进行解决。</li>
+<li>终止条件：要有明确的结束条件。</li>
+</ol>
+<blockquote>
+<p>主要利用了，数学归纳法。即，在n=1成立，n=2成立，需推导出n=n时同样成立。</p>
+</blockquote>
+<h3 id="案例-4"><a href="#案例-4" class="headerlink" title="案例"></a>案例</h3><ol>
+<li>对树的中序遍历。</li>
+<li>汉诺塔问题。</li>
+</ol>
+<h2 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h2><blockquote>
+<p>分而治之，简单：略</p>
+</blockquote>
+<ol>
+<li>难度降低</li>
+<li>问题可分</li>
+<li>解可合并</li>
+<li>相互独立</li>
+</ol>
+<blockquote>
+<p>海量数据体现优势</p>
+</blockquote>
+<h3 id="案例-5"><a href="#案例-5" class="headerlink" title="案例"></a>案例</h3><ol>
+<li>排序算法中的快速排序和归并排序。</li>
+<li>n个元素的无序数组，从小到大打印。</li>
+<li>有序数组，判断是否出现过数字C。<ul>
+<li>遍历</li>
+<li>以下情况考虑二分法<ul>
+<li>有序</li>
+<li>时间复杂度O(logn)</li>
+<li>循环次数不确定，（while循环）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>1毫米纸折叠多少次可以得到从地球到月球的距离。39次。</li>
+<li>有序数组查找第一个大于9的数字。</li>
+</ol>
+<h2 id="经典排序"><a href="#经典排序" class="headerlink" title="经典排序"></a>经典排序</h2><p>衡量排序问题的优劣：时间复杂度，空间复杂度和稳定性（指相等的数据对象，在排序之后，顺序是否能保持不变）。</p>
+<h3 id="冒泡"><a href="#冒泡" class="headerlink" title="冒泡"></a>冒泡</h3><blockquote>
+<p>两两比较，每次将最大的值传向最前方。<br>性能：</p>
+</blockquote>
+<pre><code>1. 最好的时间复杂度是O(n)（顺序）。
+2. 最差的时间复杂度为O(n*n)（逆序）。
+3. 当输入的数组随机，平均时间复杂度为**O(n*n)**。
+4. 相等数据并未交换位置，**稳定**。
+5. 原地排序（O(1)）。
+</code></pre><h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><blockquote>
+<p>维护一个已排好序的数组，依次将值插入合适的位置</p>
+</blockquote>
+<p>性能：</p>
+<ol>
+<li>最好的时间复杂度是 O(n)（顺序）。</li>
+<li>最差的时间复杂度为 O(n*n)（逆序）。</li>
+<li>当输入的数组随机，平均时间复杂度为 <strong>O(n*n)</strong>。</li>
+<li>相等数据并未交换位置，<strong>稳定</strong>。</li>
+<li>原地排序（O(1)）。</li>
+</ol>
+<h3 id="归并"><a href="#归并" class="headerlink" title="归并"></a>归并</h3><blockquote>
+<p>分治法。二分至只有一个数字，然后合并。</p>
+</blockquote>
+<ol>
+<li>最好的时间复杂度是 O(n*logn)（n次二分法）。</li>
+<li>最差的时间复杂度为 O(n*logn)（n次二分法）。</li>
+<li>当输入的数组随机，平均时间复杂度为 <strong>O(n*logn)</strong>。</li>
+<li>相等数据并未交换位置，<strong>稳定</strong>。</li>
+<li>每次开辟新的空间（O(n)）。</li>
+</ol>
+<h3 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h3><blockquote>
+<p>选值比较交换，分治（二分）.</p>
+</blockquote>
+<ol>
+<li>最好的时间复杂度是 O(n*logn)（每次选到中位数）。</li>
+<li>最差的时间复杂度为 O(n*n)（每次选到最大最小值）。</li>
+<li>当输入的数组随机，平均时间复杂度为 <strong>O(n*logn)</strong>。</li>
+<li>使用了交换法，相等数据交换位置，不<strong>稳定</strong>。</li>
+<li>每次开辟新的空间（O(1)）。</li>
+</ol>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><ol>
+<li>数据规模小，采用O(n*n)。（冒泡，插入）</li>
+<li>数据规模大，采用O(n*logn)。（归并，快排）</li>
+<li>归并稳定，消耗空间。</li>
+<li>快速排序，不稳定。</li>
+</ol>
+<h2 id="动态规划（？）"><a href="#动态规划（？）" class="headerlink" title="动态规划（？）"></a>动态规划（？）</h2><p>分治需要满足其可被分治的条件，当不满足时，引入了动态规划。</p>
+<blockquote>
+<p>运筹学方法，在多轮决策中选择最优的方法。</p>
+</blockquote>
+<blockquote>
+<p>状态，可选择的结果。</p>
+</blockquote>
+<h3 id="基本方法（宏观层面）"><a href="#基本方法（宏观层面）" class="headerlink" title="基本方法（宏观层面）"></a>基本方法（宏观层面）</h3><ol>
+<li>分阶段，将原问题划分成几个子问题。</li>
+<li>找状态，选择合适的状态变量Sk（k表示多轮决策的第k轮），它需要具备多轮决策的演变。</li>
+<li>做决策，确定决策变量uk，比如D2可能的决策动作是：D2-&gt;E2和D2-&gt;E3。</li>
+<li>状态转移方程，即Sk+1 = Uk(Sk)。</li>
+<li>定目标，写出多轮决策目标的指标函数Vk,n</li>
+<li>寻找终止条件。</li>
+</ol>
+<blockquote>
+<p>决策集合称为策略。所有可能的策略称为策略集合</p>
+</blockquote>
+<h4 id="场景概述"><a href="#场景概述" class="headerlink" title="场景概述"></a>场景概述</h4><ol>
+<li>最优子结构，原问题的最优解，所包含的子问题的解也是最优的。</li>
+<li>无后效性，某阶段的决策，不影响先前状态。</li>
+<li>有重叠子问题，子问题间不独立，（区别于分治）。</li>
+</ol>
+<h3 id="案例-6"><a href="#案例-6" class="headerlink" title="案例"></a>案例</h3><ol>
+<li>最短路径问题<ul>
+<li>暴力方法，求出所有可能的结果。</li>
+<li>动态规划</li>
+</ul>
+</li>
+<li>最大公共字串</li>
+</ol>
 
       
     </div>
@@ -864,6 +1053,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2020/07/12/这是null1/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -943,7 +1136,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -954,7 +1147,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -965,7 +1158,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1047,7 +1240,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构与算法"><span class="nav-number">1.</span> <span class="nav-text">数据结构与算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复杂度"><span class="nav-number">2.</span> <span class="nav-text">复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算原则"><span class="nav-number">2.1.</span> <span class="nav-text">计算原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂度与代码结构的关系"><span class="nav-number">2.2.</span> <span class="nav-text">复杂度与代码结构的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#降低复杂度"><span class="nav-number">2.3.</span> <span class="nav-text">降低复杂度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增删查"><span class="nav-number">3.</span> <span class="nav-text">增删查</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查找"><span class="nav-number">3.1.</span> <span class="nav-text">查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新增"><span class="nav-number">3.2.</span> <span class="nav-text">新增</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除"><span class="nav-number">3.3.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表"><span class="nav-number">4.</span> <span class="nav-text">线性表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#链表"><span class="nav-number">4.1.</span> <span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单项链表"><span class="nav-number">4.1.1.</span> <span class="nav-text">单项链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环链表"><span class="nav-number">4.1.2.</span> <span class="nav-text">循环链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向链表"><span class="nav-number">4.1.3.</span> <span class="nav-text">双向链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向循环链表"><span class="nav-number">4.1.4.</span> <span class="nav-text">双向循环链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景"><span class="nav-number">4.1.5.</span> <span class="nav-text">适用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栈"><span class="nav-number">4.2.</span> <span class="nav-text">栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序栈"><span class="nav-number">4.2.1.</span> <span class="nav-text">顺序栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链栈"><span class="nav-number">4.2.2.</span> <span class="nav-text">链栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景-1"><span class="nav-number">4.2.3.</span> <span class="nav-text">适用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#队列"><span class="nav-number">4.3.</span> <span class="nav-text">队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序队列"><span class="nav-number">4.3.1.</span> <span class="nav-text">顺序队列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#假溢出"><span class="nav-number">4.3.1.1.</span> <span class="nav-text">假溢出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环队列"><span class="nav-number">4.3.2.</span> <span class="nav-text">循环队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链式队列"><span class="nav-number">4.3.3.</span> <span class="nav-text">链式队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景-2"><span class="nav-number">4.3.4.</span> <span class="nav-text">适用场景</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">5.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">5.1.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对比"><span class="nav-number">5.2.</span> <span class="nav-text">对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对比链表"><span class="nav-number">5.2.1.</span> <span class="nav-text">对比链表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#适用场景-3"><span class="nav-number">5.3.</span> <span class="nav-text">适用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#案例"><span class="nav-number">5.3.1.</span> <span class="nav-text">案例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串"><span class="nav-number">6.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊的字符串"><span class="nav-number">6.1.</span> <span class="nav-text">特殊的字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储结构"><span class="nav-number">6.2.</span> <span class="nav-text">存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序存储"><span class="nav-number">6.2.1.</span> <span class="nav-text">顺序存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链式存储"><span class="nav-number">6.2.2.</span> <span class="nav-text">链式存储</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增删查-1"><span class="nav-number">6.3.</span> <span class="nav-text">增删查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-1"><span class="nav-number">6.4.</span> <span class="nav-text">案例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#树和二叉树"><span class="nav-number">7.</span> <span class="nav-text">树和二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#树"><span class="nav-number">7.1.</span> <span class="nav-text">树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树"><span class="nav-number">7.2.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#满二叉树"><span class="nav-number">7.2.1.</span> <span class="nav-text">满二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完全二叉树"><span class="nav-number">7.2.2.</span> <span class="nav-text">完全二叉树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储"><span class="nav-number">7.3.</span> <span class="nav-text">存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作-1"><span class="nav-number">7.4.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历"><span class="nav-number">7.4.1.</span> <span class="nav-text">遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增删"><span class="nav-number">7.4.2.</span> <span class="nav-text">增删</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特性"><span class="nav-number">7.5.</span> <span class="nav-text">特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉查找树的特性"><span class="nav-number">7.5.1.</span> <span class="nav-text">二叉查找树的特性</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构与算法"><span class="nav-number">1.</span> <span class="nav-text">数据结构与算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复杂度"><span class="nav-number">2.</span> <span class="nav-text">复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算原则"><span class="nav-number">2.1.</span> <span class="nav-text">计算原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂度与代码结构的关系"><span class="nav-number">2.2.</span> <span class="nav-text">复杂度与代码结构的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#降低复杂度"><span class="nav-number">2.3.</span> <span class="nav-text">降低复杂度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增删查"><span class="nav-number">3.</span> <span class="nav-text">增删查</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查找"><span class="nav-number">3.1.</span> <span class="nav-text">查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新增"><span class="nav-number">3.2.</span> <span class="nav-text">新增</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除"><span class="nav-number">3.3.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表"><span class="nav-number">4.</span> <span class="nav-text">线性表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#链表"><span class="nav-number">4.1.</span> <span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单项链表"><span class="nav-number">4.1.1.</span> <span class="nav-text">单项链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环链表"><span class="nav-number">4.1.2.</span> <span class="nav-text">循环链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向链表"><span class="nav-number">4.1.3.</span> <span class="nav-text">双向链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向循环链表"><span class="nav-number">4.1.4.</span> <span class="nav-text">双向循环链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景"><span class="nav-number">4.1.5.</span> <span class="nav-text">适用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栈"><span class="nav-number">4.2.</span> <span class="nav-text">栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序栈"><span class="nav-number">4.2.1.</span> <span class="nav-text">顺序栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链栈"><span class="nav-number">4.2.2.</span> <span class="nav-text">链栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景-1"><span class="nav-number">4.2.3.</span> <span class="nav-text">适用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#队列"><span class="nav-number">4.3.</span> <span class="nav-text">队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序队列"><span class="nav-number">4.3.1.</span> <span class="nav-text">顺序队列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#假溢出"><span class="nav-number">4.3.1.1.</span> <span class="nav-text">假溢出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环队列"><span class="nav-number">4.3.2.</span> <span class="nav-text">循环队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链式队列"><span class="nav-number">4.3.3.</span> <span class="nav-text">链式队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景-2"><span class="nav-number">4.3.4.</span> <span class="nav-text">适用场景</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">5.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">5.1.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对比"><span class="nav-number">5.2.</span> <span class="nav-text">对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对比链表"><span class="nav-number">5.2.1.</span> <span class="nav-text">对比链表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#适用场景-3"><span class="nav-number">5.3.</span> <span class="nav-text">适用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#案例"><span class="nav-number">5.3.1.</span> <span class="nav-text">案例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串"><span class="nav-number">6.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊的字符串"><span class="nav-number">6.1.</span> <span class="nav-text">特殊的字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储结构"><span class="nav-number">6.2.</span> <span class="nav-text">存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序存储"><span class="nav-number">6.2.1.</span> <span class="nav-text">顺序存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链式存储"><span class="nav-number">6.2.2.</span> <span class="nav-text">链式存储</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增删查-1"><span class="nav-number">6.3.</span> <span class="nav-text">增删查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-1"><span class="nav-number">6.4.</span> <span class="nav-text">案例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#树和二叉树"><span class="nav-number">7.</span> <span class="nav-text">树和二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#树"><span class="nav-number">7.1.</span> <span class="nav-text">树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树"><span class="nav-number">7.2.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#满二叉树"><span class="nav-number">7.2.1.</span> <span class="nav-text">满二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完全二叉树"><span class="nav-number">7.2.2.</span> <span class="nav-text">完全二叉树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储"><span class="nav-number">7.3.</span> <span class="nav-text">存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作-1"><span class="nav-number">7.4.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历"><span class="nav-number">7.4.1.</span> <span class="nav-text">遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增删"><span class="nav-number">7.4.2.</span> <span class="nav-text">增删</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特性"><span class="nav-number">7.5.</span> <span class="nav-text">特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉查找树的特性"><span class="nav-number">7.5.1.</span> <span class="nav-text">二叉查找树的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找操作"><span class="nav-number">7.5.2.</span> <span class="nav-text">查找操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入操作"><span class="nav-number">7.5.3.</span> <span class="nav-text">插入操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除操作"><span class="nav-number">7.5.4.</span> <span class="nav-text">删除操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-2"><span class="nav-number">7.6.</span> <span class="nav-text">案例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#哈希"><span class="nav-number">8.</span> <span class="nav-text">哈希</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思想"><span class="nav-number">8.1.</span> <span class="nav-text">思想</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希函数"><span class="nav-number">8.1.1.</span> <span class="nav-text">哈希函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希冲突"><span class="nav-number">8.1.2.</span> <span class="nav-text">哈希冲突</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作-2"><span class="nav-number">8.2.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-3"><span class="nav-number">8.3.</span> <span class="nav-text">案例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用算法"><span class="nav-number">9.</span> <span class="nav-text">常用算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#递归"><span class="nav-number">9.1.</span> <span class="nav-text">递归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#案例-4"><span class="nav-number">9.1.1.</span> <span class="nav-text">案例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分治"><span class="nav-number">9.2.</span> <span class="nav-text">分治</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#案例-5"><span class="nav-number">9.2.1.</span> <span class="nav-text">案例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#经典排序"><span class="nav-number">9.3.</span> <span class="nav-text">经典排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡"><span class="nav-number">9.3.1.</span> <span class="nav-text">冒泡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入"><span class="nav-number">9.3.2.</span> <span class="nav-text">插入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并"><span class="nav-number">9.3.3.</span> <span class="nav-text">归并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快排"><span class="nav-number">9.3.4.</span> <span class="nav-text">快排</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">9.3.5.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划（？）"><span class="nav-number">9.4.</span> <span class="nav-text">动态规划（？）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本方法（宏观层面）"><span class="nav-number">9.4.1.</span> <span class="nav-text">基本方法（宏观层面）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#场景概述"><span class="nav-number">9.4.1.1.</span> <span class="nav-text">场景概述</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例-6"><span class="nav-number">9.4.2.</span> <span class="nav-text">案例</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1081,7 +1274,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">60.1k</span>
+    <span title="Site words total count">60.6k</span>
   
 </div>
 
