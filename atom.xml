@@ -593,38 +593,6 @@
   </entry>
   
   <entry>
-    <title>optimization</title>
-    <link href="http://yoursite.com/2019/03/27/Web_optimization/"/>
-    <id>http://yoursite.com/2019/03/27/Web_optimization/</id>
-    <published>2019-03-27T11:48:00.000Z</published>
-    <updated>2020-01-13T08:28:26.442Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><p>性能优化……<a id="more"></a></p><h2 id="Hexo之性能优化"><a href="#Hexo之性能优化" class="headerlink" title="Hexo之性能优化"></a>Hexo之性能优化</h2><p>hexo是本博的框架，起初是建立在 <strong>github</strong> 上的静态页面。但是仅仅只是根据 hexo 建立好博客是远远不够的。因为在一般网络环境下加载速度会很慢，如果自己的知识积累还不如百度来的快，那建立博客的初衷就会大大减少。加载速度慢有很多原因，比如，框架本身的源码中有许多空格，github是外网，图片加载尤其缓慢，字体采用的是 google 字体等等。从这几个方面入手，解决性能优化问题，是本页的初衷。</p><h3 id="DNS域名解析"><a href="#DNS域名解析" class="headerlink" title="DNS域名解析"></a>DNS域名解析</h3><p>DNS域名解析是本博最基础且是最致命的问题。国内访问 <strong><em><a href="http://jjk5fz.coding-pages.com/" target="_blank" rel="noopener">本博</a></em></strong> so fast 。木钱买域名，凄惨。</p><h3 id="移动端删除-live2d-widget"><a href="#移动端删除-live2d-widget" class="headerlink" title="移动端删除 live2d-widget"></a>移动端删除 live2d-widget</h3><p>在 _config.yml 文件夹下将 live2d 中的 mobile 置为 false。</p><h3 id="修改-hexo-样式"><a href="#修改-hexo-样式" class="headerlink" title="修改 hexo 样式"></a>修改 hexo 样式</h3><p>在该 <code>F:\blog\themes\next\source\css\_custom\custom.styl</code> 文件下修改即可覆盖原本样式。想要复原时，删除该文件内容即可。</p><p><strong>注意：</strong><br>修改 header（头部导航栏）的透明度会引发 search 选项调出的弹框被遮挡层遮挡，建议修改 header 内部标签属性实现，可 F12 参考本博。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;简介：&quot;&gt;&lt;a href=&quot;#简介：&quot; class=&quot;headerlink&quot; title=&quot;简介：&quot;&gt;&lt;/a&gt;简介：&lt;/h2&gt;&lt;p&gt;性能优化……
-    
-    </summary>
-    
-      <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="前端技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="hexo" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/hexo/"/>
-    
-      <category term="性能优化" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/hexo/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    
-      <category term="DNS 解析案例" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/hexo/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/DNS-%E8%A7%A3%E6%9E%90%E6%A1%88%E4%BE%8B/"/>
-    
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-      <category term="性能优化" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Node.js——Readme</title>
     <link href="http://yoursite.com/2019/03/27/JS_Node/"/>
     <id>http://yoursite.com/2019/03/27/JS_Node/</id>
@@ -661,26 +629,34 @@
   </entry>
   
   <entry>
-    <title>科学进站</title>
-    <link href="http://yoursite.com/2019/03/24/%E7%A7%91%E5%AD%A6%E8%BF%9B%E7%AB%99/"/>
-    <id>http://yoursite.com/2019/03/24/科学进站/</id>
-    <published>2019-03-24T14:59:00.000Z</published>
-    <updated>2020-06-12T14:36:36.588Z</updated>
+    <title>optimization</title>
+    <link href="http://yoursite.com/2019/03/27/Web_optimization/"/>
+    <id>http://yoursite.com/2019/03/27/Web_optimization/</id>
+    <published>2019-03-27T11:48:00.000Z</published>
+    <updated>2020-01-13T08:28:26.442Z</updated>
     
-    <content type="html"><![CDATA[<p>嘻嘻，这里是一些进站指南，毕竟花里胡哨得人写地花里胡哨的页面：<a id="more"></a><br>   </p><p>（1）由于背景是随机图片，所以如果看不清，请点击右上角刷新按钮,更换背景图片。<br></p><p>（2）由于左下角是我的“女儿”，所以我是不会为了移动端客户而抛弃我的女儿的，当然可爱的女儿也挡住了我的“压岁钱”的二维码入口，o(╥﹏╥)o。<br></p><p>（3）有什么意见右下角可以联系我呀~，期待 (#^.^#) <br></p><p>（4）页首 <strong>Links</strong> 项里有许多<strong>技术</strong>、<strong>工具</strong>、<strong>资源</strong>、<strong>题库</strong>站点<br></p><p>（5）暂时就先这样了，后面有什么隐蔽福利更新再更ヾ(◍°∇°◍)ﾉﾞ<br></p><p>  &amp;  提示：电脑端右下角,里面有个界面超好看的电影推荐链接，推荐！！！<br>后面会增加更多的资源以及技术博文欢迎PC端订阅呀！<br><br>（为了女儿，抛弃移动端[○･｀Д´･ ○]）</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><p>性能优化……<a id="more"></a></p><h2 id="Hexo之性能优化"><a href="#Hexo之性能优化" class="headerlink" title="Hexo之性能优化"></a>Hexo之性能优化</h2><p>hexo是本博的框架，起初是建立在 <strong>github</strong> 上的静态页面。但是仅仅只是根据 hexo 建立好博客是远远不够的。因为在一般网络环境下加载速度会很慢，如果自己的知识积累还不如百度来的快，那建立博客的初衷就会大大减少。加载速度慢有很多原因，比如，框架本身的源码中有许多空格，github是外网，图片加载尤其缓慢，字体采用的是 google 字体等等。从这几个方面入手，解决性能优化问题，是本页的初衷。</p><h3 id="DNS域名解析"><a href="#DNS域名解析" class="headerlink" title="DNS域名解析"></a>DNS域名解析</h3><p>DNS域名解析是本博最基础且是最致命的问题。国内访问 <strong><em><a href="http://jjk5fz.coding-pages.com/" target="_blank" rel="noopener">本博</a></em></strong> so fast 。木钱买域名，凄惨。</p><h3 id="移动端删除-live2d-widget"><a href="#移动端删除-live2d-widget" class="headerlink" title="移动端删除 live2d-widget"></a>移动端删除 live2d-widget</h3><p>在 _config.yml 文件夹下将 live2d 中的 mobile 置为 false。</p><h3 id="修改-hexo-样式"><a href="#修改-hexo-样式" class="headerlink" title="修改 hexo 样式"></a>修改 hexo 样式</h3><p>在该 <code>F:\blog\themes\next\source\css\_custom\custom.styl</code> 文件下修改即可覆盖原本样式。想要复原时，删除该文件内容即可。</p><p><strong>注意：</strong><br>修改 header（头部导航栏）的透明度会引发 search 选项调出的弹框被遮挡层遮挡，建议修改 header 内部标签属性实现，可 F12 参考本博。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;嘻嘻，这里是一些进站指南，毕竟花里胡哨得人写地花里胡哨的页面：
+      &lt;h2 id=&quot;简介：&quot;&gt;&lt;a href=&quot;#简介：&quot; class=&quot;headerlink&quot; title=&quot;简介：&quot;&gt;&lt;/a&gt;简介：&lt;/h2&gt;&lt;p&gt;性能优化……
     
     </summary>
     
-      <category term="进站指南 " scheme="http://yoursite.com/categories/%E8%BF%9B%E7%AB%99%E6%8C%87%E5%8D%97/"/>
+      <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="前端技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="hexo" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/hexo/"/>
+    
+      <category term="性能优化" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/hexo/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+      <category term="DNS 解析案例" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/hexo/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/DNS-%E8%A7%A3%E6%9E%90%E6%A1%88%E4%BE%8B/"/>
     
     
-      <category term="指南 " scheme="http://yoursite.com/tags/%E6%8C%87%E5%8D%97/"/>
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
-      <category term="资源" scheme="http://yoursite.com/tags/%E8%B5%84%E6%BA%90/"/>
+      <category term="性能优化" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
@@ -709,6 +685,30 @@
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
       <category term="html" scheme="http://yoursite.com/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>科学进站</title>
+    <link href="http://yoursite.com/2019/03/24/%E7%A7%91%E5%AD%A6%E8%BF%9B%E7%AB%99/"/>
+    <id>http://yoursite.com/2019/03/24/科学进站/</id>
+    <published>2019-03-24T14:59:00.000Z</published>
+    <updated>2020-06-12T14:36:36.588Z</updated>
+    
+    <content type="html"><![CDATA[<p>嘻嘻，这里是一些进站指南，毕竟花里胡哨得人写地花里胡哨的页面：<a id="more"></a><br>   </p><p>（1）由于背景是随机图片，所以如果看不清，请点击右上角刷新按钮,更换背景图片。<br></p><p>（2）由于左下角是我的“女儿”，所以我是不会为了移动端客户而抛弃我的女儿的，当然可爱的女儿也挡住了我的“压岁钱”的二维码入口，o(╥﹏╥)o。<br></p><p>（3）有什么意见右下角可以联系我呀~，期待 (#^.^#) <br></p><p>（4）页首 <strong>Links</strong> 项里有许多<strong>技术</strong>、<strong>工具</strong>、<strong>资源</strong>、<strong>题库</strong>站点<br></p><p>（5）暂时就先这样了，后面有什么隐蔽福利更新再更ヾ(◍°∇°◍)ﾉﾞ<br></p><p>  &amp;  提示：电脑端右下角,里面有个界面超好看的电影推荐链接，推荐！！！<br>后面会增加更多的资源以及技术博文欢迎PC端订阅呀！<br><br>（为了女儿，抛弃移动端[○･｀Д´･ ○]）</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;嘻嘻，这里是一些进站指南，毕竟花里胡哨得人写地花里胡哨的页面：
+    
+    </summary>
+    
+      <category term="进站指南 " scheme="http://yoursite.com/categories/%E8%BF%9B%E7%AB%99%E6%8C%87%E5%8D%97/"/>
+    
+    
+      <category term="指南 " scheme="http://yoursite.com/tags/%E6%8C%87%E5%8D%97/"/>
+    
+      <category term="资源" scheme="http://yoursite.com/tags/%E8%B5%84%E6%BA%90/"/>
     
   </entry>
   
