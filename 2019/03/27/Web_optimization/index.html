@@ -79,7 +79,7 @@
 
 
 
-  <meta name="keywords" content="原生JS,前端技术,">
+  <meta name="keywords" content="hexo,性能优化,">
 
 
 
@@ -92,23 +92,18 @@
 
 
 
-<meta name="description" content="前言在从浏览器接收到请求后，开始进行浏览器渲染。本文深入浏览器内核的主进程涉及的两个关键引擎，渲染引擎，JS引擎来说明，从而可以更好的理解这个环节上的性能优化。  渲染引擎：深入理解浏览器的渲染机制也有助于我们理解三大框架的生命周期执行时机。 JS引擎：对DOM树的影响、对CSSOM的影响、EventLoop。 服务端渲染：意义及优缺点。">
-<meta name="keywords" content="原生JS,前端技术">
+<meta name="description" content="简介：性能优化……">
+<meta name="keywords" content="hexo,性能优化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浏览器渲染机制">
-<meta property="og:url" content="http://yoursite.com/2020/04/09/浏览器渲染机制/index.html">
+<meta property="og:title" content="optimization">
+<meta property="og:url" content="http://yoursite.com/2019/03/27/Web_optimization/index.html">
 <meta property="og:site_name" content="F-lancer">
-<meta property="og:description" content="前言在从浏览器接收到请求后，开始进行浏览器渲染。本文深入浏览器内核的主进程涉及的两个关键引擎，渲染引擎，JS引擎来说明，从而可以更好的理解这个环节上的性能优化。  渲染引擎：深入理解浏览器的渲染机制也有助于我们理解三大框架的生命周期执行时机。 JS引擎：对DOM树的影响、对CSSOM的影响、EventLoop。 服务端渲染：意义及优缺点。">
+<meta property="og:description" content="简介：性能优化……">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/9/3/1659db14e773f9cc?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12890819-bce824083839ea30?imageMogr2/auto-orient/strip|imageView2/2/w/640/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12890819-91dd61d0b5acf77b?imageMogr2/auto-orient/strip|imageView2/2/w/636/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/12890819-f6d165fb8a5e8d66?imageMogr2/auto-orient/strip|imageView2/2/w/640/format/webp">
-<meta property="og:updated_time" content="2020-04-09T07:21:43.837Z">
+<meta property="og:updated_time" content="2020-01-13T08:28:26.442Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器渲染机制">
-<meta name="twitter:description" content="前言在从浏览器接收到请求后，开始进行浏览器渲染。本文深入浏览器内核的主进程涉及的两个关键引擎，渲染引擎，JS引擎来说明，从而可以更好的理解这个环节上的性能优化。  渲染引擎：深入理解浏览器的渲染机制也有助于我们理解三大框架的生命周期执行时机。 JS引擎：对DOM树的影响、对CSSOM的影响、EventLoop。 服务端渲染：意义及优缺点。">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/9/3/1659db14e773f9cc?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta name="twitter:title" content="optimization">
+<meta name="twitter:description" content="简介：性能优化……">
 
 
 
@@ -138,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/04/09/浏览器渲染机制/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/27/Web_optimization/">
 
 
 
@@ -155,7 +150,7 @@
 
 
 
-  <title>浏览器渲染机制 | F-lancer</title>
+  <title>optimization | F-lancer</title>
   
 
 
@@ -335,7 +330,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/09/浏览器渲染机制/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/Web_optimization/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="阿忠">
@@ -352,7 +347,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浏览器渲染机制</h1>
+          <h1 class="post-title" itemprop="name headline">optimization</h1>
         
 
         <div class="post-meta">
@@ -364,8 +359,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-09T15:21:00+08:00">
-                2020-04-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T19:48:00+08:00">
+                2019-03-27
               </time>
             
 
@@ -380,8 +375,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-04-09T15:21:43+08:00">
-                2020-04-09
+              <time title="Post modified" itemprop="dateModified" datetime="2020-01-13T16:28:26+08:00">
+                2020-01-13
               </time>
             
           </span>
@@ -421,8 +416,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/前端技术/原生JS/" itemprop="url" rel="index">
-                    <span itemprop="name">原生JS</span>
+                  <a href="/categories/技术/前端技术/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
                   </a>
                 </span>
 
@@ -432,8 +427,19 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/前端技术/原生JS/浏览器渲染机制/" itemprop="url" rel="index">
-                    <span itemprop="name">浏览器渲染机制</span>
+                  <a href="/categories/技术/前端技术/hexo/性能优化/" itemprop="url" rel="index">
+                    <span itemprop="name">性能优化</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/前端技术/hexo/性能优化/DNS-解析案例/" itemprop="url" rel="index">
+                    <span itemprop="name">DNS 解析案例</span>
                   </a>
                 </span>
 
@@ -450,8 +456,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/04/09/浏览器渲染机制/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/09/浏览器渲染机制/" itemprop="commentCount"></span>
+                <a href="/2019/03/27/Web_optimization/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/27/Web_optimization/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -478,7 +484,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  2.2k
+                  322
                 </span>
               
 
@@ -494,7 +500,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  8
+                  1
                 </span>
               
             </div>
@@ -515,180 +521,12 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在从浏览器接收到请求后，开始进行浏览器渲染。本文深入浏览器内核的主进程涉及的两个关键引擎，<strong>渲染引擎</strong>，<strong>JS引擎</strong>来说明，从而可以更好的理解这个环节上的性能优化。</p>
-<ol>
-<li>渲染引擎：深入理解浏览器的渲染机制也有助于我们理解三大框架的生命周期执行时机。</li>
-<li>JS引擎：对DOM树的影响、对CSSOM的影响、EventLoop。</li>
-<li>服务端渲染：意义及优缺点。<a id="more"></a></li>
-</ol>
-<h1 id="渲染引擎"><a href="#渲染引擎" class="headerlink" title="渲染引擎"></a>渲染引擎</h1><h2 id="渲染概述"><a href="#渲染概述" class="headerlink" title="渲染概述"></a>渲染概述</h2><p>从请求到文件到构建渲染树再到调用系统API[GUI]进行渲染进行的一系列过程。</p>
-<h3 id="webkit流程图"><a href="#webkit流程图" class="headerlink" title="webkit流程图"></a>webkit流程图</h3><p><img src="https://user-gold-cdn.xitu.io/2018/9/3/1659db14e773f9cc?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="webkit渲染过程"></p>
-<blockquote>
-<p>parser：解析器、sheets：篇/片、render：渲染、attachment：附件、附著、layout：布局。</p>
-</blockquote>
-<h3 id="流程图解析"><a href="#流程图解析" class="headerlink" title="流程图解析"></a>流程图解析</h3><ol>
-<li>构建DOM树：请求、解析。</li>
-<li>构建CSSOM树：请求、解析。</li>
-<li>构建渲染树：Attachment合并，但<code>diplay: none</code> 将不渲染到渲染树。</li>
-<li>布局渲染树：layout过程（回流，自动重排），计算定位、坐标、大小、转换行、position、overflow、z-index属性等。</li>
-<li>绘制render树：（转换为像素）绘制顺序—背景、浮动、content、padding、border…。</li>
-</ol>
-<h4 id="Layout过程"><a href="#Layout过程" class="headerlink" title="Layout过程"></a>Layout过程</h4><p><code>JS</code> 动态修改了DOM属性或者CSS属性会导致重新Layout：<strong>repaint（重绘）</strong>、<strong>reflow（重排）</strong>。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>repaint</th>
-<th>reflow</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>触发方式</td>
-<td>不改变定位，宽高，改变了元素的展示方式</td>
-<td>影响了文档的内容、结构或者元素定位</td>
-</tr>
-<tr>
-<td>例</td>
-<td>background-color,border-color,visibility等</td>
-<td>DOM操作（增删改，变换元素顺序）。<br>内容的变化，Form表单中文字的变化。<br>计算改变CSS属性。<br>增加删除样式表。<br>浏览器窗口操作（改变大小、滚动窗口）<br>激活伪类（如：hover状态）</td>
-</tr>
-<tr>
-<td>重新布局</td>
-<td>部分</td>
-<td>绝大部分</td>
-</tr>
-</tbody>
-</table>
-<p>优化过程中尽量不要触发重排（reflow）。</p>
-<blockquote>
-<p>offsetTop/Left/Width/Height、scrollTop/Left/Width/Height、clientTop/Left/Width/Height、IE中的getComputedStyle()，或currentStyle，等。</p>
-</blockquote>
-<h3 id="从上到下解析流程"><a href="#从上到下解析流程" class="headerlink" title="从上到下解析流程"></a>从上到下解析流程</h3><ol>
-<li>从上到下解析HTML模板。</li>
-<li>遇到<code>.css</code>。（在另一个进程中进行）<ul>
-<li>不会阻塞DOM解析，阻塞渲染HTML，接着请求<code>.css</code>文件。</li>
-<li>解析<code>.css</code>文件。</li>
-</ul>
-</li>
-<li>遇到 DOM节点。<ul>
-<li>解析DOM</li>
-</ul>
-</li>
-<li>遇到<code>img</code>请求<ul>
-<li>发起请求，继续渲染下面代码。</li>
-<li>请求成功，影响了页面排布，重新渲染这部分代码。</li>
-</ul>
-</li>
-<li>遇到<code>.js</code>等脚本文件<ul>
-<li>停止所有加载和解析。</li>
-<li>请求和执行脚本。</li>
-</ul>
-</li>
-</ol>
-<blockquote>
-<p>css </p>
-<ol>
-<li>不会阻塞DOM树解析。</li>
-<li>但是会阻塞DOM树渲染。</li>
-<li>css加载会阻塞后面js语句的执行。</li>
-</ol>
-</blockquote>
-<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><ol>
-<li>使用CDN，会根据网络状况加载最近的文件。</li>
-<li>合并及压缩CSS文件，减少请求。</li>
-<li>简化和优化CSS选择器。</li>
-<li>使用精灵图，减少请求。</li>
-<li>合理使用缓存，减少请求。</li>
-<li>CSS在前，JS文件在后。</li>
-</ol>
-<h1 id="JS引擎"><a href="#JS引擎" class="headerlink" title="JS引擎"></a>JS引擎</h1><h2 id="触发JS引擎"><a href="#触发JS引擎" class="headerlink" title="触发JS引擎"></a>触发JS引擎</h2><p>触发js引擎及对渲染引擎的影响：</p>
-<ol>
-<li>JS引擎触发时机：在构建DOM时，HTML解析器若遇到了JavaScript，那么它会暂停构建DOM，将控制权移交给JavaScript引擎，等JavaScript引擎运行完毕，浏览器再从中断的地方恢复DOM构建。</li>
-<li>JS操作DOM元素带来的影响：<ul>
-<li>因为 DOM 是属于渲染引擎中的东西，而 JS 是在 JS 引擎中运行的。当我们通过 JS 操作 DOM 的时候，其实这个操作涉及到了两个线程之间的通信，那么势必会带来一些性能上的损耗。</li>
-<li>通常情况下DOM和CSSOM是并行构建的，但是当浏览器遇到一个script标签时，DOM构建将暂停，直至脚本完成执行。但由于JavaScript可以修改CSSOM，所以需要等CSSOM构建完毕后再执行JS。</li>
-<li>操作 DOM 可能还会带来重绘回流的情况，所以也就导致了性能上的问题。</li>
-</ul>
-</li>
-<li>使用<code>defer</code>和<code>async</code>异步加载JS。</li>
-</ol>
-<h2 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>JavaScript有一个基于<strong>事件循环</strong>的并发模型，事件循环负责执行代码、收集和处理事件以及执行队列中的子任务。</p>
-<blockquote>
-<p>此处指的是浏览器引擎中的EventLoop，node中的EventLoop是另一种机制。</p>
-</blockquote>
-<h3 id="引入EventLoop"><a href="#引入EventLoop" class="headerlink" title="引入EventLoop"></a>引入EventLoop</h3><p><img src="https://upload-images.jianshu.io/upload_images/12890819-bce824083839ea30?imageMogr2/auto-orient/strip|imageView2/2/w/640/format/webp" alt="解析"></p>
-<ol>
-<li>进程是正在运行着的程序，<strong>一个进程由一个或多个线程组成，线程是一个进程中代码的不同执行路线</strong>。</li>
-<li>为了避免复杂性，发明JS语言时使其是单线程的。即，只有一个<strong>主线程</strong>（虽然可以创建多个子线程，但是受主线程控制）。</li>
-<li>单线程意味着任务都必须排队进行，而Js引擎<strong>异步执行Js代码</strong>又不会等待，这是因为有了<strong>消息队列</strong>和<strong>事件循环</strong>。</li>
-</ol>
-<blockquote>
-<p>在浏览器中，每打开一个标签页就打开了一个进程。一个进程中又包含多个线程，比如：GUI 渲染线程、JavaScript引擎线程、定时触发器线程、定时触发器线程、异步http请求线程。</p>
-</blockquote>
-<h3 id="EventLoop图解"><a href="#EventLoop图解" class="headerlink" title="EventLoop图解"></a>EventLoop图解</h3><p><img src="https://upload-images.jianshu.io/upload_images/12890819-91dd61d0b5acf77b?imageMogr2/auto-orient/strip|imageView2/2/w/636/format/webp" alt="事件循环"></p>
-<h4 id="执行栈（主线程）"><a href="#执行栈（主线程）" class="headerlink" title="执行栈（主线程）"></a>执行栈（主线程）</h4><ol>
-<li>一个存储<strong>函数调用</strong>的栈结构，遵循先进后出的原则，形成了执行栈。</li>
-<li>栈的大小是有限的。比如，发生死循环栈溢出时会报错：<code>Maximum call stack exceeded</code>。</li>
-<li>执行JS文件时，遇到同步任务，即普通调用函数就压入栈中。</li>
-<li>当执行栈中的任务完成后，系统会读取<strong>任务（消息）队列</strong>，并且把它压入执行栈执行。</li>
-</ol>
-<h4 id="任务（消息）队列"><a href="#任务（消息）队列" class="headerlink" title="任务（消息）队列"></a>任务（消息）队列</h4><p>异步的运行结果会放入任务队列里，当主线程（执行栈）空了，就会读取任务队列里的异步结果。</p>
-<blockquote>
-<p>消息队列中的消息Message就是注册异步任务时添加的回调函数。</p>
-</blockquote>
-<h3 id="宏-微任务"><a href="#宏-微任务" class="headerlink" title="宏/微任务"></a>宏/微任务</h3><p><img src="https://upload-images.jianshu.io/upload_images/12890819-f6d165fb8a5e8d66?imageMogr2/auto-orient/strip|imageView2/2/w/640/format/webp" alt="任务队列"></p>
-<p>任务（消息）队列就是放着注册异步任务时添加的回调函数的队列，而根据不同的任务又分为两种<strong>宏任务队列</strong>和<strong>微任务队列</strong>。</p>
-<ol>
-<li>macro-task （宏任务队列）：比如script（整体代码）、setTimeout、setInterval、 I/O 操作、UI 渲染等。</li>
-<li>micro-task（微任务队列）： 比如new Promise().then(回调)、MutationObserver(html5新特性) 等。</li>
-</ol>
-<h4 id="一次eventloop执行机制："><a href="#一次eventloop执行机制：" class="headerlink" title="一次eventloop执行机制："></a>一次eventloop执行机制：</h4><ol>
-<li>检查上一个micro-task队列是否为空，然后执行一个tasks（macro-task）。</li>
-<li>继而执行清空本次所有的micro-task。</li>
-<li>本次eventloop中的micro-task队列清空后，再从 1 开始执行。</li>
-</ol>
-<h4 id="影响"><a href="#影响" class="headerlink" title="影响"></a>影响</h4><ol>
-<li>渲染影响：执行完microtask队列里的任务，有可能会渲染更新。如果在一帧（一次）内多次发生DOM的变动，浏览器不会立即响应，而是会积攒变动以最高60HZ的频率更新视图。</li>
-<li>定时器问题：定时器到达预定时间后会将回调函数放到任务队列里，但是需要等执行栈里的代码执行完毕才会开始读取任务队列，因此一般会把定时任务放在代码的最后，为了可以更加准确的读取定时任务的回调函数。</li>
-</ol>
-<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>对象被分配在堆中。（存储形式，不涉及该处知识点）</p>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><ol>
-<li>单次循环，宏/微任务机制。（基础）</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">    <span class="built_in">Promise</span>.resolve(<span class="number">3</span>).then(<span class="function"><span class="params">data</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,<span class="number">0</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;,<span class="number">0</span>)</span><br><span class="line"><span class="comment">// 1,3,2</span></span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>宏/微任务，先检查上一个微任务是否清空。</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>);</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;                 <span class="comment">// 第二轮宏任务</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;     <span class="comment">// 第一轮微任务</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise1'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'promise2'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>);</span><br><span class="line"><span class="comment">// 1.script start 2.script end 3.promise1 4.promise2 5.setTimeout</span></span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>加入构造函数</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">"start"</span>); </span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;<span class="built_in">console</span>.log(<span class="number">2</span>)&#125;,<span class="number">10</span>); <span class="comment">// 第二轮宏任务 </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;       <span class="comment">// 同步代码，第一轮宏任务</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">    resolve();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;                  <span class="comment">// 第一轮微任务</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">5</span>);</span><br><span class="line">    <span class="built_in">console</span>.timeEnd(<span class="string">"start"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">6</span>);                <span class="comment">// 同步代码，第一轮宏任务</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">8</span>);</span><br><span class="line">requestAnimationFrame(<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">console</span>.log(<span class="number">9</span>)); <span class="comment">// 第三轮宏任务</span></span><br><span class="line"><span class="comment">// 34685 计时时间 29</span></span><br></pre></td></tr></table></figure>
-<h2 id="优化-1"><a href="#优化-1" class="headerlink" title="优化"></a>优化</h2><ol>
-<li>减少DOM操作。</li>
-<li>将 script 标签放在 body 标签底部。</li>
-<li>合理使用<code>defer</code>和<code>async</code>。</li>
-<li>定时器放在代码底部。</li>
-</ol>
-<h1 id="浏览器查看"><a href="#浏览器查看" class="headerlink" title="浏览器查看"></a>浏览器查看</h1><p>用浏览器 performance 选项录制，可以查看脚本运行，计算布局render树构建，painting所花费的时间。</p>
-<p>其它性能观测待更…</p>
-<h1 id="服务端渲染"><a href="#服务端渲染" class="headerlink" title="服务端渲染"></a>服务端渲染</h1><p>服务端渲染 SSR(server side rendering) ，就是原本在浏览器做的<strong>HTML解析</strong>这个步骤放到了web服务器来做，解析完后直接发给客户端，来作为构建render树的DOM树。</p>
-<blockquote>
-<p><a href="https://f-lancer.github.io/2019/03/27/Node/#more" target="_blank" rel="noopener">node.js篇</a>中有说明服务端渲染的优缺点。点击本链接直接搜索<code>服务端渲染</code>即可。</p>
-</blockquote>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://juejin.im/post/5b88ddca6fb9a019c7717096" target="_blank" rel="noopener">css加载会造成阻塞吗？</a></p>
-<p><a href="https://www.bilibili.com/video/BV1dt411W7Y4?t=1895" target="_blank" rel="noopener">浏览器渲染及js eventloop</a></p>
-<p><a href="https://www.cnblogs.com/qqqiangqiang/p/5757656.html" target="_blank" rel="noopener">渲染优化</a></p>
-<p><a href="https://blog.fundebug.com/2019/01/03/understand-browser-rendering/" target="_blank" rel="noopener">深入浅出渲染机制原理</a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop" target="_blank" rel="noopener">MDN—EventLoop</a></p>
-<p><a href="https://www.jianshu.com/p/f478f15c1671" target="_blank" rel="noopener">单线程JS</a></p>
-<p><a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener">ryf</a></p>
-<p><a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/" target="_blank" rel="noopener">宏/微任务</a></p>
-<p><a href="https://www.jianshu.com/p/10b6074d772c" target="_blank" rel="noopener">浅谈SSR</a></p>
-<blockquote>
-<p>与部分作者意见不一致，谨慎参考。</p>
-</blockquote>
+        <h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><p>性能优化……<a id="more"></a></p>
+<h2 id="Hexo之性能优化"><a href="#Hexo之性能优化" class="headerlink" title="Hexo之性能优化"></a>Hexo之性能优化</h2><p>hexo是本博的框架，起初是建立在 <strong>github</strong> 上的静态页面。但是仅仅只是根据 hexo 建立好博客是远远不够的。因为在一般网络环境下加载速度会很慢，如果自己的知识积累还不如百度来的快，那建立博客的初衷就会大大减少。加载速度慢有很多原因，比如，框架本身的源码中有许多空格，github是外网，图片加载尤其缓慢，字体采用的是 google 字体等等。从这几个方面入手，解决性能优化问题，是本页的初衷。</p>
+<h3 id="DNS域名解析"><a href="#DNS域名解析" class="headerlink" title="DNS域名解析"></a>DNS域名解析</h3><p>DNS域名解析是本博最基础且是最致命的问题。国内访问 <strong><em><a href="http://jjk5fz.coding-pages.com/" target="_blank" rel="noopener">本博</a></em></strong> so fast 。木钱买域名，凄惨。</p>
+<h3 id="移动端删除-live2d-widget"><a href="#移动端删除-live2d-widget" class="headerlink" title="移动端删除 live2d-widget"></a>移动端删除 live2d-widget</h3><p>在 _config.yml 文件夹下将 live2d 中的 mobile 置为 false。</p>
+<h3 id="修改-hexo-样式"><a href="#修改-hexo-样式" class="headerlink" title="修改 hexo 样式"></a>修改 hexo 样式</h3><p>在该 <code>F:\blog\themes\next\source\css\_custom\custom.styl</code> 文件下修改即可覆盖原本样式。想要复原时，删除该文件内容即可。</p>
+<p><strong>注意：</strong><br>修改 header（头部导航栏）的透明度会引发 search 选项调出的弹框被遮挡层遮挡，建议修改 header 内部标签属性实现，可 F12 参考本博。</p>
 
       
     </div>
@@ -751,9 +589,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/原生JS/" rel="tag"># 原生JS</a>
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
           
-            <a href="/tags/前端技术/" rel="tag"># 前端技术</a>
+            <a href="/tags/性能优化/" rel="tag"># 性能优化</a>
           
         </div>
       
@@ -766,8 +604,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/02/Linux/" rel="next" title="Linux 基础">
-                <i class="fa fa-chevron-left"></i> Linux 基础
+              <a href="/2019/03/27/JS_Node/" rel="next" title="Node.js——Readme">
+                <i class="fa fa-chevron-left"></i> Node.js——Readme
               </a>
             
           </div>
@@ -776,8 +614,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/05/05/java/" rel="prev" title="java 基础">
-                java 基础 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/27/JS_ES6/" rel="prev" title="ES6——Readme">
+                ES6——Readme <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -859,7 +697,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -870,7 +708,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -963,7 +801,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#渲染引擎"><span class="nav-number">2.</span> <span class="nav-text">渲染引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染概述"><span class="nav-number">2.1.</span> <span class="nav-text">渲染概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webkit流程图"><span class="nav-number">2.1.1.</span> <span class="nav-text">webkit流程图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程图解析"><span class="nav-number">2.1.2.</span> <span class="nav-text">流程图解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Layout过程"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">Layout过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从上到下解析流程"><span class="nav-number">2.1.3.</span> <span class="nav-text">从上到下解析流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化"><span class="nav-number">2.2.</span> <span class="nav-text">优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS引擎"><span class="nav-number">3.</span> <span class="nav-text">JS引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#触发JS引擎"><span class="nav-number">3.1.</span> <span class="nav-text">触发JS引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EventLoop"><span class="nav-number">3.2.</span> <span class="nav-text">EventLoop</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">3.2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入EventLoop"><span class="nav-number">3.2.2.</span> <span class="nav-text">引入EventLoop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EventLoop图解"><span class="nav-number">3.2.3.</span> <span class="nav-text">EventLoop图解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#执行栈（主线程）"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">执行栈（主线程）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#任务（消息）队列"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">任务（消息）队列</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宏-微任务"><span class="nav-number">3.2.4.</span> <span class="nav-text">宏/微任务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一次eventloop执行机制："><span class="nav-number">3.2.4.1.</span> <span class="nav-text">一次eventloop执行机制：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#影响"><span class="nav-number">3.2.4.2.</span> <span class="nav-text">影响</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆"><span class="nav-number">3.2.5.</span> <span class="nav-text">堆</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例题"><span class="nav-number">3.3.</span> <span class="nav-text">例题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化-1"><span class="nav-number">3.4.</span> <span class="nav-text">优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器查看"><span class="nav-number">4.</span> <span class="nav-text">浏览器查看</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务端渲染"><span class="nav-number">5.</span> <span class="nav-text">服务端渲染</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介："><span class="nav-number">1.</span> <span class="nav-text">简介：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo之性能优化"><span class="nav-number">2.</span> <span class="nav-text">Hexo之性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS域名解析"><span class="nav-number">2.1.</span> <span class="nav-text">DNS域名解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端删除-live2d-widget"><span class="nav-number">2.2.</span> <span class="nav-text">移动端删除 live2d-widget</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改-hexo-样式"><span class="nav-number">2.3.</span> <span class="nav-text">修改 hexo 样式</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -997,7 +835,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">62.9k</span>
+    <span title="Site words total count">65.2k</span>
   
 </div>
 
