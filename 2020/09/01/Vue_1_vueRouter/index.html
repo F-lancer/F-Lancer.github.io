@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/zhong_logo.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/zhong_logo.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端,vue,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="F-lancer" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="从vue-Router开始…">
+<meta name="keywords" content="前端,vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue 原理深度剖析（一）">
+<meta property="og:url" content="http://yoursite.com/2020/09/01/Vue_1_vueRouter/index.html">
+<meta property="og:site_name" content="F-lancer">
+<meta property="og:description" content="从vue-Router开始…">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-09-01T13:46:50.973Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue 原理深度剖析（一）">
+<meta name="twitter:description" content="从vue-Router开始…">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/09/01/Vue_1_vueRouter/">
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "d39ddd02"
+    });
+  daovoice('update');
+  </script>
+
+
+
+  <title>vue 原理深度剖析（一） | F-lancer</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/F-lancer" class="github-corner" aria-label="View source on GitHub">
+		<svg width="80" height="80" viewbox="0 0 250 250" style="fill:transparent; z-index:1; color:#151513; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">F-lancer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">阿忠</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            links
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/01/Vue_1_vueRouter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿忠">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/mephoto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="F-lancer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue 原理深度剖析（一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-01T21:38:00+08:00">
+                2020-09-01
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-09-01T21:46:50+08:00">
+                2020-09-01
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/vue/vueRouter/" itemprop="url" rel="index">
+                    <span itemprop="name">vueRouter</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/09/01/Vue_1_vueRouter/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/09/01/Vue_1_vueRouter/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>times
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>从vue-Router开始… <a id="more"></a></p>
+</blockquote>
+<h1 id="vue-基础语法"><a href="#vue-基础语法" class="headerlink" title="vue 基础语法"></a>vue 基础语法</h1><h2 id="vue-js-的基础结构"><a href="#vue-js-的基础结构" class="headerlink" title="vue.js 的基础结构"></a>vue.js 的基础结构</h2><ol>
+<li><p>一般结构，利用template模板双向绑定数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;p&gt;公司名称：&#123;&#123;company.name&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn....&quot;&gt;&lt;script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    new Vue(&#123;</span><br><span class="line">        el: &apos;#app&apos;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            company: &#123;</span><br><span class="line">                name: &apos;la&apos;,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用 render 方法，它的参数 h函数 是为了创建虚拟DOM。$mount是将虚拟 DOM 转换为真实 DOM。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn....&quot;&gt;&lt;script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    new Vue(&#123;</span><br><span class="line">        data: &#123;</span><br><span class="line">            company: &#123;</span><br><span class="line">                name: &apos;la&apos;,</span><br><span class="line">            &#125;,</span><br><span class="line">            render(h)&#123;</span><br><span class="line">                return h(&apos;div&apos;, [</span><br><span class="line">                    h(&apos;p&apos;, &apos;公司名称：&apos; + this.company.name)</span><br><span class="line">                ])</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).$mount(&apos;#app&apos;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>这两种的方式不同，结果相同</p>
+</blockquote>
+<h2 id="vue-js-的生命周期"><a href="#vue-js-的生命周期" class="headerlink" title="vue.js 的生命周期"></a>vue.js 的生命周期</h2><p><a href="https://cn.vuejs.org/images/lifecycle.png" target="_blank" rel="noopener">略</a></p>
+<blockquote>
+<p>如果使用构造生成文件（例如构造单文件组件），模板编译将提前执行。（推荐）</p>
+</blockquote>
+<h2 id="常用语法和概念"><a href="#常用语法和概念" class="headerlink" title="常用语法和概念"></a>常用语法和概念</h2><p>差值表达式、指令（自定义指令）、计算属性和侦听器、Class/Style 绑定、条件/列表渲染、表单输入绑定……(略)</p>
+<p>组件（可复用vue实例）、插槽、插件（VueRouter/VueX…）、混入 mixin（多个组件有相同的选项，将相同的选项进行合并，使代码可重用）、响应式原理（利用监听代理机制）、不同构建版本的Vue</p>
+<h1 id="vue-Router-原理分析与实现"><a href="#vue-Router-原理分析与实现" class="headerlink" title="vue Router 原理分析与实现"></a>vue Router 原理分析与实现</h1><blockquote>
+<p><a href="https://router.vuejs.org/zh/%5D" target="_blank" rel="noopener">[https://router.vuejs.org/zh/]</a></p>
+</blockquote>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p>略：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span>  <span class="comment">// 引入</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueRouter)   <span class="comment">// 注册路由插件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = [     <span class="comment">// 路由规则</span></span><br><span class="line">    &#123;</span><br><span class="line">        path: <span class="string">'/'</span>,</span><br><span class="line">        name: <span class="string">'Index'</span>,</span><br><span class="line">        component: Index</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;  <span class="comment">// 创建路由对象</span></span><br><span class="line">    routes</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在实例上注册 router 对象</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    router,   </span><br><span class="line">    <span class="comment">// 将$route（存储了路径及参数） </span></span><br><span class="line">    <span class="comment">// $router（一个路由对象实例，提供一些与路由相关的方法） 注册到实例上</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 组件上</span></span><br><span class="line"><span class="comment">// &lt;router-link to="/"&gt;&lt;/router-link&gt;  类似 a 连接</span></span><br><span class="line"><span class="comment">// &lt;router-view&gt;&lt;/router-view&gt;   占位符，用来替换路由组件</span></span><br></pre></td></tr></table></figure>
+<h3 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h3><p>两种方式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routes = [     <span class="comment">// 路由规则</span></span><br><span class="line">    &#123;</span><br><span class="line">        path: <span class="string">'/'</span>,</span><br><span class="line">        name: <span class="string">'Index'</span>,</span><br><span class="line">        component: Index</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        path: <span class="string">'/detail/:id'</span>,</span><br><span class="line">        name: <span class="string">'Detail'</span>,</span><br><span class="line">        <span class="comment">// 开启 props,会把 URL 中的参数传递给组价，在组件中通过 props 来接收</span></span><br><span class="line">        props: <span class="literal">true</span>,</span><br><span class="line">        component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/*webpackChunkName: "detail"*/</span> <span class="string">'../views/Detail.vue'</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 组件获取</span></span><br><span class="line"><span class="comment">// &#123;&#123; $route.param.id&#125;&#125;  // 通过 $route 获取</span></span><br><span class="line"><span class="comment">// &#123;&#123;id&#125;&#125; 通过 props 传参，类似父子组件传值   推荐第二种</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    name: <span class="string">'Detail'</span>,</span><br><span class="line">    props: [<span class="string">'id'</span>]   <span class="comment">// 接收id</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h3><blockquote>
+<p>略，提取了组件相同的“父”部分作为父组件，不同的部分作为子组件。</p>
+</blockquote>
+<h3 id="编程式导航"><a href="#编程式导航" class="headerlink" title="编程式导航"></a>编程式导航</h3><p>就是通过按钮进行页面跳转：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$router.push(<span class="string">'/'</span>)    <span class="comment">// 传入对象 或者 地址字符串</span></span><br><span class="line"><span class="comment">// this.$router.push(&#123;name: 'Home', params: &#123; id: 1&#125;&#125;)   // 传入对象</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.$router.replace(<span class="string">'/login'</span>)  <span class="comment">// 和 push 效果相同，但是不会记入历史记录</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.$router.go(<span class="number">-2</span>)  <span class="comment">// 负数即后退，如果是 -1 的话，就相当于 this.$router.back()</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Chrome 长按后退按钮可以展示出所有的后退历史</p>
+</blockquote>
+<h2 id="hash模式-和-history模式"><a href="#hash模式-和-history模式" class="headerlink" title="hash模式 和 history模式"></a>hash模式 和 history模式</h2><blockquote>
+<p>这两种模式都是客户端实现路由的模式：当页面发生变化的时候，不会向服务端发起请求，只是用JS监听路由的变化，根据不同的地址渲染不同的内容，如果需要服务端的内容会向服务端发送 AJAX 请求。</p>
+</blockquote>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>hash模式：</p>
+<ol>
+<li><blockquote>
+<p><code>https://....../#/pla?id=1</code> ，路径中会带有与数据无关的符号，“#”，“?”…</p>
+</blockquote>
+</li>
+<li><p>原理：基于锚点，以及 <code>onhashchange</code> 事件。</p>
+</li>
+</ol>
+<p>history模式:</p>
+<ol>
+<li><blockquote>
+<p><code>https://....../pla/1</code> ，但需要服务端配置支持。</p>
+</blockquote>
+</li>
+<li><p>原理：基于 HTML5 中的 History API。 <code>history.pushState() （IE10之后支持） / history.replaceState()</code> 将路径放到历史记录里。</p>
+</li>
+</ol>
+<h3 id="history模式"><a href="#history模式" class="headerlink" title="history模式"></a>history模式</h3><blockquote>
+<p>单页面应用中，服务端不存在 <code>https://....../pla/1</code> 这样的地址，会报错，404找不到地址。<br>服务端应配置，除了静态资源都返回单页面应用的 index.html。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认是 hash 模式，需要将 mode 改为 history 模式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">    mode: <span class="string">'history'</span>,</span><br><span class="line">    routes</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = [     <span class="comment">// 路由规则</span></span><br><span class="line">    &#123;</span><br><span class="line">        path: <span class="string">'*'</span>,</span><br><span class="line">        name: <span class="string">'404'</span>,</span><br><span class="line">        component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/*webpackChunkName: '404'*/</span> <span class="string">'../views/404.vue'</span>) </span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>localhost:8080/video</code> 刷新会向服务端发送请求，然后返回 404。为了解决这个问题，需要额外配置。</p>
+</blockquote>
+<p>node 服务器配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 导入处理 history 模式模块</span></span><br><span class="line"><span class="keyword">const</span> history = <span class="built_in">require</span>(<span class="string">'connect-history-api-fallback'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册 处理 history 模式的中间件</span></span><br><span class="line">app.use(history())       <span class="comment">// 解决方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 处理静态资源的中间件，网站根目录 ../web</span></span><br><span class="line">app.use(express.static(path.join(__dirname, <span class="string">'../web'</span>)))</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'服务器开启，端口：3000'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>服务器会默认将 index.html 返回，返回后 浏览器再去判断地址后面的参数</p>
+</blockquote>
+<p>nginx 服务器配置：</p>
+<ol>
+<li>从官网下载 nginx 的压缩包。</li>
+<li>把压缩包解压到 c 盘根目录，<code>c:\nginx-1.18.0</code> 文件夹。</li>
+<li>打开命令行，切换到目录 <code>c:\nginx-1.18.0</code>。(目录不能有中文)</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动</span><br><span class="line">start nginx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 重启</span><br><span class="line">nginx -s reload</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>停止</span><br><span class="line">nginx -s stop</span><br><span class="line">nginx-1.18.0</span><br><span class="line">    |———— conf       # 配置文件</span><br><span class="line">    |      |———— nginx.conf</span><br><span class="line">    |———— contrib</span><br><span class="line">    |———— docs</span><br><span class="line">    |———— html       # 存储我们的网站,打包好的内容放到该目录</span><br><span class="line">    |———— logs</span><br><span class="line">    |———— temp</span><br><span class="line">nginx.exe</span><br></pre></td></tr></table></figure>
+<p><code>nginx.conf</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    listen    80; # 配置端口号</span><br><span class="line">    server_name  localhost;       # 域名，未绑到线上，默认为 localhost</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root  html;    # 指定根目录 html 文件夹</span><br><span class="line">        index index.html index.htm;  # 默认的首页</span><br><span class="line">        try_files $uri $uri/ /index.html;  # 配置 history 模式   </span><br><span class="line"></span><br><span class="line">        # 就是尝试请求文件或文件下的 index.html，如果都没有则返回 默认首页 index.html</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span> 配置完之后重启 nginx</span><br></pre></td></tr></table></figure>
+<h2 id="模拟实现VueRouter"><a href="#模拟实现VueRouter" class="headerlink" title="模拟实现VueRouter"></a>模拟实现VueRouter</h2><blockquote>
+<p>前置知识：插件、混入、<code>Vue.observable()</code>、插槽、render 函数、运行时和完整版的vue</p>
+</blockquote>
+<h3 id="vueRouter-实现原理"><a href="#vueRouter-实现原理" class="headerlink" title="vueRouter 实现原理"></a>vueRouter 实现原理</h3><p>前端路由，判断前端路径加载不同的组件：</p>
+<p><code>hash</code> 模式：</p>
+<ol>
+<li>URL 中 # 后面的内容作为 路径地址。</li>
+<li>监听 <code>hashchange</code> 事件。</li>
+<li>根据当前路由地址找到对应的组件重新渲染。</li>
+</ol>
+<p><code>history</code> 模式：</p>
+<ol>
+<li>路径是普通的URL，通过 <code>history.pushState()</code> 方法改变地址栏，并把当前路径记录到历史记录里，并不会真正的跳转到指定路径，就不会向服务器发送请求。</li>
+<li>监听 <code>popstate</code> 事件，监听浏览器历史记录的变化。</li>
+<li>根据当前路由地址找到对应组件重新渲染。</li>
+</ol>
+<blockquote>
+<p><code>pushState()</code> / <code>replaceState()</code> 并不会触发该事件。back/forward事件才会被触发。</p>
+</blockquote>
+<h3 id="核心代码分析"><a href="#核心代码分析" class="headerlink" title="核心代码分析"></a>核心代码分析</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册插件  Vue 功能的强大主要就是插件机制，比如VueX，VueRouter 等。</span></span><br><span class="line">Vue.use(VueRouter)    </span><br><span class="line"><span class="comment">// Vue.use() 传入函数或者对象，传入函数直接调用，传入对象，调用其中的 install 方法。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建路由对象</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">    routes: [</span><br><span class="line">        &#123; <span class="attr">name</span>: <span class="string">'home'</span>, <span class="attr">path</span>: <span class="string">'/'</span>, <span class="attr">component</span>: homeComponent &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建 Vue 实例，注册 router 对象</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    router,</span><br><span class="line">    render: <span class="function"><span class="params">h</span> =&gt;</span> h(app)</span><br><span class="line">&#125;).$mount(<span class="string">'#app'</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>VueRouter（对象）：</p>
+<ol>
+<li>属性<ul>
+<li>options 传入的对象 路由规则</li>
+<li>data 对象，其中的 current 属性记录当前路由，利用 <code>Vue.observable()</code>方法将其设置为响应式的。</li>
+</ul>
+</li>
+<li>方法<ul>
+<li>Constructor(options):VueRouter 初始化实例属性和方法。</li>
+<li>_install(Vue):void 静态方法，用来实现vue的插件机制。</li>
+<li>init():void 为了调用下面三个方法。</li>
+<li>initEvent():void <code>popstate</code> 事件，监听浏览器历史记录的变化。</li>
+<li>createRouteMap():void 初始化 routeMap 属性。将传入的路由规则转换为键值对的存储到 routeMap 对象中。路由地址对应组件</li>
+<li>initComponents(Vue):void 用来创建 <code>router-link</code> 和 <code>router-view</code> 组价的。</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> _Vue = <span class="literal">null</span>;     <span class="comment">// 用来记录 vue，将其作为全局变量</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">VueRouter</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  静态方法，用来实现vue的插件机制</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * @static</span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; Vue  vue的构造函数</span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; options 可选的选项对象</span></span><br><span class="line"><span class="comment">     * @memberof VueRouter</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> install (Vue, options) &#123;</span><br><span class="line">        <span class="comment">// 1. 判断当前插件是否已经安装</span></span><br><span class="line">        <span class="comment">// 2. 把 vue 的构造函数记录到全局变量中来，方便后面使用 vue 的构造函数，比如后面创建 vue-link vue-view 需要用到 vue.component</span></span><br><span class="line">        <span class="comment">// 3. 把创建 vue 实例时传入的 router 对象，给它注入到所有 vue 实例上。vue.$router 就是在这个时候注入到实例上的。</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 1....  它检查它自己</span></span><br><span class="line">        <span class="keyword">if</span> (VueRouter.install.installed) &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        VueRouter.install.installed = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2....</span></span><br><span class="line">        _Vue = Vue;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3....</span></span><br><span class="line">        <span class="comment">// _Vue.prototype.$router = this.$options.router</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用混入</span></span><br><span class="line">        _Vue.mixin(&#123; <span class="comment">// 会给所有组件设置该选项</span></span><br><span class="line">            beforeCreate () &#123;    <span class="comment">// this 指向实例</span></span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>.$options.router) &#123;   </span><br><span class="line">                    <span class="comment">// 仅在实例上挂载 $router 属性，</span></span><br><span class="line">                    <span class="comment">// 在组件的该 $options 选项中不存在 router,因此不会挂载</span></span><br><span class="line">                    _Vue.prototype.$router = <span class="keyword">this</span>.$options.router</span><br><span class="line">                    <span class="keyword">this</span>.$options.router.init()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Creates an instance of VueRouter.</span></span><br><span class="line"><span class="comment">     * 初始化实例属性和方法。</span></span><br><span class="line"><span class="comment">     * - options 传入的对象 路由规则</span></span><br><span class="line"><span class="comment">     * - data  对象，其中的 current 属性记录当前路由，利用 `Vue.observable()`方法将其设置为响应式的。</span></span><br><span class="line"><span class="comment">     * - routeMap 对象，记录路由和地址的对应关系</span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; options</span></span><br><span class="line"><span class="comment">     * @memberof VueRouter</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">constructor</span> (options) &#123;</span><br><span class="line">        <span class="keyword">this</span>.options = options;</span><br><span class="line">        <span class="keyword">this</span>.routeMap = &#123;&#125;;</span><br><span class="line">        <span class="keyword">this</span>.data = _Vue.observable(&#123;    <span class="comment">// 响应式的对象，这点很重要</span></span><br><span class="line">            current: <span class="string">'/'</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 包装下面的方法，方便调用</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * @memberof VueRouter</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    init () &#123;</span><br><span class="line">        <span class="keyword">this</span>.createRouteMap();</span><br><span class="line">        <span class="keyword">this</span>.initComponents(_Vue);</span><br><span class="line">        <span class="keyword">this</span>.initEvent()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *遍历所有的路由规则，把路由规则解析成键值对的形式，存储到 routeMap 中</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * @memberof VueRouter</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    createRouteMap () &#123;</span><br><span class="line">        <span class="keyword">this</span>.options.routes.forEach(<span class="function"><span class="params">route</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.routeMap[route.path] = route.component</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建组件 router-link / router-view</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * @param &#123;*&#125; Vue vue构造函数，也可以使用全局变量 _vue</span></span><br><span class="line"><span class="comment">     * @memberof VueRouter</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    initComponents (Vue) &#123;</span><br><span class="line"></span><br><span class="line">        Vue.component(<span class="string">'router-link'</span>, &#123;</span><br><span class="line">            props: &#123;</span><br><span class="line">                to: <span class="built_in">String</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// template: '&lt;slot&gt;&lt;/slot&gt;'</span></span><br><span class="line"></span><br><span class="line">            render (h) &#123;</span><br><span class="line">                <span class="comment">// h 是用来创建虚拟 dom 的</span></span><br><span class="line">                <span class="comment">// 第一个参数是选择器，第二个参数是要创建的 dom 的属性对象，第三个参数是子元素数组</span></span><br><span class="line">                <span class="keyword">return</span> h(<span class="string">'a'</span>, &#123;</span><br><span class="line">                    attrs: &#123;</span><br><span class="line">                        href: <span class="keyword">this</span>.to</span><br><span class="line">                    &#125;,</span><br><span class="line">                    on: &#123;    <span class="comment">// 注册事件</span></span><br><span class="line">                        click: <span class="keyword">this</span>.clickHandler <span class="comment">// 不要写成事件调用</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;, [<span class="keyword">this</span>.$slots.default])</span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                clickHandler (e) &#123;</span><br><span class="line">                    history.pushState(&#123;&#125;, <span class="string">''</span>, <span class="keyword">this</span>.to);   </span><br><span class="line">                    <span class="comment">// 事件对象参数，网页标题，跳转地址</span></span><br><span class="line">                    </span><br><span class="line">                    <span class="keyword">this</span>.$router.data.current = <span class="keyword">this</span>.to   </span><br><span class="line">                    <span class="comment">// this 当前 router-link 组件，使用是挂载到了vue 实例上，</span></span><br><span class="line">                    <span class="comment">// 因此所有组件都可以拿到 $router</span></span><br><span class="line">                    </span><br><span class="line">                    e.preventDefault();      <span class="comment">// 阻止 a 链接的事件调用</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> self = <span class="keyword">this</span>;    <span class="comment">// 存储 vueRouter 实例</span></span><br><span class="line">        Vue.component(<span class="string">'router-view'</span>, &#123;</span><br><span class="line">            render(h)&#123;</span><br><span class="line">                <span class="comment">// 调用 h 函数，返回虚拟 DOM </span></span><br><span class="line">                <span class="comment">// 找到路由地址，根据 routeMap 找到对应的组件，</span></span><br><span class="line">                <span class="comment">// 再利用 h 函数转换为虚拟 DOM，直接返回</span></span><br><span class="line">                <span class="comment">// 要改变地址栏的地址，而不让它去请求服务器，调用方法 history.pushState()</span></span><br><span class="line">                <span class="comment">// 然后把当前地址记录到 当前路由地址 self.data.current</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">const</span> component = self.routeMap[ self.data.current ]    </span><br><span class="line">                <span class="comment">// 根据当前路由地址找到组件</span></span><br><span class="line">                </span><br><span class="line">                <span class="keyword">return</span> h(component) </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *点击前进后退改变组件</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * @memberof VueRouter</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    initEvent () &#123;</span><br><span class="line">        <span class="built_in">window</span>.addEventListener(<span class="string">'popstate'</span>, () =&gt; &#123;</span><br><span class="line">            <span class="keyword">this</span>.data.current = <span class="built_in">window</span>.location.pathname</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>将其引入替代原来的 vueRouter</p>
+</blockquote>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>报错：</p>
+<ol>
+<li>运行时版：不支持 template 模板，需要打包的时候提前编译。vue-cli 默认为运行时版本，效率更高。</li>
+<li>完整版：包含运行时和编译器，体积比运行时版本大 10k 左右，程序运行时把模板转换为 render 函数。</li>
+</ol>
+<p>解决：</p>
+<ol>
+<li><p>通过配置将运行时版本转为完整版</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建 vue.config.js 并将其中的 runtimeCompiler 默认值 false 设置为 true</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// 选项...</span></span><br><span class="line">    runtimeCompiler: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过渲染函数（render()），在运行时版本解决</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 问题原因所在就是 运行时版本不带编译器，无法将 template 预编译成 render 函数。</span></span><br><span class="line">initComponents (Vue) &#123;</span><br><span class="line">    Vue.component(<span class="string">'router-link'</span>, &#123;</span><br><span class="line">        props: &#123;</span><br><span class="line">            to: <span class="built_in">String</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// template: '&lt;slot&gt;&lt;/slot&gt;'</span></span><br><span class="line">        render (h) &#123; <span class="comment">// h 是用来创建虚拟 dom 的</span></span><br><span class="line">            <span class="comment">// 第一个参数是选择器，第二个参数是要创建的 dom 的属性对象，</span></span><br><span class="line">            <span class="comment">// 第三个参数是子元素数组</span></span><br><span class="line">            <span class="keyword">return</span> h(<span class="string">'a'</span>, &#123;</span><br><span class="line">                attrs: &#123;</span><br><span class="line">                    href: <span class="keyword">this</span>.to</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;, [<span class="keyword">this</span>.$slots.default])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="浏览器前进后退问题"><a href="#浏览器前进后退问题" class="headerlink" title="浏览器前进后退问题"></a>浏览器前进后退问题</h4><p>问题：浏览器，前进后退按钮改变地址栏地址，但组件没有响应。</p>
+<p>解决：地址栏发生改变，加载响应的组件。利用 popState()会在历史发生变化时触发，<code>pushState()</code> / <code>replaceState()</code> 并不会触发该事件。back/forward事件才会被触发。</p>
+<p>详见：<code>initEvent()</code>函数。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p><a href="https://cn.vuejs.org/v2/guide/mixins.html" target="_blank" rel="noopener">mixin</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://cn.vuejs.org/v2/guide/render-function.html" target="_blank" rel="noopener">render</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/popstate_event%5D" target="_blank" rel="noopener">[https://developer.mozilla.org/zh-CN/docs/Web/API/Window/popstate_event]</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+		
+	  <div>
+	    
+		    <div>
+    
+	    <div style="display: flex;justify-content: space-between;align-items: center;text-align:center;color:#555;font-size:14px;">
+		    <span style="flex-grow:10;">---</span>
+			<span style="flex-grow:10;">---</span>
+			<span>江郎o(╥﹏╥)o才尽</span>
+			<span style="flex-grow:10;">---</span>
+			<span style="flex-grow:10;">---</span>
+		</div>
+    
+</div>
+	    
+		</div>
+		
+    
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>I celebrate Chinese New Year every day, and I am still a baby</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="阿忠 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/mayi.jpg" alt="阿忠 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/25/B问题记录/" rel="next" title="一个 node 环境 npm 打包 errno 134">
+                <i class="fa fa-chevron-left"></i> 一个 node 环境 npm 打包 errno 134
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/09/01/Vue_2_vueReact/" rel="prev" title="vue 原理深度剖析（二）">
+                vue 原理深度剖析（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/mephoto.jpg" alt="阿忠">
+            
+              <p class="site-author-name" itemprop="name">阿忠</p>
+              <p class="site-description motion-element" itemprop="description">对美好的事物无比贪婪</p>
+          </div>
+   
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/f-lancer" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1366719070@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Beautiful things
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.mvcat.com/" title="Movie" target="_blank">Movie</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://music.163.com/#/user/home?id=594502853" title="CouldMusic" target="_blank">CouldMusic</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.thepoemforyou.com/ruheshouting/2019nianbochudan/" title="为你读诗" target="_blank">为你读诗</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.nationalgeographic.com/" title="NGC" target="_blank">NGC</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-基础语法"><span class="nav-number">1.</span> <span class="nav-text">vue 基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-js-的基础结构"><span class="nav-number">1.1.</span> <span class="nav-text">vue.js 的基础结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-js-的生命周期"><span class="nav-number">1.2.</span> <span class="nav-text">vue.js 的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用语法和概念"><span class="nav-number">1.3.</span> <span class="nav-text">常用语法和概念</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-Router-原理分析与实现"><span class="nav-number">2.</span> <span class="nav-text">vue Router 原理分析与实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用"><span class="nav-number">2.1.</span> <span class="nav-text">基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态路由"><span class="nav-number">2.1.1.</span> <span class="nav-text">动态路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套路由"><span class="nav-number">2.1.2.</span> <span class="nav-text">嵌套路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编程式导航"><span class="nav-number">2.1.3.</span> <span class="nav-text">编程式导航</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hash模式-和-history模式"><span class="nav-number">2.2.</span> <span class="nav-text">hash模式 和 history模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#区别"><span class="nav-number">2.2.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history模式"><span class="nav-number">2.2.2.</span> <span class="nav-text">history模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模拟实现VueRouter"><span class="nav-number">2.3.</span> <span class="nav-text">模拟实现VueRouter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vueRouter-实现原理"><span class="nav-number">2.3.1.</span> <span class="nav-text">vueRouter 实现原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心代码分析"><span class="nav-number">2.3.2.</span> <span class="nav-text">核心代码分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">2.3.3.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题"><span class="nav-number">2.3.3.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器前进后退问题"><span class="nav-number">2.3.3.2.</span> <span class="nav-text">浏览器前进后退问题</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">阿忠</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">89k</span>
+  
+</div>
+
+
+  <span class="post-meta-divider">|</span>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://f-lancer.github.io/about/">阿忠</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      people
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      times
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sx1Q5KOcuvjmvHs4GxtXXEy6-gzGzoHsz',
+        appKey: 'u67OmJTqO64kTNYv8L8hxUSE',
+        placeholder: '小时候妈妈告诉我到别人家，要说两句才能走......ε=ε=ε=ε=ε=┌(;￣◇￣)┘',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

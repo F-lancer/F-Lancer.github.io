@@ -95,7 +95,7 @@
 <meta name="description" content="对美好的事物无比贪婪">
 <meta property="og:type" content="website">
 <meta property="og:title" content="F-lancer">
-<meta property="og:url" content="http://yoursite.com/tags/css/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/CSS/index.html">
 <meta property="og:site_name" content="F-lancer">
 <meta property="og:description" content="对美好的事物无比贪婪">
 <meta property="og:locale" content="default">
@@ -131,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/css/">
+  <link rel="canonical" href="http://yoursite.com/tags/CSS/">
 
 
 
@@ -148,7 +148,7 @@
 
 
 
-  <title>Tag: css | F-lancer</title>
+  <title>Tag: CSS | F-lancer</title>
   
 
 
@@ -321,7 +321,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>css<small>Tag</small>
+        <h1>CSS<small>Tag</small>
         </h1>
       </div>
 
@@ -333,17 +333,95 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2019/03/24/新建bolg论坛/" itemprop="url">
+            <a class="post-title-link" href="/2020/06/16/cssBFC/" itemprop="url">
               
-                <span itemprop="name">blog 论坛</span>
+                <span itemprop="name">BFC</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-24T22:59:00+08:00" content="2019-03-24">
-          03-24
+        <time class="post-time" itemprop="dateCreated" datetime="2020-06-16T18:18:00+08:00" content="2020-06-16">
+          06-16
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/06/16/cssLayout/" itemprop="url">
+              
+                <span itemprop="name">布局</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2020-06-16T18:18:00+08:00" content="2020-06-16">
+          06-16
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2019/03/28/cssFloat/" itemprop="url">
+              
+                <span itemprop="name">float 相关</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-03-28T23:01:00+08:00" content="2019-03-28">
+          03-28
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2019/03/28/cssPosition/" itemprop="url">
+              
+                <span itemprop="name">Position</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-03-28T23:01:00+08:00" content="2019-03-28">
+          03-28
         </time>
       </div>
 
@@ -405,7 +483,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -416,7 +494,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -427,7 +505,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -527,7 +605,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">82.1k</span>
+    <span title="Site words total count">89k</span>
   
 </div>
 
@@ -1012,89 +1090,6 @@
             input.addEventListener('keypress', function (event) {
               if (event.keyCode === 13) {
                 inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
-
-  
-  
-  <script src="/lib/needsharebutton/needsharebutton.js"></script>
-
-  <script>
-    
-    
-      flOptions = {};
-      
-          flOptions.iconStyle = "box";
-      
-          flOptions.boxForm = "horizontal";
-      
-          flOptions.position = "middleRight";
-      
-          flOptions.networks = "Weibo,Wechat,Douban,QQZone";
-      
-      new needShareButton('#needsharebutton-float', flOptions);
-    
-  </script>
-
-  
-
-  
-
-  
-
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
-</html>
-nction();
               }
             });
           }
