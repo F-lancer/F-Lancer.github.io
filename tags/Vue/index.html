@@ -95,7 +95,7 @@
 <meta name="description" content="对美好的事物无比贪婪">
 <meta property="og:type" content="website">
 <meta property="og:title" content="F-lancer">
-<meta property="og:url" content="http://yoursite.com/tags/vue/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/Vue/index.html">
 <meta property="og:site_name" content="F-lancer">
 <meta property="og:description" content="对美好的事物无比贪婪">
 <meta property="og:locale" content="default">
@@ -131,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/vue/">
+  <link rel="canonical" href="http://yoursite.com/tags/Vue/">
 
 
 
@@ -148,7 +148,7 @@
 
 
 
-  <title>Tag: vue | F-lancer</title>
+  <title>Tag: Vue | F-lancer</title>
   
 
 
@@ -321,7 +321,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>vue<small>Tag</small>
+        <h1>Vue<small>Tag</small>
         </h1>
       </div>
 
@@ -333,69 +333,17 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2020/09/07/Vue_3_vueSnabbdom/" itemprop="url">
+            <a class="post-title-link" href="/2019/03/21/VueDetail/" itemprop="url">
               
-                <span itemprop="name">vue 原理深度剖析（三）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-09-07T00:11:00+08:00" content="2020-09-07">
-          09-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/09/01/Vue_2_vueReact/" itemprop="url">
-              
-                <span itemprop="name">vue 原理深度剖析（二）</span>
+                <span itemprop="name">由 todoMVC 深入 VUE.2x</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-09-01T21:41:00+08:00" content="2020-09-01">
-          09-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/09/01/Vue_1_vueRouter/" itemprop="url">
-              
-                <span itemprop="name">vue 原理深度剖析（一）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-09-01T21:38:00+08:00" content="2020-09-01">
-          09-01
+        <time class="post-time" itemprop="dateCreated" datetime="2019-03-21T22:59:00+08:00" content="2019-03-21">
+          03-21
         </time>
       </div>
 
@@ -457,7 +405,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -468,7 +416,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -479,7 +427,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -579,7 +527,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">96.7k</span>
+    <span title="Site words total count">99.7k</span>
   
 </div>
 
@@ -1062,6 +1010,91 @@
           } else {
             $('.search-icon').click(inputEventFunction);
             input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
+ypress', function (event) {
               if (event.keyCode === 13) {
                 inputEventFunction();
               }
